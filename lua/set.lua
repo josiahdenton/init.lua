@@ -9,3 +9,4 @@ vim.opt.expandtab = true
 vim.opt.termguicolors = true
 
 vim.g.mapleader = " "
+vim.opt.signcolumn = 'yes'

@@ -13,6 +13,26 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      }
+    end
+  }
+
   use({
 	  'rose-pine/neovim',
 	  as = 'rose-pine',
@@ -21,8 +41,8 @@ return require('packer').startup(function(use)
 	  end
   })
 
-
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'windwp/nvim-ts-autotag'
   use 'tpope/vim-fugitive'
 
   use {
@@ -52,19 +72,18 @@ return require('packer').startup(function(use)
     -- Snippets
     {'L3MON4D3/LuaSnip'},
     {'rafamadriz/friendly-snippets'},
+   }
   }
-}
 
-
-  -- Simple plugins can be specified as strings
-  -- use 'rstacruz/vim-closer'
-
-  -- Use specific branch, dependency and run lua file after load
   use {
-    'glepnir/galaxyline.nvim', branch = 'main', config = function() require'statusline' end,
-    requires = {'kyazdani42/nvim-web-devicons'}
+	"windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
   }
 
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+  }
   -- Use dependency and run lua function after load
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
