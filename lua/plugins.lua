@@ -6,6 +6,9 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  use 'preservim/vim-markdown'
+  use 'folke/zen-mode.nvim'
+  use 'theprimeagen/harpoon'
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
