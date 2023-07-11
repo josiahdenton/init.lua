@@ -11,6 +11,7 @@ lsp.ensure_installed({
     'eslint',
     'pyright',
     'clangd'
+
 })
 
 lsp.setup()
