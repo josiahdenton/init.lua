@@ -8,3 +8,5 @@ null_ls.setup({
         null_ls.builtins.diagnostics.flake8
     },
 })
+
+vim.api.nvim_set_keymap("n", "<Leader>p", ":LspZeroFormat<CR>", { noremap = true })

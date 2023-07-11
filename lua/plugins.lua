@@ -9,6 +9,9 @@ return require('packer').startup(function(use)
   use 'preservim/vim-markdown'
   use 'folke/zen-mode.nvim'
   use 'theprimeagen/harpoon'
+  -- use 'stevearc/dressing.nvim'
+  use 'ggandor/leap.nvim'
+
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -43,6 +46,8 @@ return require('packer').startup(function(use)
 		  vim.cmd('colorscheme rose-pine')
 	  end
   })
+  use 'ellisonleao/gruvbox.nvim'
+  use 'folke/tokyonight.nvim'
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'windwp/nvim-ts-autotag'
