@@ -7,3 +7,5 @@ null_ls.setup({
         null_ls.builtins.completion.spell,
     },
 })
+
+vim.api.nvim_set_keymap("n", "<Leader>p", ":LspZeroFormat<CR>", { noremap = true })
