@@ -7,11 +7,16 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'preservim/vim-markdown'
-  use 'folke/zen-mode.nvim'
+  -- use 'folke/zen-mode.nvim'
   use 'theprimeagen/harpoon'
   -- use 'stevearc/dressing.nvim'
   use 'ggandor/leap.nvim'
+  use 'sindrets/diffview.nvim'
+  use 'Pocco81/true-zen.nvim'
+  -- use 'folke/neodev.nvim'
 
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use 'mfussenegger/nvim-dap-python'
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
