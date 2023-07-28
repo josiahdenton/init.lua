@@ -1,5 +1,7 @@
 vim.cmd('color rose-pine')
 
+require("noice").setup()
+
 -- vim.o.background = "dark"
 -- vim.cmd('colorscheme gruvbox')
 
