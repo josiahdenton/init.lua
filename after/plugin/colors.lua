@@ -1,4 +1,4 @@
-vim.cmd('color rose-pine')
+-- vim.cmd('color rose-pine')
 
 -- vim.o.background = "dark"
 -- vim.cmd('colorscheme gruvbox')
@@ -8,3 +8,4 @@ vim.cmd('color rose-pine')
 -- })
 -- vim.cmd('colorscheme tokyonight')
 
+vim.cmd('colorscheme embark')

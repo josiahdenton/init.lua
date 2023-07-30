@@ -9,7 +9,6 @@ return require('packer').startup(function(use)
 
   use 'preservim/vim-markdown'
   use 'theprimeagen/harpoon'
-  use 'ggandor/leap.nvim'
   use 'sindrets/diffview.nvim'
   use 'Pocco81/true-zen.nvim'
 
@@ -46,6 +45,7 @@ return require('packer').startup(function(use)
 	  'rose-pine/neovim',
 	  as = 'rose-pine',
   })
+  use { 'embark-theme/vim', as = 'embark' }
   use 'ellisonleao/gruvbox.nvim'
   use 'folke/tokyonight.nvim'
 
@@ -82,6 +82,7 @@ return require('packer').startup(function(use)
         {'rafamadriz/friendly-snippets'},
       }
   }
+  use { "ray-x/lsp_signature.nvim" }
 
 
   use {
