@@ -68,7 +68,3 @@ cmp.setup({
     ['<C-d>'] = cmp.mapping.scroll_docs(5),
     }
 })
-
-require("lsp_signature").setup({
-    hint_prefix = "  "
-})
