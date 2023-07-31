@@ -1,4 +1,13 @@
-require("true-zen").setup()
+require("true-zen").setup({
+    modes = {
+        ataraxis = {
+            minmum_writing_area = {
+                width = 120,
+                height = 44,
+            }
+        }
+    }
+})
 
 local api = vim.api
 
