@@ -9,13 +9,13 @@ return require('packer').startup(function(use)
 
   use 'preservim/vim-markdown'
   use 'theprimeagen/harpoon'
-  use 'ggandor/leap.nvim'
   use 'sindrets/diffview.nvim'
   use 'Pocco81/true-zen.nvim'
 
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use 'mfussenegger/nvim-dap-python'
 
+  use { 'nvim-pack/nvim-spectre' }
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
 	  -- or                            , branch = '0.1.x',
@@ -46,6 +46,7 @@ return require('packer').startup(function(use)
 	  'rose-pine/neovim',
 	  as = 'rose-pine',
   })
+  use { 'embark-theme/vim', as = 'embark' }
   use 'ellisonleao/gruvbox.nvim'
   use 'folke/tokyonight.nvim'
 
@@ -82,7 +83,6 @@ return require('packer').startup(function(use)
         {'rafamadriz/friendly-snippets'},
       }
   }
-
 
   use {
 	"windwp/nvim-autopairs",
