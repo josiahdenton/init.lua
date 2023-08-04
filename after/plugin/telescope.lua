@@ -1,3 +1,5 @@
+local project_actions = require("telescope._extensions.project.actions")
+
 require('telescope').setup({
     defaults = {
         layout_strategy = "vertical"
@@ -6,29 +8,53 @@ require('telescope').setup({
         file_browser = {
             theme = "ivy",
             hijack_netwr = true
+        },
+        project = {
+            on_project_selected = function(prompt_bufnr)
+                -- Do anything you want in here. For example:
+                project_actions.change_working_directory(prompt_bufnr, false)
+                require("harpoon.ui").toggle_quick_menu()
+            end
+
         }
     }
 })
 
 require("telescope").load_extension "file_browser"
+require("telescope").load_extension "project"
+require("telescope").load_extension "undo"
 
 vim.api.nvim_set_keymap(
-  "n",
-  "<space>fl",
-  ":Telescope file_browser<CR>",
-  { noremap = true }
+    'n',
+    '<leader>fu',
+    ":Telescope undo<CR>",
+    { noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>fp',
+    ":lua require'telescope'.extensions.project.project{}<CR>",
+    { noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>fl",
+    ":Telescope file_browser<CR>",
+    { noremap = true }
 )
 
 -- open file_browser with the path of the current buffer
 vim.api.nvim_set_keymap(
-  "n",
-  "<leader>?",
-  ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-  { noremap = true }
+    "n",
+    "<leader>?",
+    ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+    { noremap = true }
 )
 
 local builtin = require('telescope.builtin')
--- File Searching 
+-- File Searching
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})

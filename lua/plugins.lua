@@ -18,6 +18,8 @@ return require('packer').startup(function(use)
 
     use { 'nvim-pack/nvim-spectre' }
     use { 'nvim-telescope/telescope-file-browser.nvim' }
+    use { 'nvim-telescope/telescope-project.nvim' }
+    use { 'debugloop/telescope-undo.nvim' }
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
