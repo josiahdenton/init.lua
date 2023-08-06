@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use 'theprimeagen/harpoon'
-    use 'Pocco81/true-zen.nvim'
+    use 'folke/zen-mode.nvim'
     use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
         require('git-conflict').setup()
     end }
