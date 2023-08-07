@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
 
     use { 'embark-theme/vim', as = 'embark' }
     use 'folke/tokyonight.nvim'
+    use { "mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim" }
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'windwp/nvim-ts-autotag'
