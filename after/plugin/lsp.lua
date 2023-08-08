@@ -19,7 +19,7 @@ lsp.set_sign_icons({
 })
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = true,
   severity_sort = true,
   float = {
     style = 'minimal',
