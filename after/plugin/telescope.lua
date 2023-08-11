@@ -22,14 +22,14 @@ require('telescope').setup({
 
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "project"
-require("telescope").load_extension "undo"
+-- require("telescope").load_extension "undo"
 
-vim.api.nvim_set_keymap(
-    'n',
-    '<leader>fu',
-    ":Telescope undo<CR>",
-    { noremap = true, silent = true }
-)
+-- vim.api.nvim_set_keymap(
+--     'n',
+--     '<leader>fu',
+--     ":Telescope undo<CR>",
+--     { noremap = true, silent = true }
+-- )
 
 vim.api.nvim_set_keymap(
     'n',

@@ -7,6 +7,7 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    use 'mbbill/undotree'
     use 'theprimeagen/harpoon'
     use 'folke/zen-mode.nvim'
     use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
@@ -19,7 +20,7 @@ return require('packer').startup(function(use)
     use { 'nvim-pack/nvim-spectre' }
     use { 'nvim-telescope/telescope-file-browser.nvim' }
     use { 'nvim-telescope/telescope-project.nvim' }
-    use { 'debugloop/telescope-undo.nvim' }
+    -- use { 'debugloop/telescope-undo.nvim' }
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
