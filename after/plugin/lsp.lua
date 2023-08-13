@@ -1,15 +1,9 @@
 local lsp = require('lsp-zero').preset({})
-local navic = require("nvim-navic")
-local navbuddy = require("nvim-navbuddy")
 
 lsp.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
     lsp.default_keymaps({ buffer = bufnr })
-    if client.server_capabilities.documentSymbolProvider then
-        navbuddy.attach(client, bufnr)
-        navic.attach(client, bufnr)
-    end
 end)
 
 -- (Optional) Configure lua language server for neovim
@@ -82,7 +76,7 @@ vim.api.nvim_create_autocmd(
         pattern = { "*.txt", "*.md", "*.norg" },
         callback = function()
             vim.opt.spell = true
-            vim.opt.spelllang = "en,de"
+            vim.opt.spelllang = "en"
         end,
     }
 )

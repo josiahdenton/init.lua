@@ -44,16 +44,7 @@ return require('packer').startup(function(use)
     use { 'ggandor/leap.nvim' }
     use { 'theprimeagen/harpoon' }
     use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
-    use {
-        "SmiteshP/nvim-navbuddy",
-        requires = {
-            "neovim/nvim-lspconfig",
-            "SmiteshP/nvim-navic",
-            "MunifTanjim/nui.nvim",
-            "numToStr/Comment.nvim",        -- Optional
-            "nvim-telescope/telescope.nvim" -- Optional
-        }
-    }
+    use { 'simrat39/symbols-outline.nvim' }
 
     -- debugging
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
@@ -72,7 +63,6 @@ return require('packer').startup(function(use)
 
     -- tree sitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use { 'nvim-treesitter/nvim-treesitter-context' }
     -- quality of life
     use { 'windwp/nvim-ts-autotag' }
     use {
