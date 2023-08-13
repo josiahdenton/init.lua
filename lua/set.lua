@@ -16,3 +16,5 @@ vim.g.maplocalleader = ","
 
 vim.opt.swapfile = false
 vim.opt.backup = false
+
+vim.opt.cursorline = true

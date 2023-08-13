@@ -1,8 +1,14 @@
-vim.keymap.set("i", "<C-c>", "<Esc>")
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "<leader>f", function()
-	vim.lsp.buf.format()
-end)
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz", opts)
+map("n", "<C-d>", "<C-d>zz", opts)
+
+map("v", "p", '"_dp', opts)
+map("v", "P", '"_dP', opts)
+
+map("v", "J", ":m '>+1<CR>gv=gv", opts)
+map("v", "K", ":m '<-2<CR>gv=gv", opts)

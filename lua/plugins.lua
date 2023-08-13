@@ -9,9 +9,7 @@ return require('packer').startup(function(use)
 
     -- file management, git and editing
     use { 'mbbill/undotree' }
-    use { 'theprimeagen/harpoon' }
     use { 'tpope/vim-fugitive' }
-    use { 'nvim-pack/nvim-spectre' }
     use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
         require('git-conflict').setup()
     end }
@@ -40,6 +38,21 @@ return require('packer').startup(function(use)
                 -- refer to the configuration section below
             }
         end
+    }
+
+    -- movement
+    use { 'ggandor/leap.nvim' }
+    use { 'theprimeagen/harpoon' }
+    use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+    use {
+        "SmiteshP/nvim-navbuddy",
+        requires = {
+            "neovim/nvim-lspconfig",
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim",
+            "numToStr/Comment.nvim",        -- Optional
+            "nvim-telescope/telescope.nvim" -- Optional
+        }
     }
 
     -- debugging
