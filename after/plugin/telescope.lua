@@ -3,20 +3,17 @@ local project_actions = require("telescope._extensions.project.actions")
 
 require('telescope').setup({
     defaults = {
-        layout_strategy = "vertical"
+        layout_strategy = "vertical",
+        prompt_prefix = '  '
     },
     pickers = {
-        man_pages = {
-            -- theme = center_list,
+        diagnostics= {
+            theme = 'ivy',
         },
-        git_branches = {
-            theme = "cursor",
-        },
-
     },
     extensions = {
         file_browser = {
-            theme = "ivy",
+            theme = "dropdown",
             hijack_netwr = true
         },
         project = {
@@ -31,14 +28,6 @@ require('telescope').setup({
 
 
 -- themes
--- local center_list = require"telescope.themes".get_dropdown({
---   winblend = 10,
---   width = 0.5,
---   prompt = " ",
---   results_height = 15,
---   previewer = false,
--- })
-
 local no_preview = function()
     return require('telescope.themes').get_dropdown({
         borderchars = {
@@ -47,7 +36,7 @@ local no_preview = function()
             results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
             preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
         },
-        width = 0.8,
+        width = 0.9,
         previewer = false,
         prompt_title = false
     })
@@ -55,9 +44,6 @@ end
 
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "project"
-
--- require'telescope'.extensions.project.project{}
--- vim.keymap.set('n', '<leader>sp', require'telescope'.extensions.project.project(no_preview()), {})
 
 vim.api.nvim_set_keymap(
     'n',
@@ -89,19 +75,36 @@ end, {})
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>sb', builtin.buffers, {})
 vim.keymap.set('n', "<leader>s'", builtin.marks, {})
-vim.keymap.set('n', '<leader>sh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>/', builtin.grep_string, {})
--- In File Searching
+vim.keymap.set({ 'n', 'v' }, '<leader>sw', builtin.grep_string, {})
+-- LSP
 vim.keymap.set('n', '<leader>sr', builtin.lsp_references, {})
+vim.keymap.set('n', '<leader>ss', function()
+    builtin.lsp_document_symbols(no_preview())
+end, {})
+vim.keymap.set('n', '<leader>sD', builtin.diagnostics, {})
+vim.keymap.set('n', '<leader>sd', function()
+    builtin.diagnostics({
+        bufnr = 0
+    })
+end, {})
+-- in file searches
+vim.keymap.set('n', '<leader>sq', builtin.quickfix, {})
+vim.keymap.set('n', '<leader>si', function()
+    builtin.current_buffer_fuzzy_find(no_preview())
+end, {})
 -- Git
-vim.keymap.set('n', '<leader>gt', builtin.git_status, {})
-vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
+vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
+vim.keymap.set('n', '<leader>gl', builtin.git_commits, {})
 vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, {})
-vim.keymap.set('n', '<leader>gs', function()
+vim.keymap.set('n', '<leader>gc', function()
     builtin.git_branches(no_preview())
 end, {})
 -- Commands
 vim.keymap.set('n', '<leader>sc', builtin.commands, {})
--- Other
-vim.keymap.set('n', '<leader>s', builtin.registers, {})
+-- Docs
 vim.keymap.set('n', '<leader>sm', function() builtin.man_pages({ sections = { "ALL" } }) end)
+vim.keymap.set('n', '<leader>sh', builtin.help_tags, {})
+-- Other
+vim.keymap.set('n', '<leader>cc', function()
+    builtin.colorscheme(no_preview())
+end, {})

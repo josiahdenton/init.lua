@@ -5,6 +5,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.foldlevelstart = 99 -- no auto folding
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'yes'
@@ -18,3 +19,8 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 vim.opt.cursorline = true
+vim.opt.mouse = 'a'
+
+vim.opt.undofile = true -- enable persistent undo
+
+vim.g.c_syntax_for_h = 1 -- `.h` files are `c` instead of `cpp`
