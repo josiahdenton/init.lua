@@ -1,1 +1,1 @@
-vim.cmd('color rose-pine')
+vim.cmd('colorscheme neobones')

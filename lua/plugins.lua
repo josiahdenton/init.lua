@@ -1,6 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -9,9 +6,7 @@ return require('packer').startup(function(use)
 
     -- file management, git and editing
     use { 'mbbill/undotree' }
-    use { 'theprimeagen/harpoon' }
     use { 'tpope/vim-fugitive' }
-    use { 'nvim-pack/nvim-spectre' }
     use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
         require('git-conflict').setup()
     end }
@@ -23,24 +18,18 @@ return require('packer').startup(function(use)
     use { 'nvim-telescope/telescope-file-browser.nvim' }
     use { 'nvim-telescope/telescope-project.nvim' }
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', tag = '0.1.2',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
     -- lint, format, warn
     use { 'jose-elias-alvarez/null-ls.nvim' }
-    use {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("trouble").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    }
+
+    -- movement
+    use { 'ggandor/leap.nvim' }
+    use { 'theprimeagen/harpoon' }
+    use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
 
     -- debugging
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
@@ -51,6 +40,7 @@ return require('packer').startup(function(use)
     use { 'embark-theme/vim', as = 'embark' }
     use { 'rose-pine/neovim', as = 'rose-pine' }
     use { 'folke/twilight.nvim' }
+    use { "catppuccin/nvim", as = "catppuccin" }
     use { "mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim" }
     use {
         'nvim-lualine/lualine.nvim',
@@ -59,7 +49,6 @@ return require('packer').startup(function(use)
 
     -- tree sitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use { 'nvim-treesitter/nvim-treesitter-context' }
     -- quality of life
     use { 'windwp/nvim-ts-autotag' }
     use {
@@ -94,6 +83,17 @@ return require('packer').startup(function(use)
             { 'saadparwaiz1/cmp_luasnip' },
             { 'rafamadriz/friendly-snippets' },
         }
+    }
+    use { 'simrat39/symbols-outline.nvim'}
+
+    use {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        config = function()
+            require("fidget").setup {
+                -- options
+            }
+        end,
     }
 
     -- note taking system
