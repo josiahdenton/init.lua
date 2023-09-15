@@ -13,7 +13,7 @@ require('telescope').setup({
     },
     extensions = {
         file_browser = {
-            theme = "dropdown",
+            theme = "ivy",
             hijack_netwr = true
         },
         project = {
@@ -47,14 +47,14 @@ require("telescope").load_extension "project"
 
 vim.api.nvim_set_keymap(
     'n',
-    '<leader>sp',
+    '<leader>fp',
     ":lua require'telescope'.extensions.project.project{}<CR>",
     { noremap = true, silent = true }
 )
 
 vim.api.nvim_set_keymap(
     "n",
-    "<leader>sa",
+    "<leader>fa",
     ":Telescope file_browser<CR>",
     { noremap = true }
 )
@@ -69,27 +69,27 @@ vim.api.nvim_set_keymap(
 
 local builtin = require('telescope.builtin')
 -- Project wide searching
-vim.keymap.set('n', '<leader>sf', function()
+vim.keymap.set('n', '<leader>ff', function()
     builtin.find_files(no_preview())
 end, {})
-vim.keymap.set('n', '<leader>sg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>sb', builtin.buffers, {})
-vim.keymap.set('n', "<leader>s'", builtin.marks, {})
-vim.keymap.set({ 'n', 'v' }, '<leader>sw', builtin.grep_string, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', "<leader>f'", builtin.marks, {})
+vim.keymap.set({ 'n', 'v' }, '<leader>fw', builtin.grep_string, {})
 -- LSP
-vim.keymap.set('n', '<leader>sr', builtin.lsp_references, {})
-vim.keymap.set('n', '<leader>ss', function()
+vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
+vim.keymap.set('n', '<leader>fs', function()
     builtin.lsp_document_symbols(no_preview())
 end, {})
-vim.keymap.set('n', '<leader>sD', builtin.diagnostics, {})
-vim.keymap.set('n', '<leader>sd', function()
+vim.keymap.set('n', '<leader>fD', builtin.diagnostics, {})
+vim.keymap.set('n', '<leader>fd', function()
     builtin.diagnostics({
         bufnr = 0
     })
 end, {})
 -- in file searches
-vim.keymap.set('n', '<leader>sq', builtin.quickfix, {})
-vim.keymap.set('n', '<leader>si', function()
+vim.keymap.set('n', '<leader>fq', builtin.quickfix, {})
+vim.keymap.set('n', '<leader>fi', function()
     builtin.current_buffer_fuzzy_find(no_preview())
 end, {})
 -- Git
@@ -100,10 +100,10 @@ vim.keymap.set('n', '<leader>gc', function()
     builtin.git_branches(no_preview())
 end, {})
 -- Commands
-vim.keymap.set('n', '<leader>sc', builtin.commands, {})
+vim.keymap.set('n', '<leader>fc', builtin.commands, {})
 -- Docs
-vim.keymap.set('n', '<leader>sm', function() builtin.man_pages({ sections = { "ALL" } }) end)
-vim.keymap.set('n', '<leader>sh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fm', function() builtin.man_pages({ sections = { "ALL" } }) end)
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 -- Other
 vim.keymap.set('n', '<leader>cc', function()
     builtin.colorscheme(no_preview())

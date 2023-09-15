@@ -80,3 +80,5 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
+
+require("symbols-outline").setup()

@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
     use { 'embark-theme/vim', as = 'embark' }
     use { 'rose-pine/neovim', as = 'rose-pine' }
     use { 'folke/twilight.nvim' }
+    use { "catppuccin/nvim", as = "catppuccin" }
     use { "mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim" }
     use {
         'nvim-lualine/lualine.nvim',
@@ -82,6 +83,17 @@ return require('packer').startup(function(use)
             { 'saadparwaiz1/cmp_luasnip' },
             { 'rafamadriz/friendly-snippets' },
         }
+    }
+    use { 'simrat39/symbols-outline.nvim'}
+
+    use {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        config = function()
+            require("fidget").setup {
+                -- options
+            }
+        end,
     }
 
     -- note taking system
