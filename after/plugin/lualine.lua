@@ -1,6 +1,6 @@
 require('lualine').setup({
     options = {
-        theme = 'embark',
+        theme = 'material',
     },
     winbar = {
         lualine_c = {
