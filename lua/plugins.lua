@@ -27,7 +27,6 @@ return require('packer').startup(function(use)
     use { 'jose-elias-alvarez/null-ls.nvim' }
 
     -- movement
-    use { 'ggandor/leap.nvim' }
     use { 'theprimeagen/harpoon' }
     use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
 
@@ -36,11 +35,10 @@ return require('packer').startup(function(use)
     use { 'mfussenegger/nvim-dap-python' }
 
     -- theming
-    use { 'folke/zen-mode.nvim' }
+    use { 'marko-cerovac/material.nvim' }
     use { 'embark-theme/vim', as = 'embark' }
-    use { 'rose-pine/neovim', as = 'rose-pine' }
     use { 'folke/twilight.nvim' }
-    use { "catppuccin/nvim", as = "catppuccin" }
+    use { 'folke/zen-mode.nvim' }
     use { "mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim" }
     use {
         'nvim-lualine/lualine.nvim',
@@ -49,6 +47,11 @@ return require('packer').startup(function(use)
 
     -- tree sitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use({
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+        requires = "nvim-treesitter/nvim-treesitter",
+    })
     -- quality of life
     use { 'windwp/nvim-ts-autotag' }
     use {
@@ -84,7 +87,7 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
         }
     }
-    use { 'simrat39/symbols-outline.nvim'}
+    use { 'simrat39/symbols-outline.nvim' }
 
     use {
         'j-hui/fidget.nvim',
