@@ -53,7 +53,7 @@ require('material').setup({
         darker = true    -- Enable higher contrast text for darker style
     },
 
-    lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
+    lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
 
     async_loading = true,      -- Load parts of the theme asyncronously for faster startup (turned on by default)
 
