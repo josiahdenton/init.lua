@@ -1,28 +1,12 @@
-local project_actions = require("telescope._extensions.project.actions")
-
-
 require('telescope').setup({
     defaults = {
         layout_strategy = "vertical",
         prompt_prefix = '  '
     },
     pickers = {
-        diagnostics= {
+        diagnostics = {
             theme = 'ivy',
         },
-    },
-    extensions = {
-        file_browser = {
-            theme = "ivy",
-            hijack_netwr = true
-        },
-        project = {
-            on_project_selected = function(prompt_bufnr)
-                project_actions.change_working_directory(prompt_bufnr)
-                require("harpoon.ui").toggle_quick_menu()
-            end
-
-        }
     }
 })
 

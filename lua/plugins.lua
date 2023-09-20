@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
         'stevearc/oil.nvim',
         config = function() require('oil').setup() end
     }
-
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
         -- or                            , branch = '0.1.x',
@@ -40,10 +39,9 @@ return require('packer').startup(function(use)
     -- theming
     use { 'marko-cerovac/material.nvim' }
     use { 'ray-x/aurora' }
-    use { 'embark-theme/vim', as = 'embark' }
     use { 'folke/twilight.nvim' }
     use { 'folke/zen-mode.nvim' }
-    use { "mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim" }
+    -- use { "mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim" }
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
