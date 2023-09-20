@@ -1,28 +1,12 @@
-local project_actions = require("telescope._extensions.project.actions")
-
-
 require('telescope').setup({
     defaults = {
         layout_strategy = "vertical",
         prompt_prefix = '  '
     },
     pickers = {
-        diagnostics= {
+        diagnostics = {
             theme = 'ivy',
         },
-    },
-    extensions = {
-        file_browser = {
-            theme = "ivy",
-            hijack_netwr = true
-        },
-        project = {
-            on_project_selected = function(prompt_bufnr)
-                project_actions.change_working_directory(prompt_bufnr)
-                require("harpoon.ui").toggle_quick_menu()
-            end
-
-        }
     }
 })
 
@@ -41,31 +25,6 @@ local no_preview = function()
         prompt_title = false
     })
 end
-
-require("telescope").load_extension "file_browser"
-require("telescope").load_extension "project"
-
-vim.api.nvim_set_keymap(
-    'n',
-    '<leader>fp',
-    ":lua require'telescope'.extensions.project.project{}<CR>",
-    { noremap = true, silent = true }
-)
-
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>fa",
-    ":Telescope file_browser<CR>",
-    { noremap = true }
-)
-
--- open file_browser with the path of the current buffer
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>?",
-    ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-    { noremap = true }
-)
 
 local builtin = require('telescope.builtin')
 -- Project wide searching
