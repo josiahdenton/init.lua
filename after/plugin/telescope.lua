@@ -42,31 +42,6 @@ local no_preview = function()
     })
 end
 
-require("telescope").load_extension "file_browser"
-require("telescope").load_extension "project"
-
-vim.api.nvim_set_keymap(
-    'n',
-    '<leader>fp',
-    ":lua require'telescope'.extensions.project.project{}<CR>",
-    { noremap = true, silent = true }
-)
-
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>fa",
-    ":Telescope file_browser<CR>",
-    { noremap = true }
-)
-
--- open file_browser with the path of the current buffer
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>?",
-    ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-    { noremap = true }
-)
-
 local builtin = require('telescope.builtin')
 -- Project wide searching
 vim.keymap.set('n', '<leader>ff', function()

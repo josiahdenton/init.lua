@@ -7,6 +7,7 @@ return require('packer').startup(function(use)
     -- file management, git and editing
     use { 'mbbill/undotree' }
     use { 'tpope/vim-fugitive' }
+    use { 'nvim-pack/nvim-spectre' }
     use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
         require('git-conflict').setup()
     end }
@@ -14,9 +15,11 @@ return require('packer').startup(function(use)
         'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
         config = function() require('gitsigns').setup() end
     }
+    use {
+        'stevearc/oil.nvim',
+        config = function() require('oil').setup() end
+    }
 
-    use { 'nvim-telescope/telescope-file-browser.nvim' }
-    use { 'nvim-telescope/telescope-project.nvim' }
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
         -- or                            , branch = '0.1.x',
@@ -36,6 +39,7 @@ return require('packer').startup(function(use)
 
     -- theming
     use { 'marko-cerovac/material.nvim' }
+    use { 'ray-x/aurora' }
     use { 'embark-theme/vim', as = 'embark' }
     use { 'folke/twilight.nvim' }
     use { 'folke/zen-mode.nvim' }

@@ -18,6 +18,9 @@ vim.g.maplocalleader = ","
 vim.opt.swapfile = false
 vim.opt.backup = false
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 vim.opt.cursorline = true
 vim.opt.mouse = 'a'
 
