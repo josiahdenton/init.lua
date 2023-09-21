@@ -1,7 +1,7 @@
 return {
     {
         'stevearc/oil.nvim',
-        config = function() 
+        config = function()
             require('oil').setup()
 
             vim.keymap.set('n', '<leader>?', '<CMD>Oil<CR>')

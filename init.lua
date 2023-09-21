@@ -8,3 +8,5 @@ require('core.remap')
 
 require('lazy').setup('plugins')
 
+require('core.lsp').setup()
+
