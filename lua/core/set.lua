@@ -24,7 +24,7 @@ vim.opt.smartcase = true
 vim.opt.cursorline = true
 vim.opt.mouse = 'a'
 
-vim.opt.completeopt = 'menuone,noselect'
+vim.opt.completeopt = 'menuone,preview'
 
 vim.opt.undofile = true -- enable persistent undo
 

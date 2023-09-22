@@ -7,7 +7,9 @@ M.setup = function()
     luasnip.config.setup()
 
     cmp.setup({
-        preselect = 'item',
+        completion = {
+            completeopt = 'menu,menuone',
+        },
         snippet = {
             expand = function(args)
                 luasnip.lsp_expand(args.body)
