@@ -6,7 +6,7 @@ M.setup = function()
     local mason_lspconfig = require('mason-lspconfig')
 
     -- get settings
-    local setup = require('core.lsp.setup')
+    local settings = require('core.lsp.settings')
     local servers = require('core.lsp.servers')
 
     mason_lspconfig.setup({
@@ -16,8 +16,8 @@ M.setup = function()
     mason_lspconfig.setup_handlers({
         function(server_name)
             require('lspconfig')[server_name].setup({
-                capabilities = setup.capabilities,
-                on_attach = setup.on_attach,
+                capabilities = settings.capabilities,
+                on_attach = settings.on_attach,
                 settings = servers[server_name],
                 filetypes = (servers[server_name] or {}).filetypes
             })
