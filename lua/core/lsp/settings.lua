@@ -8,13 +8,15 @@ local function lsp_keymaps(bufnr)
     local buf_opts = { buffer = bufnr, silent = true }
     local telescope_builtins = require('telescope.builtin')
 
-    keymap('n', 'gl', vim.diagnostic.open_float, buf_opts)
     keymap('n', 'gd', vim.lsp.buf.definition, buf_opts)
     keymap('n', 'K', vim.lsp.buf.hover, buf_opts)
 
     keymap('n', 'gr', telescope_builtins.lsp_references, buf_opts)
     keymap('n', 'gI', telescope_builtins.lsp_implementations, buf_opts)
 
+    keymap('n', '<leader>e', vim.diagnostic.open_float, buf_opts)
+    keymap('n', '<leader>fd', function() telescope_builtins.diagnostics({ bufnr = 0 }) end, buf_opts)
+    keymap('n', '<leader>fD', telescope_builtins.diagnostics, buf_opts)
     keymap('n', '<leader>rn', vim.lsp.buf.rename, buf_opts)
     keymap('n', '<leader>ca', vim.lsp.buf.code_action, buf_opts)
     keymap('n', '<leader>ds', telescope_builtins.lsp_document_symbols, buf_opts)
@@ -23,10 +25,26 @@ local function lsp_keymaps(bufnr)
     keymap('n', '<leader>p', vim.lsp.buf.format, buf_opts)
 end
 
+local function set_diagnostic_config()
+    vim.diagnostic.config({
+        virtual_text = true,
+        severity_sort = true,
+        float = {
+            style = 'minimal',
+            border = 'rounded',
+            source = 'always',
+            header = '',
+            prefix = '',
+        },
+    })
+end
+
 M.on_attach = function(_, bufnr)
+    set_diagnostic_config()
     lsp_keymaps(bufnr)
 end
 
 
-return M
 
+
+return M

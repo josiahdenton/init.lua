@@ -30,6 +30,8 @@ return {
             })
         end
 
+        -- TODO cleanup the following
+
         -- setup key maps
         local builtin = require('telescope.builtin')
         -- Project wide searching
@@ -40,19 +42,8 @@ return {
         vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
         vim.keymap.set('n', "<leader>f'", builtin.marks, {})
         vim.keymap.set({ 'n', 'v' }, '<leader>fw', builtin.grep_string, {})
-        -- LSP
-        vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
-        vim.keymap.set('n', '<leader>fs', function()
-            builtin.lsp_document_symbols(no_preview())
-        end, {})
-        vim.keymap.set('n', '<leader>fD', builtin.diagnostics, {})
-        vim.keymap.set('n', '<leader>fd', function()
-            builtin.diagnostics({
-                bufnr = 0
-            })
-        end, {})
         -- in file searches
-        vim.keymap.set('n', '<leader>fq', builtin.quickfix, {})
+        -- TODO can I use the following
         vim.keymap.set('n', '<leader>fi', function()
             builtin.current_buffer_fuzzy_find(no_preview())
         end, {})

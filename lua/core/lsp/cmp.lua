@@ -47,6 +47,8 @@ M.setup = function()
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
             { name = 'luasnip' },
+            { name = 'buffer' },
+            { name = 'path' },
         }),
         formatting = {
             format = function(entry, vim_item)
