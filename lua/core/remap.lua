@@ -17,3 +17,11 @@ map('n', 'zz', function()
         }
     })
 end, opts)
+
+map('n', '<leader>go', function()
+    require("neogit").open()
+end, opts)
+
+map('n', '<leader>gc', function()
+    require("neogit").close()
+end, opts)

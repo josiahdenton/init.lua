@@ -30,8 +30,6 @@ return {
             })
         end
 
-        -- TODO cleanup the following
-
         -- setup key maps
         local builtin = require('telescope.builtin')
         -- Project wide searching
@@ -39,19 +37,16 @@ return {
             builtin.find_files(no_preview())
         end, {})
         vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-        vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+        vim.keymap.set('n', '<leader>fb', function()
+            builtin.buffers(no_preview())
+        end, {})
         vim.keymap.set('n', "<leader>f'", builtin.marks, {})
-        vim.keymap.set({ 'n', 'v' }, '<leader>fw', builtin.grep_string, {})
         -- in file searches
-        -- TODO can I use the following
         vim.keymap.set('n', '<leader>fi', function()
             builtin.current_buffer_fuzzy_find(no_preview())
         end, {})
         -- Git
-        vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
-        vim.keymap.set('n', '<leader>gl', builtin.git_commits, {})
-        vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, {})
-        vim.keymap.set('n', '<leader>gc', function()
+        vim.keymap.set('n', '<leader>gs', function()
             builtin.git_branches(no_preview())
         end, {})
         -- Commands
@@ -65,4 +60,3 @@ return {
         end, {})
     end
 }
-
