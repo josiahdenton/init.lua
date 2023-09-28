@@ -21,7 +21,11 @@ M.setup = function()
                 settings = servers[server_name],
                 filetypes = (servers[server_name] or {}).filetypes
             })
-        end
+        end,
+        -- TODO: may need to setup DAP first
+        -- ['rust_analyzer'] = function()
+        --     require('rust-tools').setup()
+        -- end
     })
 end
 
