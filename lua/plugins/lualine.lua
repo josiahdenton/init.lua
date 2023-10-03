@@ -4,7 +4,7 @@ return {
         config = function()
             require('lualine').setup({
                 options = {
-                    theme = 'material',
+                    theme = 'auto',
                 },
                 winbar = {
                     lualine_c = {
