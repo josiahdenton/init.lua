@@ -22,10 +22,14 @@ M.setup = function()
                 filetypes = (servers[server_name] or {}).filetypes
             })
         end,
-        -- TODO: may need to setup DAP first
-        -- ['rust_analyzer'] = function()
-        --     require('rust-tools').setup()
-        -- end
+        ['rust_analyzer'] = function()
+            local rt = require('rust-tools')
+            rt.setup({
+                server = {
+                    on_attach = settings.on_attach_rt(rt)
+                },
+            })
+        end
     })
 end
 
