@@ -25,3 +25,5 @@ end, opts)
 map('n', '<leader>gc', function()
     require("neogit").close()
 end, opts)
+
+map('v', 'gx', "<CMD>silent execute '!open ' .. shellescape(expand('<cfile>'), v:true)<CR>")
