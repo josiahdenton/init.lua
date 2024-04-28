@@ -24,6 +24,8 @@ vim.opt.smartcase = true
 vim.opt.cursorline = true
 vim.opt.mouse = 'a'
 
+vim.opt.completeopt = 'menuone,preview'
+
 vim.opt.undofile = true -- enable persistent undo
 
 vim.g.c_syntax_for_h = 1 -- `.h` files are `c` instead of `cpp`
