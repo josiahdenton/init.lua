@@ -27,3 +27,16 @@ map('n', '<leader>gc', function()
 end, opts)
 
 map('v', 'gx', "<CMD>silent execute '!open ' .. shellescape(expand('<cfile>'), v:true)<CR>")
+
+map({ 'n' }, '<Esc>', '<CMD>nohlsearch<CR>')
+
+map({ 'n' }, '<C-h>', '<C-w><C-h>', { desc = 'move focus to left window' })
+map({ 'n' }, '<C-l>', '<C-w><C-l>', { desc = 'move focus to right window' })
+map({ 'n' }, '<C-j>', '<C-w><C-j>', { desc = 'move focus to lower window' })
+map({ 'n' }, '<C-k>', '<C-w><C-k>', { desc = 'move focus to upper window' })
+
+
+map({ 'n' }, '<M-,>', '<C-w>5<')
+map({ 'n' }, '<M-.>', '<C-w>5>')
+map({ 'n' }, '<M-t>', '<C-w>+')
+map({ 'n' }, '<M-s>', '<C-w>-')

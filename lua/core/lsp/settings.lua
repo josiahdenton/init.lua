@@ -17,12 +17,10 @@ local function lsp_keymaps(bufnr, rt)
     keymap('n', '<leader>rn', vim.lsp.buf.rename, buf_opts)
     if rt then
         keymap("n", "<leader>a", rt.code_action_group.code_action_group, buf_opts)
-        -- vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
     else
         keymap('n', '<leader>a', vim.lsp.buf.code_action, buf_opts)
     end
-    keymap('n', '<leader>p', vim.lsp.buf.format, buf_opts)
-    keymap('n', '<leader>f', '<CMD>FormatWrite<CR>', buf_opts)
+    -- keymap('n', '<leader>p', vim.lsp.buf.format, buf_opts)
 
     -- searching
     keymap('n', 'gd', vim.lsp.buf.definition, buf_opts)
@@ -30,9 +28,6 @@ local function lsp_keymaps(bufnr, rt)
     -- telesope
     keymap('n', 'gr', telescope_builtins.lsp_references, buf_opts)
     keymap('n', 'gI', telescope_builtins.lsp_implementations, buf_opts)
-
-    keymap('n', '<leader>ds', telescope_builtins.lsp_document_symbols, buf_opts)
-    keymap('n', '<leader>ws', telescope_builtins.lsp_dynamic_workspace_symbols, buf_opts)
 end
 
 local function set_diagnostic_config()
@@ -42,7 +37,7 @@ local function set_diagnostic_config()
         float = {
             style = 'minimal',
             border = 'rounded',
-            source = 'always',
+            source = true,
             header = '',
             prefix = '',
         },

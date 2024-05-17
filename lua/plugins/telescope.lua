@@ -10,7 +10,7 @@ return {
         require('telescope').setup({
             defaults = {
                 layout_strategy = "vertical",
-                prompt_prefix = '  '
+                prompt_prefix = '>  '
             },
             pickers = {
                 diagnostics = {
@@ -59,6 +59,10 @@ return {
         -- in file searches
         vim.keymap.set('n', '<leader>fi', function()
             builtin.current_buffer_fuzzy_find(no_preview())
+        end, {})
+        -- text
+        vim.keymap.set('n', '<leader>ss', function()
+            builtin.spell_suggest(no_preview())
         end, {})
         -- Git
         vim.keymap.set('n', '<leader>gs', function()
