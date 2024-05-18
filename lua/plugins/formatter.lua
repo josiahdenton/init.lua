@@ -1,16 +1,4 @@
 return {
-    -- {
-    --     'mhartington/formatter.nvim',
-    --     config = function()
-    --         require('formatter').setup({
-    --             filetype = {
-    --                 python = {
-    --                     require('formatter.filetypes.python').black
-    --                 }
-    --             }
-    --         })
-    --     end
-    -- },
     {
         "stevearc/conform.nvim",
         event = { "BufWritePre" },
@@ -30,6 +18,7 @@ return {
         opts = {
             -- Define your formatters
             formatters_by_ft = {
+                go = { "gofmt" },
                 lua = { "stylua" },
                 python = { "isort", "black" }, -- maybe can use ruff instead!
                 javascript = { { "prettierd", "prettier" } },

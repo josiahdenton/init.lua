@@ -1,5 +1,38 @@
 return {
     {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-neotest/nvim-nio",
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            -- adapters
+            "nvim-neotest/neotest-python",
+            "nvim-neotest/neotest-go"
+        },
+        config = function()
+            require("neotest").setup({
+                adapters = {
+                    require("neotest-python")({
+                        dap = { justMyCode = false },
+                    }),
+                    require("neotest-go"),
+                },
+            })
+
+            local function debug_test()
+                require("neotest").run.run()
+            end
+
+            local function debug_file()
+                require("neotest").run.run(vim.fn.expand("%"))
+            end
+
+            vim.keymap.set("n", "<leader>dm", debug_test)
+            vim.keymap.set("n", "<leader>df", debug_file)
+        end
+    },
+    {
         'rcarriga/nvim-dap-ui',
         dependencies = {
             'mfussenegger/nvim-dap',
@@ -43,9 +76,9 @@ return {
 
             dappython.setup()
 
-            vim.keymap.set("n", "<leader>dm", dappython.test_method)
-            vim.keymap.set("n", "<leader>dc", dappython.test_class)
-            vim.keymap.set("n", "<leader>dv", dappython.debug_selection)
+            -- vim.keymap.set("n", "<leader>dm", dappython.test_method)
+            -- vim.keymap.set("n", "<leader>dc", dappython.test_class)
+            -- vim.keymap.set("n", "<leader>dv", dappython.debug_selection)
         end
     }
 }

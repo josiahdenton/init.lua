@@ -31,4 +31,6 @@ vim.opt.completeopt = 'menuone,preview'
 
 vim.opt.undofile = true  -- enable persistent undo
 
+vim.opt.exrc = true      -- allow for .nvim.lua files per workspace
+
 vim.g.c_syntax_for_h = 1 -- `.h` files are `c` instead of `cpp`
