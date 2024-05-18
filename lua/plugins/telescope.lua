@@ -10,7 +10,7 @@ return {
         require('telescope').setup({
             defaults = {
                 layout_strategy = "vertical",
-                prompt_prefix = '  '
+                prompt_prefix = '>  '
             },
             pickers = {
                 diagnostics = {
@@ -27,21 +27,14 @@ return {
                 }
             }
         })
-        -- themes
-        local no_preview = function()
-            return require('telescope.themes').get_dropdown({
-                borderchars = {
-                    { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
-                    prompt = { "─", "│", " ", "│", '┌', '┐', "│", "│" },
-                    results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-                    preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
-                },
-                width = 0.9,
-                previewer = false,
-                prompt_title = false
-            })
-        end
 
+        -- local no_preview = require "telescope.themes".get_dropdown({
+        --     winblend = 10,
+        --     width = 0.5,
+        --     prompt = " ",
+        --     results_height = 15,
+        --     previewer = false,
+        -- })
         -- extensions
         require('telescope').load_extension('fzf')
 
@@ -49,20 +42,24 @@ return {
         local builtin = require('telescope.builtin')
         -- Project wide searching
         vim.keymap.set('n', '<leader>ff', function()
-            builtin.find_files(no_preview())
+            builtin.find_files()
         end, {})
         vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
         vim.keymap.set('n', '<leader>fb', function()
-            builtin.buffers(no_preview())
+            builtin.buffers()
         end, {})
         vim.keymap.set('n', "<leader>f'", builtin.marks, {})
         -- in file searches
         vim.keymap.set('n', '<leader>fi', function()
-            builtin.current_buffer_fuzzy_find(no_preview())
+            builtin.current_buffer_fuzzy_find()
+        end, {})
+        -- text
+        vim.keymap.set('n', '<leader>ss', function()
+            builtin.spell_suggest()
         end, {})
         -- Git
         vim.keymap.set('n', '<leader>gs', function()
-            builtin.git_branches(no_preview())
+            builtin.git_branches()
         end, {})
         -- Commands
         vim.keymap.set('n', '<leader>fc', builtin.commands, {})
@@ -71,7 +68,7 @@ return {
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
         -- Other
         vim.keymap.set('n', '<leader>cc', function()
-            builtin.colorscheme(no_preview())
+            builtin.colorscheme()
         end, {})
     end
 }

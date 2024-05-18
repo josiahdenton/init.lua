@@ -1,16 +1,16 @@
-local map = vim.keymap.set
+local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-map("v", "<", "<gv")
-map("v", ">", ">gv")
+set("v", "<", "<gv")
+set("v", ">", ">gv")
 
-map("n", "<C-u>", "<C-u>zz", opts)
-map("n", "<C-d>", "<C-d>zz", opts)
+set("n", "<C-u>", "<C-u>zz", opts)
+set("n", "<C-d>", "<C-d>zz", opts)
 
-map("v", "J", ":m '>+1<CR>gv=gv", opts)
-map("v", "K", ":m '<-2<CR>gv=gv", opts)
+set("v", "J", ":m '>+1<CR>gv=gv", opts)
+set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
-map('n', '<leader>zz', function()
+set('n', '<leader>zz', function()
     require("zen-mode").toggle({
         window = {
             width = .60 -- width will be 85% of the editor width
@@ -18,12 +18,28 @@ map('n', '<leader>zz', function()
     })
 end, opts)
 
-map('n', '<leader>go', function()
+set('n', '<leader>go', function()
     require("neogit").open()
 end, opts)
 
-map('n', '<leader>gc', function()
+set('n', '<leader>gc', function()
     require("neogit").close()
 end, opts)
 
-map('v', 'gx', "<CMD>silent execute '!open ' .. shellescape(expand('<cfile>'), v:true)<CR>")
+set('v', 'gx', "<CMD>silent execute '!open ' .. shellescape(expand('<cfile>'), v:true)<CR>")
+
+set({ 'n' }, '<Esc>', '<CMD>nohlsearch<CR>')
+
+set({ 'n' }, '<C-h>', '<C-w><C-h>', { desc = 'move focus to left window' })
+set({ 'n' }, '<C-l>', '<C-w><C-l>', { desc = 'move focus to right window' })
+set({ 'n' }, '<C-j>', '<C-w><C-j>', { desc = 'move focus to lower window' })
+set({ 'n' }, '<C-k>', '<C-w><C-k>', { desc = 'move focus to upper window' })
+
+
+set({ 'n' }, '<M-,>', '<C-w>5<')
+set({ 'n' }, '<M-.>', '<C-w>5>')
+set({ 'n' }, '<M-t>', '<C-w>+')
+set({ 'n' }, '<M-s>', '<C-w>-')
+
+-- Easily hit escape in terminal mode.
+set("t", "<esc><esc>", "<c-\\><c-n>")
