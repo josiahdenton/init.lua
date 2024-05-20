@@ -2,6 +2,17 @@ return {
     -- 'tpope/vim-fugitive',
     -- { 'akinsho/git-conflict.nvim', version = "*", config = true },
     {
+        "pwntester/octo.nvim",
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'nvim-tree/nvim-web-devicons',
+        },
+        config = function()
+            require("octo").setup()
+        end
+    },
+    {
         "NeogitOrg/neogit",
         dependencies = {
             "nvim-lua/plenary.nvim",         -- required
