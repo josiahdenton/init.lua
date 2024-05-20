@@ -7,9 +7,19 @@ return {
             "nvim-lua/plenary.nvim",         -- required
             "nvim-telescope/telescope.nvim", -- optional
             "sindrets/diffview.nvim",        -- optional
-            "ibhagwan/fzf-lua",              -- optional
+            -- "ibhagwan/fzf-lua",              -- optional
         },
-        config = true
+        config = function()
+            require("neogit").setup()
+
+            vim.keymap.set('n', '<leader>gg', function()
+                require("neogit").open()
+            end)
+
+            vim.keymap.set('n', '<leader>gc', function()
+                require("neogit").close()
+            end)
+        end
     },
     {
         'lewis6991/gitsigns.nvim',

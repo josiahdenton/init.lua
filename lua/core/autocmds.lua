@@ -19,3 +19,6 @@
 --     vim.wo.winfixheight = true
 --     vim.cmd.term()
 -- end)
+--
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })

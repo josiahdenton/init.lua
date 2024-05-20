@@ -1,3 +1,9 @@
+-- local arrows = require("icons").arrows
+
+vim.g.copilot_no_tab_map = true
+-- disable copilot for buffer
+-- vim.b.copilot_enabled = false
+
 vim.opt.relativenumber = true
 vim.opt.number = true
 
@@ -5,12 +11,34 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.opt.foldlevelstart = 99 -- no auto folding
+-- vim.opt.foldlevelstart = 99 -- no auto folding
 
 vim.opt.scrolloff = 10
 vim.opt.signcolumn = 'yes'
 
 vim.opt.termguicolors = true
+
+-- Show whitespace.
+-- vim.opt.list = true
+-- vim.opt.listchars = { space = '⋅', trail = '⋅', tab = '  ↦ ' }
+
+-- Folding.
+vim.o.foldcolumn = '0' -- set to display fold symbols
+vim.o.foldlevelstart = 99
+vim.o.foldmethod = 'expr'
+vim.wo.foldtext = ''
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
+-- UI characters.
+vim.opt.fillchars = {
+    eob = ' ',
+    fold = '.',
+    foldclose = '',
+    foldopen = '',
+    foldsep = ' ',
+    msgsep = '─',
+}
+
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
