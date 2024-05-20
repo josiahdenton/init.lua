@@ -5,7 +5,7 @@ require('install')
 
 require('core.set')
 require('core.remap')
-require('core.terminal')
+require('core.autocmds')
 
 require('lazy').setup('plugins')
 

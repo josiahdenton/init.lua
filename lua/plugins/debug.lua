@@ -58,6 +58,24 @@ return {
                         close = { "q", "<Esc>" },
                     },
                 },
+                render = {
+                    indent = 2,
+                },
+                layouts = {
+                    {
+                        elements = {
+                            { id = "scopes",  size = 0.5 },
+                            { id = "watches", size = 0.5 },
+                        },
+                        size = 40,
+                        position = "left",
+                    },
+                    {
+                        elements = { "console" },
+                        position = "bottom",
+                        size = 15,
+                    },
+                },
                 controls = {
                     -- Requires Neovim nightly (or 0.8 when released)
                     enabled = true,

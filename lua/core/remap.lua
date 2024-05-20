@@ -18,13 +18,6 @@ set('n', '<leader>zz', function()
     })
 end, opts)
 
-set('n', '<leader>go', function()
-    require("neogit").open()
-end, opts)
-
-set('n', '<leader>gc', function()
-    require("neogit").close()
-end, opts)
 
 set('v', 'gx', "<CMD>silent execute '!open ' .. shellescape(expand('<cfile>'), v:true)<CR>")
 
