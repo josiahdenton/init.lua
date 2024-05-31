@@ -1,6 +1,6 @@
 return {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.3',
+    tag = '0.1.7',
     -- or                              , branch = '0.1.x',
     dependencies = {
         'nvim-lua/plenary.nvim',
@@ -10,7 +10,11 @@ return {
         require('telescope').setup({
             defaults = {
                 -- layout_strategy = "vertical",
-                prompt_prefix = '>  '
+                prompt_prefix = '>  ',
+                sorting_strategy = 'descending',
+                file_ignore_patterns = {
+                    "node_modules"
+                }
             },
             pickers = {
                 -- diagnostics = {
