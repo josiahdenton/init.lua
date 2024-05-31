@@ -50,7 +50,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.inccommand = "split"
 
-vim.opt.clipboard = "unnamedplus"
+-- can now use gy and gp
+-- vim.opt.clipboard = "unnamedplus"
 
 vim.opt.cursorline = true
 vim.opt.mouse = 'a'
