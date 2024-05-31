@@ -62,3 +62,10 @@ vim.opt.undofile = true  -- enable persistent undo
 vim.opt.exrc = true      -- allow for .nvim.lua files per workspace
 
 vim.g.c_syntax_for_h = 1 -- `.h` files are `c` instead of `cpp`
+
+if vim.g.neovide then
+    vim.o.guifont = "GeistMono Nerd Font Mono"
+    vim.g.neovide_transparency = 0.8
+    vim.g.neovide_scale_factor = 1.2
+    vim.g.neovide_theme = 'auto'
+end

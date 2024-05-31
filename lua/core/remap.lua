@@ -35,4 +35,4 @@ set({ 'n' }, '<M-t>', '<C-w>+')
 set({ 'n' }, '<M-s>', '<C-w>-')
 
 -- Easily hit escape in terminal mode.
-set("t", "<esc><esc>", "<c-\\><c-n>")
+set("t", "<c-/>", "<c-\\><c-n>")

@@ -8,7 +8,8 @@ return {
             "nvim-treesitter/nvim-treesitter",
             -- testing adapters
             "nvim-neotest/neotest-python",
-            "nvim-neotest/neotest-go"
+            "nvim-neotest/neotest-go",
+            "nvim-neotest/neotest-jest"
         },
         config = function()
             require("neotest").setup({
@@ -17,6 +18,7 @@ return {
                         dap = { justMyCode = false },
                     }),
                     require("neotest-go"),
+                    require("neotest-jest")
                 },
             })
             -- generalized test debugging keymaps
@@ -31,7 +33,15 @@ return {
             end)
             vim.keymap.set("n", "<leader>df", function()
                 require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" })
-            end)
+            end, { desc = "neotest: debug file" })
+
+            vim.keymap.set("n", "<leader>ne", function()
+                require("neotest").output.open({ enter = true, auto_close = true })
+            end, { desc = "neotest: show test outcome" })
+
+            vim.keymap.set("n", "<leader>no", function()
+                require("neotest").summary.toggle()
+            end, { desc = "neotest: show test summary panel" })
         end
     },
     {
@@ -93,9 +103,31 @@ return {
                     },
                 },
             })
-            require("nvim-dap-virtual-text").setup()
+            require("nvim-dap-virtual-text").setup({
+                display_callback = function(variable, buf, stackframe, node, options)
+                    if #(variable.value) > 10 then
+                        return "..(<leader>K).."
+                    end
+
+                    if options.virt_text_pos == 'inline' then
+                        return ' = ' .. variable.value
+                    else
+                        return variable.name .. ' = ' .. variable.value
+                    end
+                end,
+            })
             require('dap-python').setup()
             require('dap-go').setup()
+
+            dap.adapters["pwa-node"] = {
+                type = "server",
+                host = "localhost",
+                port = "${port}",
+                executable = {
+                    command = "node",
+                    args = { vim.env.HOME .. "/path/to/js-debug/src/dapDebugServer.js", "${port}" }
+                }
+            }
 
             keymap('n', '<leader>n', function() dap.continue() end)
             keymap('n', '<leader>j', function() dap.step_over() end)
