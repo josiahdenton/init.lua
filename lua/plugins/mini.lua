@@ -9,10 +9,22 @@ return {
             require("mini.pairs").setup()
             require("mini.cursorword").setup()
             require('mini.surround').setup()
-            require("mini.animate").setup({
-                scroll = {
-                    enable = false
-                }
+            -- require('mini.sessions').setup()
+            require('mini.bracketed').setup({
+                buffer     = { suffix = 'b', options = {} },
+                comment    = { suffix = '', options = {} },
+                conflict   = { suffix = 'x', options = {} },
+                diagnostic = { suffix = 'd', options = {} },
+                file       = { suffix = 'f', options = {} },
+                indent     = { suffix = 'i', options = {} },
+                jump       = { suffix = 'j', options = {} },
+                location   = { suffix = 'l', options = {} },
+                oldfile    = { suffix = 'o', options = {} },
+                quickfix   = { suffix = 'q', options = {} },
+                treesitter = { suffix = 't', options = {} },
+                undo       = { suffix = '', options = {} },
+                window     = { suffix = 'w', options = {} },
+                yank       = { suffix = 'y', options = {} },
             })
             require("mini.diff").setup({
                 view = {
@@ -42,11 +54,12 @@ return {
             local hipatterns = require('mini.hipatterns')
             hipatterns.setup({
                 highlighters = {
-                    -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-                    fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-                    hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
-                    todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
-                    note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+                    -- this is just folke's todo plugin but with no search
+                    -- -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+                    -- fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+                    -- hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+                    -- todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+                    -- note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
 
                     -- Highlight hex color strings (`#rrggbb`) using that color
                     hex_color = hipatterns.gen_highlighter.hex_color(),
@@ -89,7 +102,7 @@ return {
                         basic = true,
 
                         -- Set 'relativenumber' only in linewise and blockwise Visual mode
-                        relnum_in_visual_mode = true,
+                        relnum_in_visual_mode = false,
                     },
 
                     -- Whether to disable showing non-error feedback
@@ -107,4 +120,3 @@ return {
         end
     }
 }
-

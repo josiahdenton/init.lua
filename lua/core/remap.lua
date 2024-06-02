@@ -21,7 +21,7 @@ end, opts)
 
 set('v', 'gx', "<CMD>silent execute '!open ' .. shellescape(expand('<cfile>'), v:true)<CR>")
 
--- set({ 'n' }, '<Esc>', '<CMD>nohlsearch<CR>')
+set({ 'n' }, '<Esc>', '<CMD>nohlsearch<CR>')
 
 -- set({ 'n' }, '<C-h>', '<C-w><C-h>', { desc = 'move focus to left window' })
 -- set({ 'n' }, '<C-l>', '<C-w><C-l>', { desc = 'move focus to right window' })
