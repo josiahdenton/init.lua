@@ -1,39 +1,38 @@
 return {
     {
         "folke/trouble.nvim",
-        opts = {}, -- for default options, refer to the configuration section for custom setup.
-        cmd = "Trouble",
-        keys = {
-            {
-                "<leader>xx",
-                "<cmd>Trouble diagnostics toggle<cr>",
-                desc = "Diagnostics (Trouble)",
-            },
-            {
-                "<leader>xX",
-                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-                desc = "Buffer Diagnostics (Trouble)",
-            },
-            {
-                "<leader>fo",
-                "<cmd>Trouble symbols toggle focus=false<cr>",
-                desc = "Symbols (Trouble)",
-            },
-            {
-                "<leader>cl",
-                "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-                desc = "LSP Definitions / references / ... (Trouble)",
-            },
-            {
-                "<leader>xL",
-                "<cmd>Trouble loclist toggle<cr>",
-                desc = "Location List (Trouble)",
-            },
-            {
-                "<leader>q",
-                "<cmd>Trouble qflist toggle<cr>",
-                desc = "Quickfix List (Trouble)",
-            },
-        },
+        config = function()
+            require("trouble").setup({
+                preview = {
+                    type = "float",
+                    relative = "cursor",
+                    -- position = "right",
+                    border = "rounded",
+                    size = { width = 0.5, height = 0.2 },
+                    zindex = 300
+                },
+                modes = {
+                    symbols = {
+                        focus = true,
+                        win = {
+                            type = "float",
+                            relative = "editor",
+                            border = "rounded",
+                            position = { 0.5, 0.5 },
+                            size = { width = 1, height = 1 },
+                            zindex = 200,
+                        },
+                    },
+                },
+            })
+
+            vim.keymap.set("n", "<leader>fo", function()
+                require("trouble").open("symbols")
+            end)
+
+            vim.keymap.set("n", "<leader>xx", function()
+                require("trouble").open("diagnostics")
+            end)
+        end,
     }
 }
