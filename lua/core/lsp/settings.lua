@@ -12,60 +12,22 @@ local function lsp_keymaps(client, bufnr)
 
     -- errors
     keymap('n', '<leader>e', vim.diagnostic.open_float, buf_opts)
-    keymap('n', '<leader>fe', function()
-        telescope_builtins.diagnostics(telescope_themes.get_cursor({
-            layout_config = {
-                width = function(_, _, _)
-                    return 80
-                end,
-                height = function(_, _, _)
-                    return 15
-                end,
-            },
-        }))
-    end, buf_opts)
     keymap('n', '<leader>fs', function()
         telescope_builtins.lsp_document_symbols(telescope_themes.get_ivy())
     end)
-    keymap('n', '<leader>fS', function()
-        telescope_builtins.lsp_workspace_symbols(telescope_themes.get_ivy())
-    end)
-
     -- actions
     keymap('n', '<leader>rn', vim.lsp.buf.rename, buf_opts)
     keymap('n', '<leader>a', vim.lsp.buf.code_action, buf_opts)
-    -- conform fallbacks to vim.lsp.buf.format
-    -- keymap('n', '<leader>p', vim.lsp.buf.format, buf_opts)
-
-    -- searching
-    -- keymap('n', 'gd', vim.lsp.buf.definition, buf_opts)
-    keymap('n', 'gd', function()
-        telescope_builtins.lsp_definitions(telescope_themes.get_cursor())
-    end, buf_opts)
-    keymap('n', 'gd', function()
-        telescope_builtins.lsp_definitions(telescope_themes.get_cursor())
-    end, buf_opts)
-    -- now default in v0.10
-    -- keymap('n', 'K', vim.lsp.buf.hover, buf_opts)
-    -- telesope
-    keymap('n', 'go', function()
-        telescope_builtins.lsp_outgoing_calls(telescope_themes.get_cursor())
-    end, buf_opts)
-    keymap('n', 'gi', function()
-        telescope_builtins.lsp_incoming_calls(telescope_themes.get_cursor())
-    end, buf_opts)
-    keymap('n', 'gr', function()
-        telescope_builtins.lsp_references(telescope_themes.get_cursor())
-    end, buf_opts)
-    keymap('n', 'gI', function()
-        telescope_builtins.lsp_implementations(telescope_themes.get_cursor())
-    end, buf_opts)
 end
 
-local signs = { Error = "", Warn = "", Hint = "", Info = "" }
-
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
 local function set_diagnostic_config()
+    for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    end
+
     vim.diagnostic.config({
         signs = {
             enable = true,
