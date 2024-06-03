@@ -1,10 +1,11 @@
 # Neovim
 
-### Install
+### Prerequisites
 
 - install nvim, for macOS you can run `brew install neovim`
     - run `brew install luajit` as well for neorg dependency
     - run `brew install gnu-sed` for spectre dependency
+    - run `brew install gcc-12` for neorg
 
 ### Theming
 
