@@ -1,5 +1,22 @@
 local M = {}
 
+local border = {
+    { '╭', 'FloatBorder' },
+    { '─', 'FloatBorder' },
+    { '╮', 'FloatBorder' },
+    { '│', 'FloatBorder' },
+    { '╯', 'FloatBorder' },
+    { '─', 'FloatBorder' },
+    { '╰', 'FloatBorder' },
+    { '│', 'FloatBorder' },
+}
+
+-- LSP settings (for overriding per client)
+local handlers = {
+    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+}
+
 M.setup = function()
     require('mason').setup()
 
@@ -16,6 +33,7 @@ M.setup = function()
     mason_lspconfig.setup_handlers({
         function(server_name)
             require('lspconfig')[server_name].setup({
+                handlers = handlers,
                 capabilities = settings.capabilities,
                 on_attach = settings.on_attach,
                 settings = servers[server_name],

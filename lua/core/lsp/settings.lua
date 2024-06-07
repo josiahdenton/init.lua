@@ -57,13 +57,8 @@ local function set_diagnostic_config()
                 end
                 local message = vim.split(diagnostic.message, '\n')[1]
                 return string.format('%s %s', icon, message)
-            end
-            -- prefix = function(diagnostic, i, total)
-            --     return ""
-            -- end
-            -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-            -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-            -- prefix = "icons",
+            end,
+            prefix = "",
         },
         severity_sort = true,
         underline = false,
@@ -85,7 +80,25 @@ local function setup_inlay_hints(_, bufnr)
     vim.keymap.set("n", "<leader>dh", toggle_inlay_hints)
 end
 
+local function set_auto_commands(_, bufnr)
+    -- vim.api.nvim_create_autocmd("CursorHold", {
+    --     buffer = bufnr,
+    --     callback = function()
+    --         local opts = {
+    --             focusable = false,
+    --             close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+    --             border = 'rounded',
+    --             source = 'always',
+    --             prefix = ' ',
+    --             -- scope = '...', -- line if default scope
+    --         }
+    --         vim.diagnostic.open_float(nil, opts)
+    --     end
+    -- })
+end
+
 M.on_attach = function(client, bufnr)
+    set_auto_commands(client, bufnr)
     setup_inlay_hints(client, bufnr)
     set_diagnostic_config()
     lsp_keymaps(client, bufnr)

@@ -88,7 +88,7 @@ return {
                 },
             })
             vim.keymap.set('n', 'gd', function()
-                require("trouble").open("lsp_")
+                require("trouble").open("lsp_definitions")
             end)
 
             vim.keymap.set('n', 'go', function()
