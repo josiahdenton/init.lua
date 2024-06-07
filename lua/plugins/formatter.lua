@@ -10,7 +10,7 @@ return {
                 function()
                     require("conform").format({ async = true, lsp_fallback = true })
                 end,
-                mode = "",
+                mode = { "n", "v" },
                 desc = "Format buffer",
             },
         },

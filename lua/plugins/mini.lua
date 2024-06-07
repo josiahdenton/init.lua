@@ -9,7 +9,6 @@ return {
             require("mini.pairs").setup()
             require("mini.cursorword").setup()
             require('mini.surround').setup()
-            -- require('mini.sessions').setup()
             require('mini.bracketed').setup({
                 buffer     = { suffix = 'b', options = {} },
                 comment    = { suffix = '', options = {} },
@@ -25,30 +24,6 @@ return {
                 undo       = { suffix = '', options = {} },
                 window     = { suffix = 'w', options = {} },
                 yank       = { suffix = 'y', options = {} },
-            })
-            require("mini.diff").setup({
-                view = {
-                    style = "sign",
-                    signs = { add = '+', change = '|', delete = '-' },
-                    -- signs = { add = '▒', change = '▒', delete = '▒' },
-                },
-                mappings = {
-                    -- Apply hunks inside a visual/operator region
-                    apply = 'gh',
-
-                    -- Reset hunks inside a visual/operator region
-                    reset = 'gH',
-
-                    -- Hunk range textobject to be used inside operator
-                    -- Works also in Visual mode if mapping differs from apply and reset
-                    textobject = 'gh',
-
-                    -- Go to hunk range in corresponding direction
-                    goto_first = '[C',
-                    goto_prev = '[c',
-                    goto_next = ']c',
-                    goto_last = ']C',
-                },
             })
 
             local hipatterns = require('mini.hipatterns')

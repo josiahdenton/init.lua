@@ -1,4 +1,5 @@
--- local arrows = require("icons").arrows
+-- reduce update time
+vim.o.updatetime = 250
 
 vim.g.copilot_no_tab_map = true
 -- disable copilot for buffer
@@ -53,7 +54,7 @@ vim.opt.inccommand = "split"
 -- can now use gy and gp
 -- vim.opt.clipboard = "unnamedplus"
 
-vim.opt.cursorline = true
+-- vim.opt.cursorline = true
 vim.opt.mouse = 'a'
 
 vim.opt.completeopt = 'menuone,preview'
