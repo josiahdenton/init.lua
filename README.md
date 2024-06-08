@@ -11,6 +11,8 @@
 
 This setup uses rose pine with the experimental noice UI.
 
+I use [this background](https://codeberg.org/nine_point_eight/config-files/src/branch/master/config-files/wallpapers/everforest-conifer.jpg) and iterm2 with opacity 10%
+
 ### Debugging
 
 #### Python
@@ -28,51 +30,6 @@ table.insert(require("dap").configurations.python, {
     justMyCode = false,
 })
 ```
-
-### Plugins
-
-- lazy.nvim
-- nvim-dap-ui 
-    - nvim-dap
-    - nvim-dap-python
-    - nvim-dap-go
-    - nvim-nio
-- neodev.nvim 
-- nvim-treesitter 
-- nvim-lspconfig 
-- cmp-nvim-lsp 
-    - LuaSnip 
-    - friendly-snippets 
-    - cmp-buffer 
-    - cmp-path 
-    - cmp_luasnip 
-    - nvim-cmp 
-    - lspkind.nvim 
-- mason.nvim 
-    - mason-lspconfig.nvim 
-- nvim-autopairs 
-- nvim-lint 
-- formatter.nvim 
-- fidget.nvim 
-- oil.nvim
-    - nvim-web-devicons 
-- telescope.nvim
-    - telescope-fzf-native.nvim 
-    - fzf-lua 
-- flash.nvim
-- harpoon
-- nvim-spectre 
-- neogit 
-    - diffview.nvim 
-- rose-pine 
-- gitsigns.nvim 
-- lualine.nvim
-- noice.nvim 
-    - nui.nvim 
-    - nvim-notify 
-- todo-comments.nvim 
-- zen-mode.nvim
-- plenary.nvim 
 
 ### Setup
 

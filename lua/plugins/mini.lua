@@ -85,11 +85,11 @@ return {
                 }
             )
 
-            vim.keymap.set("n", "<leader>N", function()
-                require("mini.files").open()
-            end, { desc = "MiniFiles: open cwd folder" })
+            -- vim.keymap.set("n", "<leader>N", function()
+            --     require("mini.files").open()
+            -- end, { desc = "MiniFiles: open cwd folder" })
 
-            vim.keymap.set("n", "<leader>?", function()
+            vim.keymap.set("n", "<leader>N", function()
                 require("mini.files").open(vim.api.nvim_buf_get_name(0))
             end, { desc = "MiniFiles: open relative" })
         end

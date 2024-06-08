@@ -4,6 +4,9 @@ return {
         config = function()
             require('lualine').setup({
                 sections = {
+                    -- lualine_a = {
+                    --     'buffers'
+                    -- },
                     lualine_x = {
                         {
                             require("noice").api.statusline.mode.get,
