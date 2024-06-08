@@ -1,5 +1,10 @@
 # Neovim
 
+<img width="1512" alt="image" src="https://github.com/josiahdenton/init.lua/assets/44758384/7ae5e4b1-6c49-4b88-8954-3f9dd4706907">
+<img width="1512" alt="image" src="https://github.com/josiahdenton/init.lua/assets/44758384/2d3e1488-274b-4ccb-bf7c-9a936dfbdeeb">
+<img width="1512" alt="image" src="https://github.com/josiahdenton/init.lua/assets/44758384/e45e1153-57df-4b96-b930-3452d3569a21">
+
+
 ### Prerequisites
 
 - install nvim, for macOS you can run `brew install neovim`
