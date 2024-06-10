@@ -11,7 +11,7 @@ return {
             local trim_spaces = true
 
 
-            vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm direction=float<cr>")
+            vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm direction=float<cr>", { desc = "Term: open float" })
 
             local lazygit        = Terminal:new({
                 cmd = "lazygit",
@@ -38,7 +38,7 @@ return {
             vim.keymap.set("n", "<leader>gg", lazygit_toggle, { desc = "ToggleTerm: lazygit toggle" })
             vim.keymap.set("v", "<leader>ts", function()
                 require("toggleterm").send_lines_to_terminal("single_line", trim_spaces, { args = vim.v.count })
-            end)
+            end, { desc = "Term: send line to term" })
         end
     }
 }

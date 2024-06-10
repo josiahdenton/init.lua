@@ -5,6 +5,12 @@ return {
         config = function()
             -- Default options
             require('nightfox').setup({
+                palettes = {
+                    terafox = {
+                        sel0 = "#3e4a5b", -- Popup bg, visual selection bg
+                        sel1 = "#4f6074", -- Popup sel bg, search bg
+                    }
+                },
                 options = {
                     -- Compiled file's destination location
                     transparent = true,      -- Disable setting background

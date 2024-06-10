@@ -3,8 +3,17 @@ return {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         opts = {
-            ensure_installed = { 'lua', 'rust', 'python', 'go', 'c', 'typescript', 'javascript', 'markdown', 'markdown_inline' },
-
+            ensure_installed = { 'lua',
+                'rust',
+                'python',
+                'go',
+                'c',
+                'typescript',
+                'javascript',
+                'markdown',
+                'markdown_inline',
+                'vimdoc'
+            },
             auto_install = false,
             highlight = { enable = true },
             indent = { enable = true },
@@ -65,6 +74,9 @@ return {
         config = function(_, opts)
             require('nvim-treesitter.configs').setup(opts)
             require('nvim-treesitter.install').compilers = { 'gcc-12' }
+
+            local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
+            ft_to_parser.mdx = "markdown"
         end
     }
 }

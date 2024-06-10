@@ -89,29 +89,31 @@ return {
             })
             vim.keymap.set('n', 'gd', function()
                 require("trouble").open("lsp_definitions")
-            end)
+            end, { desc = "trouble: show lsp_definitions" })
 
             vim.keymap.set('n', 'go', function()
                 require("trouble").open("lsp_outgoing_calls")
-            end)
+            end, { desc = "trouble: show lsp_outgoing_calls" })
+
             vim.keymap.set('n', 'gi', function()
                 require("trouble").open("lsp_incoming_calls")
-            end)
+            end, { desc = "trouble: show lsp_incoming_calls" })
 
             vim.keymap.set('n', 'gr', function()
                 require("trouble").open("lsp_references")
-            end)
+            end, { desc = "trouble: show lsp_references" })
+
             vim.keymap.set('n', 'gI', function()
                 require("trouble").open("lsp_implementations")
-            end)
+            end, { desc = "trouble: show lsp_implementations" })
 
             vim.keymap.set("n", "<leader>fo", function()
                 require("trouble").open("symbols")
-            end)
+            end, { desc = "trouble: show symbols" })
 
             vim.keymap.set("n", "<leader>fe", function()
                 require("trouble").open("diagnostics")
-            end)
+            end, { desc = "trouble: show diagnostics" })
         end,
     }
 }

@@ -6,6 +6,7 @@ require('install')
 require('core.set')
 require('core.remap')
 require('core.auto')
+require('core.extend')
 
 require('lazy').setup('plugins')
 

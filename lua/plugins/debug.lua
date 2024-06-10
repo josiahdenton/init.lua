@@ -24,24 +24,27 @@ return {
             -- generalized test debugging keymaps
             vim.keymap.set("n", "<leader>nr", function()
                 require("neotest").run.run()
-            end)
+            end, { desc = "Neotest: run test" })
+
             vim.keymap.set("n", "<leader>nf", function()
                 require("neotest").run.run(vim.fn.expand("%"))
-            end)
+            end, { desc = "Neotest: run file" })
+
             vim.keymap.set("n", "<leader>dm", function()
                 require("neotest").run.run({ strategy = "dap" })
-            end)
+            end, { desc = "Neotest: debug test" })
+
             vim.keymap.set("n", "<leader>df", function()
                 require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" })
-            end, { desc = "neotest: debug file" })
+            end, { desc = "Neotest: debug file" })
 
             vim.keymap.set("n", "<leader>ne", function()
                 require("neotest").output.open({ enter = true, auto_close = true })
-            end, { desc = "neotest: show test outcome" })
+            end, { desc = "Neotest: show test outcome" })
 
             vim.keymap.set("n", "<leader>no", function()
                 require("neotest").summary.toggle()
-            end, { desc = "neotest: show test summary panel" })
+            end, { desc = "Neotest: show test summary panel" })
         end
     },
     {
@@ -129,35 +132,35 @@ return {
                 }
             }
 
-            keymap('n', '<leader>n', function() dap.continue() end)
-            keymap('n', '<leader>j', function() dap.step_over() end)
-            keymap('n', '<leader>i', function() dap.step_into() end)
-            keymap('n', '<leader>r', function() dap.restart() end)
-            keymap('n', '<leader>rc', function() dap.run_to_cursor() end)
-            keymap('n', '<leader>o', function() dap.step_out() end)
-            keymap('n', '<Leader>b', function() dap.toggle_breakpoint() end)
-            keymap('n', '<Leader>B', function() dap.set_breakpoint() end)
-            keymap('n', '<leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
-            keymap('n', '<Leader>dl', function() require('dap').run_last() end)
-            keymap('n', '<Leader>dr', function() require('dap').repl.open() end)
+            keymap('n', '<leader>n', function() dap.continue() end, { desc = "DAP: continue" })
+            keymap('n', '<leader>j', function() dap.step_over() end, { desc = "DAP: step over" })
+            keymap('n', '<leader>i', function() dap.step_into() end, { desc = "DAP: step into" })
+            keymap('n', '<leader>r', function() dap.restart() end, { desc = "DAP: restart" })
+            keymap('n', '<leader>rc', function() dap.run_to_cursor() end, { desc = "DAP: run to cursor" })
+            keymap('n', '<leader>o', function() dap.step_out() end, { desc = "DAP: step out" })
+            keymap('n', '<Leader>b', function() dap.toggle_breakpoint() end, { desc = "DAP: toggle breakpoint" })
+            keymap('n', '<Leader>B', function() dap.set_breakpoint() end, { desc = "DAP: set breakpoint" })
+            keymap('n', '<leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
+                { desc = "DAP: set breakpoint with debug log" })
+            keymap('n', '<Leader>dl', function() require('dap').run_last() end, { desc = "DAP: re-run last" })
+            keymap('n', '<Leader>dr', function() require('dap').repl.open() end, { desc = "DAP: open repl" })
 
             keymap({ 'n', 'v' }, '<leader>K', function()
                 require("dapui").eval(nil, { enter = true })
-                -- require('dap.ui.widgets').hover()
-            end)
+            end, { desc = "DAP: eval variable" })
 
             keymap({ 'n', 'v' }, '<leader>dp', function()
                 require('dap.ui.widgets').preview()
-            end)
+            end, { desc = "DAP: preview value(???)" })
 
             keymap('n', '<Leader>ds', function()
                 local widgets = require('dap.ui.widgets')
                 widgets.centered_float(widgets.scopes)
-            end)
+            end, { desc = "DAP: show scopes" })
 
-            vim.keymap.set("n", "<leader>do", dapui.open)
-            vim.keymap.set("n", "<leader>de", dapui.close)
-            vim.keymap.set("n", "<leader>dt", dapui.toggle)
+            vim.keymap.set("n", "<leader>do", dapui.open, { desc = "DAP: open ui" })
+            vim.keymap.set("n", "<leader>de", dapui.close, { desc = "DAP: close ui" })
+            vim.keymap.set("n", "<leader>dt", dapui.toggle, { desc = "DAP: toggle ui" })
         end
     }
 }
