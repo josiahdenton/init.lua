@@ -11,7 +11,7 @@ return {
             local trim_spaces = true
 
 
-            vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm direction=float<cr>", { desc = "Term: open float" })
+            vim.keymap.set("n", "<leader>to", "<cmd>ToggleTerm direction=float<cr>", { desc = "Term: open float" })
 
             local lazygit        = Terminal:new({
                 cmd = "lazygit",
