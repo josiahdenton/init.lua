@@ -106,7 +106,7 @@ return {
             require("nvim-dap-virtual-text").setup({
                 display_callback = function(variable, buf, stackframe, node, options)
                     if #(variable.value) > 10 then
-                        return "..(<leader>K).."
+                        return "..."
                     end
 
                     if options.virt_text_pos == 'inline' then
