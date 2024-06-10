@@ -15,7 +15,7 @@
 ### Theming
 
 This setup uses `terafox` with the experimental noice UI.
-- I use [this background](https://codeberg.org/nine_point_eight/config-files/src/branch/master/config-files/wallpapers/everforest-conifer.jpg) and iterm2 with opacity 10%
+- I use [this background](https://codeberg.org/nine_point_eight/config-files/src/branch/master/config-files/wallpapers/everforest-conifer.jpg) and iterm2 with opacity 5%
 
 ### Debugging
 
