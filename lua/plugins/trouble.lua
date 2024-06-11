@@ -85,8 +85,23 @@ return {
                             zindex = 200,
                         },
                     },
+                    quickfix = {
+                        focus = true,
+                        win = {
+                            type = "float",
+                            relative = "editor",
+                            border = "rounded",
+                            position = { 0.5, 0.5 },
+                            size = { width = 0.5, height = 0.4 },
+                            zindex = 200,
+                        },
+                    },
                 },
             })
+            vim.keymap.set('n', 'fq', function()
+                require("trouble").open("quickfix")
+            end, { desc = "trouble: show quickfix" })
+
             vim.keymap.set('n', 'gd', function()
                 require("trouble").open("lsp_definitions")
             end, { desc = "trouble: show lsp_definitions" })

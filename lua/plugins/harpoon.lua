@@ -14,19 +14,19 @@ return {
                 harpoon:list():add()
             end, { desc = "Harpoon: file add" })
 
-            vim.keymap.set("n", "<c-n>", function()
+            vim.keymap.set("n", "<c-a>", function()
                 harpoon:list():select(1)
             end, { desc = "Harpoon: navigate to 1st" })
 
-            vim.keymap.set("n", "<c-e>", function()
+            vim.keymap.set("n", "<c-r>", function()
                 harpoon:list():select(2)
             end, { desc = "Harpoon: navigate to 2nd" })
 
-            vim.keymap.set("n", "<c-i>", function()
+            vim.keymap.set("n", "<c-s>", function()
                 harpoon:list():select(3)
             end, { desc = "Harpoon: navigate to 3rd" })
 
-            vim.keymap.set("n", "<c-o>", function()
+            vim.keymap.set("n", "<c-t>", function()
                 harpoon:list():select(4)
             end, { desc = "Harpoon: navigate to 4th" })
 

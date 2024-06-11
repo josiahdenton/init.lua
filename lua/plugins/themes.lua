@@ -13,7 +13,7 @@ return {
                 },
                 options = {
                     -- Compiled file's destination location
-                    transparent = true,      -- Disable setting background
+                    transparent = false,      -- Disable setting background
                     dim_inactive = false,    -- Non focused panes set to alternative background
                     styles = {               -- Style to be applied to different syntax groups
                         comments = "italic", -- Value is any valid attr-list value `:help attr-list`
@@ -30,20 +30,8 @@ return {
                 },
             })
 
-            vim.cmd.colorscheme("terafox")
-        end
-    },
-    {
-        'rose-pine/neovim',
-        dependencies = {
-            'nvim-tree/nvim-web-devicons'
-        },
-        name = 'rose-pine',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            -- vim.cmd.colorscheme("rose-pine-dawn")
-            -- vim.cmd.colorscheme("rose-pine-main")
+            -- vim.cmd.colorscheme("terafox")
+            vim.cmd.colorscheme("duskfox")
         end
     }
 }
