@@ -1,7 +1,13 @@
 return {
-    { 'akinsho/git-conflict.nvim', version = "*", config = true },
+    {
+        'akinsho/git-conflict.nvim',
+        event = "VeryLazy",
+        version = "*",
+        config = true,
+    },
     {
         "pwntester/octo.nvim",
+        event = "VeryLazy",
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope.nvim',
@@ -13,6 +19,7 @@ return {
     },
     {
         'lewis6991/gitsigns.nvim',
+        event = "VeryLazy",
         dependencies = {
             'nvim-lua/plenary.nvim'
         },
@@ -63,7 +70,8 @@ return {
                     map('n', '<leader>hp', gitsigns.preview_hunk, { desc = "gitsigns: preview hunk" })
                     map('n', '<leader>hb', function() gitsigns.blame_line { full = true } end,
                         { desc = "gitsigns: toggle blame" })
-                    map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = "gitsigns: toggle current line blame" })
+                    map('n', '<leader>tb', gitsigns.toggle_current_line_blame,
+                        { desc = "gitsigns: toggle current line blame" })
                     map('n', '<leader>hd', gitsigns.diffthis, { desc = "gitsigns: diff this" })
                     map('n', '<leader>hD', function() gitsigns.diffthis('~') end, { desc = "gitsigns: diff this (~)" })
                     map('n', '<leader>td', gitsigns.toggle_deleted, { desc = "gitsigns: toggle deleted" })

@@ -1,6 +1,7 @@
 return {
     {
         "nvim-neotest/neotest",
+        event = "VeryLazy",
         dependencies = {
             "nvim-neotest/nvim-nio",
             "nvim-lua/plenary.nvim",
@@ -49,6 +50,7 @@ return {
     },
     {
         'rcarriga/nvim-dap-ui',
+        event = "VeryLazy",
         dependencies = {
             'mfussenegger/nvim-dap',
             "theHamsta/nvim-dap-virtual-text",

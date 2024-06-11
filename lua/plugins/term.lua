@@ -2,6 +2,7 @@ return {
     {
         'akinsho/toggleterm.nvim',
         version = "*",
+        event = "BufEnter",
         config = function()
             require("toggleterm").setup({
                 open_mapping = "<C-S-t>"
