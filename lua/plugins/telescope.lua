@@ -84,6 +84,11 @@ return {
                 builtin.colorscheme(no_preview)
             end, {})
 
+            -- git
+            vim.keymap.set('n', '<leader>gs', function ()
+                builtin.git_bcommits(themes.get_ivy())
+            end)
+
             -- NEOCLIP
             -- search recordings in q
             vim.keymap.set('n', '<leader>fq', function()
