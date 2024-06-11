@@ -19,6 +19,13 @@ set("n", "<C-d>", "<C-d>zz", opts)
 set("v", "J", ":m '>+1<CR>gv=gv", opts)
 set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
+local next_word_by_camel_case = function()
+    -- TODO: figure out why this won't stop hi
+    local parsed = vim.api.nvim_replace_termcodes("/\\u<cr><esc>", true, false, true)
+    vim.api.nvim_feedkeys(parsed, "n", false)
+end
+set("n", "<localleader>w", next_word_by_camel_case, { desc = "go to next upper case word" })
+
 set('v', 'gx', "<CMD>silent execute '!open ' .. shellescape(expand('<cfile>'), v:true)<CR>")
 
 -- Copy/paste with system clipboard

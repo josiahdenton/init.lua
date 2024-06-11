@@ -42,3 +42,16 @@ Lazy (the package manager) will install itself if not found.
 If you want to use dap, you will need the debugger tools, such as
 - [debugpy for python](https://github.com/microsoft/debugpy)
 - [codelldb for rust](https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-(via--codelldb))
+
+### Tips and Tricks
+
+```lua
+-- a nice way to write a timer
+local timer = vim.uv.new_timer()
+timer:start(500, 0, function()
+    timer:stop()
+    vim.schedule_wrap(function ()
+        vim.cmd("nohlsearch")
+    end)
+end)
+```
