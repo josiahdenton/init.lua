@@ -1,6 +1,15 @@
 local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- nice defaults
+set({ 'n', 'x' }, 'j', [[v:count == 0 ? 'gj' : 'j']], { expr = true })
+set({ 'n', 'x' }, 'k', [[v:count == 0 ? 'gk' : 'k']], { expr = true })
+
+set({ "n", "x" }, ";", ":")
+set({ "n", "x" }, "H", "^")
+set({ "n", "x" }, "L", "$")
+set("n", "<leader>w", "<cmd>update<cr>", { desc = "save buffer" })
+
 set("v", "<", "<gv")
 set("v", ">", ">gv")
 
@@ -10,29 +19,26 @@ set("n", "<C-d>", "<C-d>zz", opts)
 set("v", "J", ":m '>+1<CR>gv=gv", opts)
 set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
-set('n', '<leader>zz', function()
-    require("zen-mode").toggle({
-        window = {
-            width = .60 -- width will be 85% of the editor width
-        }
-    })
-end, opts)
-
-
 set('v', 'gx', "<CMD>silent execute '!open ' .. shellescape(expand('<cfile>'), v:true)<CR>")
+
+-- Copy/paste with system clipboard
+set({ 'n', 'x' }, 'gy', '"+y', { desc = 'Copy to system clipboard' })
+set('n', 'gp', '"+p', { desc = 'Paste from system clipboard' })
+-- - Paste in Visual with `P` to not copy selected text (`:h v_P`)
+set('x', 'gp', '"+P', { desc = 'Paste from system clipboard' })
 
 set({ 'n' }, '<Esc>', '<CMD>nohlsearch<CR>')
 
--- set({ 'n' }, '<C-h>', '<C-w><C-h>', { desc = 'move focus to left window' })
--- set({ 'n' }, '<C-l>', '<C-w><C-l>', { desc = 'move focus to right window' })
--- set({ 'n' }, '<C-j>', '<C-w><C-j>', { desc = 'move focus to lower window' })
--- set({ 'n' }, '<C-k>', '<C-w><C-k>', { desc = 'move focus to upper window' })
+set({ 'n' }, '<C-h>', '<C-w><C-h>', { desc = 'move focus to left window' })
+set({ 'n' }, '<C-l>', '<C-w><C-l>', { desc = 'move focus to right window' })
+set({ 'n' }, '<C-j>', '<C-w><C-j>', { desc = 'move focus to lower window' })
+set({ 'n' }, '<C-k>', '<C-w><C-k>', { desc = 'move focus to upper window' })
 
 
--- set({ 'n' }, '<M-,>', '<C-w>5<')
--- set({ 'n' }, '<M-.>', '<C-w>5>')
--- set({ 'n' }, '<M-t>', '<C-w>+')
--- set({ 'n' }, '<M-s>', '<C-w>-')
+set({ 'n' }, '<M-,>', '<C-w>5<')
+set({ 'n' }, '<M-.>', '<C-w>5>')
+set({ 'n' }, '<M-t>', '<C-w>+')
+set({ 'n' }, '<M-s>', '<C-w>-')
 
 -- Easily hit escape in terminal mode.
 set("t", "<c-/>", "<c-\\><c-n>")

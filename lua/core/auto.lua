@@ -31,3 +31,11 @@
 -- })
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })
+
+vim.api.nvim_create_autocmd({ 'TextYankPost' },
+    {
+        pattern = { '*' },
+        callback = function() vim.highlight.on_yank() end,
+        desc = "Highlight yanked text"
+    }
+)
