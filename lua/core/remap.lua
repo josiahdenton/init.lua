@@ -34,7 +34,6 @@ set({ 'n' }, '<C-l>', '<C-w><C-l>', { desc = 'move focus to right window' })
 set({ 'n' }, '<C-j>', '<C-w><C-j>', { desc = 'move focus to lower window' })
 set({ 'n' }, '<C-k>', '<C-w><C-k>', { desc = 'move focus to upper window' })
 
-
 set({ 'n' }, '<M-,>', '<C-w>5<')
 set({ 'n' }, '<M-.>', '<C-w>5>')
 set({ 'n' }, '<M-t>', '<C-w>+')
