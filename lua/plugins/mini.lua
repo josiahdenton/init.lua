@@ -3,7 +3,29 @@ return {
         'echasnovski/mini.nvim',
         version = false,
         config = function()
-            require("mini.indentscope").setup()
+            require("mini.indentscope").setup({
+                symbol = "│",
+                options = { try_as_border = true },
+            })
+            -- disable indentscope for specific files...
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = {
+                    "help",
+                    "alpha",
+                    "dashboard",
+                    "neo-tree",
+                    "Trouble",
+                    "lazy",
+                    "mason",
+                    "notify",
+                    "toggleterm",
+                    "lazyterm",
+                },
+                callback = function()
+                    vim.b.miniindentscope_disable = true
+                end,
+            })
+
             require("mini.files").setup()
             require("mini.ai").setup()
             require("mini.pairs").setup()
