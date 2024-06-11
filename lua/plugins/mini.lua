@@ -7,6 +7,23 @@ return {
             require("mini.files").setup()
             require("mini.ai").setup()
             require("mini.pairs").setup()
+            local animate = require("mini.animate")
+            animate.setup({
+                scroll = {
+                    enable = true,
+                    timing = animate.gen_timing.linear({easing = "out", duration=10, unit="step"}),
+                    subscroll = animate.gen_subscroll.equal({ max_output_steps = 800 }), --<function: implements equal scroll with at most 60 steps>,
+                },
+                cursor = {
+                    enable = true,
+                    -- Timing of animation (how steps will progress in time)
+                    timing = animate.gen_timing.linear({ duration = 80, unit = "total" }), --<function: implements linear total 250ms animation duration>,
+
+                    -- Subscroll generator based on total scroll
+                    path = animate.gen_path.angle()
+                },
+            })
+
             require('mini.surround').setup()
             require('mini.bracketed').setup({
                 buffer     = { suffix = 'b', options = {} },
