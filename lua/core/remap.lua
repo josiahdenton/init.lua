@@ -13,8 +13,8 @@ set("n", "<leader>w", "<cmd>update<cr>", { desc = "save buffer" })
 set("v", "<", "<gv")
 set("v", ">", ">gv")
 
--- set("n", "<C-u>", "<C-u>zz", opts)
--- set("n", "<C-d>", "<C-d>zz", opts)
+set("n", "<C-u>", "<C-u>zz", opts)
+set("n", "<C-d>", "<C-d>zz", opts)
 
 set("v", "J", ":m '>+1<CR>gv=gv", opts)
 set("v", "K", ":m '<-2<CR>gv=gv", opts)
