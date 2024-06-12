@@ -48,56 +48,37 @@ return {
             require('telescope').load_extension('fzf')
             require('telescope').load_extension('neoclip')
 
-            -- setup key maps
             local builtin = require('telescope.builtin')
-            -- Project wide searching
-            vim.keymap.set('n', '<leader>ff', function()
-                builtin.find_files(no_preview)
+            local custom_actions = require("core.extensions.telescope").actions()
+
+            vim.keymap.set('n', '<leader>gh', function()
+                builtin.find_files(
+                    vim.tbl_extend('keep', {
+                        -- :h telescope.mappings
+                        attach_mappings = function(_, map)
+                            map("n", "<cr>", custom_actions.diff_view_file_history)
+                            map("i", "<cr>", custom_actions.diff_view_file_history)
+                            return true -- required
+                        end
+                    }, no_preview)
+                )
             end, {})
-            vim.keymap.set('n', '<leader>fg', function()
-                builtin.live_grep(no_preview)
-            end, {})
-            vim.keymap.set('n', '<leader>fb', function()
-                builtin.buffers(no_preview)
-            end, {})
-            vim.keymap.set('n', "<leader>f'", function()
-                builtin.marks(no_preview)
-            end, {})
-            -- in file searches
-            vim.keymap.set('n', '<leader>fi', function()
-                builtin.current_buffer_fuzzy_find(no_preview)
-            end, {})
-            -- text
-            vim.keymap.set('n', '<leader>ss', function()
-                builtin.spell_suggest(themes.get_cursor())
-            end, {})
-            -- Commands
-            -- vim.keymap.set('n', '<leader>fc', builtin.commands, {})
-            -- Docs
+            vim.keymap.set('n', '<leader>ff', function() builtin.find_files(no_preview) end, {})
+            vim.keymap.set('n', '<leader>fg', function() builtin.live_grep(no_preview) end, {})
+            vim.keymap.set('n', '<leader>fb', function() builtin.buffers(no_preview) end, {})
+            vim.keymap.set('n', "<leader>f'", function() builtin.marks(no_preview) end, {})
+            vim.keymap.set('n', '<leader>fi', function() builtin.current_buffer_fuzzy_find(no_preview) end, {})
+            vim.keymap.set('n', '<localleader>ss', function() builtin.spell_suggest(themes.get_cursor()) end, {})
             vim.keymap.set('n', '<leader>fm', function() builtin.man_pages({ sections = { "ALL" } }) end)
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-            vim.keymap.set('n', '<leader>hk', function()
-                builtin.keymaps(themes.get_ivy())
-            end, { desc = "Telescope: find keys" })
-            -- Other
-            vim.keymap.set('n', '<leader>cc', function()
-                builtin.colorscheme(no_preview)
-            end, {})
-
-            -- git
-            vim.keymap.set('n', '<leader>gs', function ()
-                builtin.git_bcommits(themes.get_ivy())
-            end)
-
-            -- NEOCLIP
-            -- search recordings in q
-            vim.keymap.set('n', '<leader>fq', function()
-                require('telescope').extensions.macroscope.default(no_preview)
-            end)
-            -- search all yanks
-            vim.keymap.set('n', '<leader>fy', function()
-                require('telescope').extensions.neoclip.default(themes.get_dropdown())
-            end)
+            vim.keymap.set('n', '<leader>hk', function() builtin.keymaps(themes.get_ivy()) end,
+                { desc = "Telescope: find keys" })
+            vim.keymap.set('n', '<leader>cc', function() builtin.colorscheme(no_preview) end, {})
+            vim.keymap.set('n', '<leader>gs', function() builtin.git_bcommits(themes.get_ivy()) end)
+            vim.keymap.set('n', '<leader>fq',
+                function() require('telescope').extensions.macroscope.default(no_preview) end)
+            vim.keymap.set('n', '<leader>fy',
+                function() require('telescope').extensions.neoclip.default(themes.get_dropdown()) end)
         end
     }
 }

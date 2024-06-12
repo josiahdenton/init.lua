@@ -23,12 +23,12 @@ local editing = function()
     -- - Paste in Visual with `P` to not copy selected text (`:h v_P`)
     set('x', 'gp', '"+P', { desc = 'Paste from system clipboard' })
 
-    local next_word_by_camel_case = function()
-        -- TODO: figure out why this won't stop hi
-        local parsed = vim.api.nvim_replace_termcodes("/\\u<cr><esc>", true, false, true)
-        vim.api.nvim_feedkeys(parsed, "n", false)
-    end
-    set("n", "<localleader>w", next_word_by_camel_case, { desc = "go to next upper case word" })
+    -- local next_word_by_camel_case = function()
+    --     -- TODO: figure out why this won't stop hi
+    --     local parsed = vim.api.nvim_replace_termcodes("/\\u<cr><esc>", true, false, true)
+    --     vim.api.nvim_feedkeys(parsed, "n", false)
+    -- end
+    -- set("n", "<localleader>w", next_word_by_camel_case, { desc = "go to next upper case word" })
 end
 
 local shortcuts = function()

@@ -58,7 +58,7 @@ M.setup = function()
     -- can now use gy and gp
     -- vim.opt.clipboard = "unnamedplus"
 
-    -- vim.opt.cursorline = true
+    vim.opt.cursorline = true
     vim.opt.mouse = 'a'
 
     vim.opt.undofile = true  -- enable persistent undo
