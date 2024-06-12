@@ -2,7 +2,30 @@ return {
     {
         "sindrets/diffview.nvim",
         event = "VeryLazy",
-        config = true
+        keys = {
+            {
+                "<leader>gs",
+                function()
+                    -- <cmd>set hidden<cr><cmd>DiffviewClose<cr><cmd>set nohidden<cr>
+                    if vim.g._diffview_open then
+                        -- then close it
+                        -- vim.g.hidden = true
+                        vim.cmd("DiffviewClose")
+                        -- vim.g.hidden = false
+                        vim.g._diffview_open = false
+                    else
+                        -- then open it
+                        vim.cmd("DiffviewOpen")
+                        vim.g._diffview_open = true
+                    end
+                end,
+                desc = "diffview: toggle"
+            }
+        },
+        config = function()
+            vim.g._diffview_open = false
+            require("diffview").setup()
+        end
     },
     -- {
     --     'akinsho/git-conflict.nvim',

@@ -74,7 +74,6 @@ return {
             vim.keymap.set('n', '<leader>hk', function() builtin.keymaps(themes.get_ivy()) end,
                 { desc = "Telescope: find keys" })
             vim.keymap.set('n', '<leader>cc', function() builtin.colorscheme(no_preview) end, {})
-            vim.keymap.set('n', '<leader>gs', function() builtin.git_bcommits(themes.get_ivy()) end)
             vim.keymap.set('n', '<leader>fq',
                 function() require('telescope').extensions.macroscope.default(no_preview) end)
             vim.keymap.set('n', '<leader>fy',

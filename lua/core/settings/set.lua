@@ -16,6 +16,7 @@ end
 local vim_globals = function()
     vim.g.mapleader = " "
     vim.g.maplocalleader = ","
+    vim.g.hidden = true -- explicitly set to play nice with diffview
 end
 
 M.setup = function()
@@ -71,31 +72,31 @@ M.setup = function()
         setup_neovide()
     end
 
-    vim.opt.breakindent    = true   -- Indent wrapped lines to match line start
+    vim.opt.breakindent    = true    -- Indent wrapped lines to match line start
     -- vim.opt.cursorline    = true    -- Highlight current line
-    vim.opt.linebreak      = true   -- Wrap long lines at 'breakat' (if 'wrap' is set)
-    vim.opt.number         = true   -- Show line numbers
+    vim.opt.linebreak      = true    -- Wrap long lines at 'breakat' (if 'wrap' is set)
+    vim.opt.number         = true    -- Show line numbers
     vim.opt.relativenumber = true
-    vim.opt.splitbelow     = true   -- Horizontal splits will be below
-    vim.opt.splitright     = true   -- Vertical splits will be to the right
+    vim.opt.splitbelow     = true    -- Horizontal splits will be below
+    vim.opt.splitright     = true    -- Vertical splits will be to the right
 
-    vim.opt.ruler          = false  -- Don't show cursor position in command line
-    vim.opt.showmode       = false  -- Don't show mode in command line
-    vim.opt.wrap           = false  -- Display long lines as just one line
+    vim.opt.ruler          = false   -- Don't show cursor position in command line
+    vim.opt.showmode       = false   -- Don't show mode in command line
+    vim.opt.wrap           = false   -- Display long lines as just one line
 
-    vim.opt.signcolumn     = 'yes'  -- Always show sign column (otherwise it will shift text)
+    vim.opt.signcolumn     = 'yes'   -- Always show sign column (otherwise it will shift text)
     vim.opt.fillchars      = 'eob: ' -- Don't show `~` outside of buffer
 
     -- Editing
-    vim.opt.ignorecase     = true                       -- Ignore case when searching (use `\C` to force not doing that)
-    vim.opt.incsearch      = true                       -- Show search results while typing
-    vim.opt.infercase      = true                       -- Infer letter cases for a richer built-in keyword completion
-    vim.opt.smartcase      = true                       -- Don't ignore case when searching if pattern has upper case
-    vim.opt.smartindent    = true                       -- Make indenting smart
+    vim.opt.ignorecase     = true                        -- Ignore case when searching (use `\C` to force not doing that)
+    vim.opt.incsearch      = true                        -- Show search results while typing
+    vim.opt.infercase      = true                        -- Infer letter cases for a richer built-in keyword completion
+    vim.opt.smartcase      = true                        -- Don't ignore case when searching if pattern has upper case
+    vim.opt.smartindent    = true                        -- Make indenting smart
 
     vim.opt.completeopt    = 'menuone,noinsert,noselect' -- Customize completions
-    vim.opt.virtualedit    = 'block'                    -- Allow going past the end of line in visual block mode
-    vim.opt.formatoptions  = 'qjl1'                     -- Don't autoformat comments
+    vim.opt.virtualedit    = 'block'                     -- Allow going past the end of line in visual block mode
+    vim.opt.formatoptions  = 'qjl1'                      -- Don't autoformat comments
     vim.opt.splitkeep      = 'screen'
 end
 
