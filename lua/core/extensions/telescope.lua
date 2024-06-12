@@ -2,6 +2,9 @@ local M = {}
 
 local actions_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
+local pickers = require "telescope.pickers"
+local finders = require "telescope.finders"
+local conf = require("telescope.config").values
 
 M.actions = function()
     return {
@@ -15,4 +18,29 @@ M.actions = function()
     }
 end
 
+
+
+-- our picker function: colors
+-- local filetypes = function(opts)
+--     opts = opts or {}
+--     pickers.new(opts, {
+--         prompt_title = "Open new scratch file",
+--         finder = finders.new_table {
+--             results = { 'python', 'rust', 'go', 'markdown' }
+--         },
+--         sorter = conf.generic_sorter(opts),
+--         attach_mappings = function(prompt_bufnr, _) -- (prompt_bufnr, map)
+--             actions.select_default:replace(function()
+--                 actions.close(prompt_bufnr)
+--                 local selection = actions_state.get_selected_entry()
+--                 open_scratch_with_type(selection[1])
+--             end)
+--             return true
+--         end,
+--     }):find()
+-- end
+--
+-- -- to execute the function
+-- filetypes()
+--
 return M

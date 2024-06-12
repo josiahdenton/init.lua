@@ -86,6 +86,15 @@ return {
                             zindex = 200,
                         },
                     },
+                    todo = {
+                        focus = false,
+                        win = {
+                            type = "split",
+                            relative = "win",
+                            position = "left",
+                            size = 0.2,
+                        },
+                    },
                     quickfix = {
                         focus = true,
                         win = {
@@ -99,37 +108,35 @@ return {
                     },
                 },
             })
-            vim.keymap.set('n', 'fq', function()
-                require("trouble").open("quickfix")
-            end, { desc = "trouble: show quickfix" })
+            local trouble = require("trouble")
 
-            vim.keymap.set('n', 'gd', function()
-                require("trouble").open("lsp_definitions")
-            end, { desc = "trouble: show lsp_definitions" })
+            vim.keymap.set('n', '<leader>ft', function() trouble.open("todo") end,
+                { desc = "trouble: open todo comments" })
 
-            vim.keymap.set('n', 'go', function()
-                require("trouble").open("lsp_outgoing_calls")
-            end, { desc = "trouble: show lsp_outgoing_calls" })
+            vim.keymap.set('n', '<leader>fq', function() trouble.open("quickfix") end,
+                { desc = "trouble: show quickfix" })
 
-            vim.keymap.set('n', 'gi', function()
-                require("trouble").open("lsp_incoming_calls")
-            end, { desc = "trouble: show lsp_incoming_calls" })
+            vim.keymap.set('n', 'gd', function() trouble.open("lsp_definitions") end,
+                { desc = "trouble: show lsp_definitions" })
 
-            vim.keymap.set('n', 'gr', function()
-                require("trouble").open("lsp_references")
-            end, { desc = "trouble: show lsp_references" })
+            vim.keymap.set('n', 'go', function() trouble.open("lsp_outgoing_calls") end,
+                { desc = "trouble: show lsp_outgoing_calls" })
 
-            vim.keymap.set('n', 'gI', function()
-                require("trouble").open("lsp_implementations")
-            end, { desc = "trouble: show lsp_implementations" })
+            vim.keymap.set('n', 'gi', function() trouble.open("lsp_incoming_calls") end,
+                { desc = "trouble: show lsp_incoming_calls" })
 
-            vim.keymap.set("n", "<leader>fo", function()
-                require("trouble").open("symbols")
-            end, { desc = "trouble: show symbols" })
+            vim.keymap.set('n', 'gr', function() trouble.open("lsp_references") end,
+                { desc = "trouble: show lsp_references" })
 
-            vim.keymap.set("n", "<leader>fe", function()
-                require("trouble").open("diagnostics")
-            end, { desc = "trouble: show diagnostics" })
+            vim.keymap.set('n', 'gI', function() trouble.open("lsp_implementations") end,
+                { desc = "trouble: show lsp_implementations" })
+
+            vim.keymap.set("n", "<leader>fo", function() trouble.open("symbols") end,
+                { desc = "trouble: show symbols" })
+
+            vim.keymap.set("n", "<leader>fe", function() trouble.open("diagnostics") end,
+                { desc = "trouble: show diagnostics" })
+
         end,
     }
 }

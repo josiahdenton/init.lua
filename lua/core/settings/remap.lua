@@ -47,6 +47,11 @@ local windows = function()
     set({ 'n' }, '<M-s>', '<C-w>-')
 end
 
+local custom = function()
+    local scratch = require("core.extensions.scratch")
+    set('n', '<leader>sw', scratch.open_scratch_markdown, { desc = 'open scratch markdown split' })
+end
+
 local external = function()
     set('v', 'gx', "<CMD>silent execute '!open ' .. shellescape(expand('<cfile>'), v:true)<CR>")
     set("t", "<c-/>", "<c-\\><c-n>")
@@ -58,6 +63,7 @@ M.setup = function()
     shortcuts()
     windows()
     external()
+    custom()
 end
 
 return M
