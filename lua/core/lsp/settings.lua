@@ -20,9 +20,9 @@ local function lsp_keymaps(client, bufnr)
     keymap('n', '<leader>a', vim.lsp.buf.code_action, buf_opts)
 end
 
-local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
 local function set_diagnostic_config()
+    local signs = require("core.ui.symbols").lsp_signs()
     for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })

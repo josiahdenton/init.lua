@@ -26,10 +26,10 @@ M.setup = function()
             ['<C-f>'] = cmp.mapping.scroll_docs(4),
             ['/'] = cmp.mapping.close(),
             ['<C-Space>'] = cmp.mapping.complete {},
-            ['<CR>'] = cmp.mapping.confirm {
-                behavior = cmp.ConfirmBehavior.Replace,
-                select = true,
-            },
+            -- ['<CR>'] = cmp.mapping.confirm { -- will rely on C-y for this...
+            --     behavior = cmp.ConfirmBehavior.Replace,
+            --     select = true,
+            -- },
             ['<Tab>'] = cmp.mapping(function(fallback)
                 -- local copilot = require('copilot.suggestion')
 
@@ -55,6 +55,7 @@ M.setup = function()
             end, { 'i', 's' }),
         },
         sources = cmp.config.sources({
+            { name = "lazydev", group_index = 0 }, -- set group index to 0 to skip loading LuaLS completions
             { name = 'nvim_lsp' },
             { name = 'luasnip' },
             { name = 'buffer' },

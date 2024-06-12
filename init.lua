@@ -3,10 +3,11 @@ vim.g.loaded_netrwPlugin = 1
 
 require('install')
 
-require('core.set')
-require('core.remap')
-require('core.auto')
-require('core.extend')
+-- require('core.set')
+-- require('core.remap')
+-- require('core.auto')
+-- require('core.extend')
+require('core.settings')
 
 require('lazy').setup('plugins')
 

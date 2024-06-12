@@ -1,20 +1,10 @@
 local M = {}
 
-local border = {
-    { '╭', 'FloatBorder' },
-    { '─', 'FloatBorder' },
-    { '╮', 'FloatBorder' },
-    { '│', 'FloatBorder' },
-    { '╯', 'FloatBorder' },
-    { '─', 'FloatBorder' },
-    { '╰', 'FloatBorder' },
-    { '│', 'FloatBorder' },
-}
-
+local ui = require("core.ui.style")
 -- LSP settings (for overriding per client)
 local handlers = {
-    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = ui.rounded_border() }),
+    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = ui.rounded_border() }),
 }
 
 M.setup = function()
@@ -40,14 +30,6 @@ M.setup = function()
                 filetypes = (servers[server_name] or {}).filetypes
             })
         end,
-        -- ['rust_analyzer'] = function()
-        --     local rt = require('rust-tools')
-        --     rt.setup({
-        --         server = {
-        --             on_attach = settings.on_attach_rt(rt)
-        --         },
-        --     })
-        -- end
     })
 end
 

@@ -3,7 +3,7 @@ return {
         "rose-pine/neovim",
         name = "rose-pine",
         config = function()
-            -- vim.cmd.colorscheme("rose-pine-main")
+            vim.cmd.colorscheme("rose-pine-main")
         end
     },
     {
@@ -42,7 +42,7 @@ return {
                     blend = 0.9,
                 },
             })
-            require('nordic').load()
+            -- require('nordic').load()
         end
     },
     {
