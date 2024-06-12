@@ -66,11 +66,14 @@ return {
                     },
                     diagnostics = {
                         focus = true,
+                        filter = { buf = 0 },
                         win = {
-                            type = "split",
-                            relative = "win",
-                            position = "left",
-                            size = 0.2,
+                            type = "float",
+                            relative = "editor",
+                            border = "rounded",
+                            position = { 0.5, 0.5 },
+                            size = { width = 0.5, height = 0.4 },
+                            zindex = 200,
                         },
                     },
                     symbols = {
@@ -134,7 +137,6 @@ return {
 
             vim.keymap.set("n", "<leader>fe", function() trouble.open("diagnostics") end,
                 { desc = "trouble: show diagnostics" })
-
         end,
     }
 }

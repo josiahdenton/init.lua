@@ -54,6 +54,7 @@ return {
             vim.keymap.set('n', '<leader>gh', function()
                 builtin.find_files(
                     vim.tbl_extend('keep', {
+                        prompt_title = "Git File History",
                         -- :h telescope.mappings
                         attach_mappings = function(_, map)
                             map("n", "<cr>", custom_actions.diff_view_file_history)
@@ -74,8 +75,6 @@ return {
             vim.keymap.set('n', '<leader>hk', function() builtin.keymaps(themes.get_ivy()) end,
                 { desc = "Telescope: find keys" })
             vim.keymap.set('n', '<leader>cc', function() builtin.colorscheme(no_preview) end, {})
-            vim.keymap.set('n', '<leader>fq',
-                function() require('telescope').extensions.macroscope.default(no_preview) end)
             vim.keymap.set('n', '<leader>fy',
                 function() require('telescope').extensions.neoclip.default(themes.get_dropdown()) end)
         end
