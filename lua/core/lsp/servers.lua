@@ -4,7 +4,7 @@ M.lua_ls = {
     Lua = {
         workspace = { checkThirdParty = false },
         telemetry = { enable = false },
-    }
+    },
 }
 
 M.gopls = {
@@ -12,8 +12,8 @@ M.gopls = {
         hints = {
             constantValues = true,
             parameterNames = true,
-            functionTypeParameters = true
-        }
+            functionTypeParameters = true,
+        },
     },
 }
 
@@ -23,11 +23,11 @@ M.yamlls = {
     yaml = {
         validate = false,
         format = {
-            enable = true
+            enable = true,
         },
         hover = true,
-        completion = true
-    }
+        completion = true,
+    },
 }
 
 return M

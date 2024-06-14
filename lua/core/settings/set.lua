@@ -10,7 +10,7 @@ local setup_neovide = function()
     vim.o.guifont = "GeistMono Nerd Font Mono"
     vim.g.neovide_transparency = 0.8
     vim.g.neovide_scale_factor = 1.2
-    vim.g.neovide_theme = 'auto'
+    vim.g.neovide_theme = "auto"
 end
 
 local vim_globals = function()
@@ -33,7 +33,7 @@ M.setup = function()
     vim.opt.expandtab = true
 
     vim.opt.scrolloff = 10
-    vim.opt.signcolumn = 'yes'
+    vim.opt.signcolumn = "yes"
 
     vim.opt.termguicolors = true
 
@@ -42,11 +42,11 @@ M.setup = function()
     -- vim.opt.listchars = { space = '⋅', trail = '⋅', tab = '>-' }
 
     -- Folding.
-    vim.o.foldcolumn = '0' -- set to display fold symbols
+    vim.o.foldcolumn = "0" -- set to display fold symbols
     vim.o.foldlevelstart = 99
-    vim.o.foldmethod = 'expr'
-    vim.wo.foldtext = ''
-    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.o.foldmethod = "expr"
+    vim.wo.foldtext = ""
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
     -- UI characters.
     vim.opt.fillchars = ui.fold_chars()
@@ -60,11 +60,11 @@ M.setup = function()
     -- vim.opt.clipboard = "unnamedplus"
 
     vim.opt.cursorline = true
-    vim.opt.mouse = 'a'
+    vim.opt.mouse = "a"
 
-    vim.opt.undofile = true  -- enable persistent undo
+    vim.opt.undofile = true -- enable persistent undo
 
-    vim.opt.exrc = true      -- allow for .nvim.lua files per workspace
+    vim.opt.exrc = true -- allow for .nvim.lua files per workspace
 
     vim.g.c_syntax_for_h = 1 -- `.h` files are `c` instead of `cpp`
 
@@ -72,32 +72,32 @@ M.setup = function()
         setup_neovide()
     end
 
-    vim.opt.breakindent    = true    -- Indent wrapped lines to match line start
+    vim.opt.breakindent = true -- Indent wrapped lines to match line start
     -- vim.opt.cursorline    = true    -- Highlight current line
-    vim.opt.linebreak      = true    -- Wrap long lines at 'breakat' (if 'wrap' is set)
-    vim.opt.number         = true    -- Show line numbers
+    vim.opt.linebreak = true -- Wrap long lines at 'breakat' (if 'wrap' is set)
+    vim.opt.number = true -- Show line numbers
     vim.opt.relativenumber = true
-    vim.opt.splitbelow     = true    -- Horizontal splits will be below
-    vim.opt.splitright     = true    -- Vertical splits will be to the right
+    vim.opt.splitbelow = true -- Horizontal splits will be below
+    vim.opt.splitright = true -- Vertical splits will be to the right
 
-    vim.opt.ruler          = false   -- Don't show cursor position in command line
-    vim.opt.showmode       = false   -- Don't show mode in command line
-    vim.opt.wrap           = false   -- Display long lines as just one line
+    vim.opt.ruler = false -- Don't show cursor position in command line
+    vim.opt.showmode = false -- Don't show mode in command line
+    vim.opt.wrap = false -- Display long lines as just one line
 
-    vim.opt.signcolumn     = 'yes'   -- Always show sign column (otherwise it will shift text)
-    vim.opt.fillchars      = 'eob: ' -- Don't show `~` outside of buffer
+    vim.opt.signcolumn = "yes" -- Always show sign column (otherwise it will shift text)
+    vim.opt.fillchars = "eob: " -- Don't show `~` outside of buffer
 
     -- Editing
-    vim.opt.ignorecase     = true                        -- Ignore case when searching (use `\C` to force not doing that)
-    vim.opt.incsearch      = true                        -- Show search results while typing
-    vim.opt.infercase      = true                        -- Infer letter cases for a richer built-in keyword completion
-    vim.opt.smartcase      = true                        -- Don't ignore case when searching if pattern has upper case
-    vim.opt.smartindent    = true                        -- Make indenting smart
+    vim.opt.ignorecase = true -- Ignore case when searching (use `\C` to force not doing that)
+    vim.opt.incsearch = true -- Show search results while typing
+    vim.opt.infercase = true -- Infer letter cases for a richer built-in keyword completion
+    vim.opt.smartcase = true -- Don't ignore case when searching if pattern has upper case
+    vim.opt.smartindent = true -- Make indenting smart
 
-    vim.opt.completeopt    = 'menuone,noinsert,noselect' -- Customize completions
-    vim.opt.virtualedit    = 'block'                     -- Allow going past the end of line in visual block mode
-    vim.opt.formatoptions  = 'qjl1'                      -- Don't autoformat comments
-    vim.opt.splitkeep      = 'screen'
+    vim.opt.completeopt = "menuone,noinsert,noselect" -- Customize completions
+    vim.opt.virtualedit = "block" -- Allow going past the end of line in visual block mode
+    vim.opt.formatoptions = "qjl1" -- Don't autoformat comments
+    vim.opt.splitkeep = "screen"
 end
 
 return M

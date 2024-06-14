@@ -1,6 +1,6 @@
 return {
     {
-        'echasnovski/mini.nvim',
+        "echasnovski/mini.nvim",
         version = false,
         config = function()
             require("mini.indentscope").setup({
@@ -29,24 +29,24 @@ return {
             require("mini.files").setup()
             require("mini.ai").setup()
             require("mini.pairs").setup()
-            require('mini.bracketed').setup({
-                buffer     = { suffix = 'b', options = {} },
-                comment    = { suffix = '', options = {} },
-                conflict   = { suffix = 'x', options = {} },
-                diagnostic = { suffix = 'd', options = {} },
-                file       = { suffix = 'f', options = {} },
-                indent     = { suffix = 'i', options = {} },
-                jump       = { suffix = 'j', options = {} },
-                location   = { suffix = 'l', options = {} },
-                oldfile    = { suffix = 'o', options = {} },
-                quickfix   = { suffix = 'q', options = {} },
-                treesitter = { suffix = 't', options = {} },
-                undo       = { suffix = '', options = {} },
-                window     = { suffix = 'w', options = {} },
-                yank       = { suffix = 'y', options = {} },
+            require("mini.bracketed").setup({
+                buffer = { suffix = "b", options = {} },
+                comment = { suffix = "", options = {} },
+                conflict = { suffix = "x", options = {} },
+                diagnostic = { suffix = "d", options = {} },
+                file = { suffix = "f", options = {} },
+                indent = { suffix = "i", options = {} },
+                jump = { suffix = "j", options = {} },
+                location = { suffix = "l", options = {} },
+                oldfile = { suffix = "o", options = {} },
+                quickfix = { suffix = "q", options = {} },
+                treesitter = { suffix = "t", options = {} },
+                undo = { suffix = "", options = {} },
+                window = { suffix = "w", options = {} },
+                yank = { suffix = "y", options = {} },
             })
 
-            local hipatterns = require('mini.hipatterns')
+            local hipatterns = require("mini.hipatterns")
             hipatterns.setup({
                 highlighters = {
                     -- this is just folke's todo plugin but with no search
@@ -64,6 +64,6 @@ return {
             vim.keymap.set("n", "<leader>N", function()
                 require("mini.files").open(vim.api.nvim_buf_get_name(0))
             end, { desc = "MiniFiles: open relative" })
-        end
-    }
+        end,
+    },
 }

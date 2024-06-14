@@ -38,6 +38,6 @@ return {
             vim.keymap.set("n", "<c-m>", function()
                 harpoon.ui:toggle_quick_menu(harpoon:list())
             end, { desc = "Harpoon: toggle list" })
-        end
-    }
+        end,
+    },
 }

@@ -2,8 +2,8 @@ local M = {}
 
 local actions_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
-local pickers = require "telescope.pickers"
-local finders = require "telescope.finders"
+local pickers = require("telescope.pickers")
+local finders = require("telescope.finders")
 local conf = require("telescope.config").values
 
 M.actions = function()
@@ -12,13 +12,11 @@ M.actions = function()
             local selected_entry = actions_state.get_selected_entry()
             local cmd = "<cmd>DiffviewFileHistory " .. selected_entry[1] .. "<cr>"
             local parsed = vim.api.nvim_replace_termcodes(cmd, true, false, true)
-            vim.api.nvim_feedkeys(parsed, 'n', false)
+            vim.api.nvim_feedkeys(parsed, "n", false)
             actions.close(prompt_bufnr)
-        end
+        end,
     }
 end
-
-
 
 -- our picker function: colors
 -- local filetypes = function(opts)

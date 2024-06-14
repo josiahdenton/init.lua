@@ -3,23 +3,22 @@ local keymap = vim.keymap.set
 
 -- TODO: check if this line will do anything
 -- local def_capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = require('cmp_nvim_lsp').default_capabilities()
+M.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local function lsp_keymaps(client, bufnr)
     local buf_opts = { buffer = bufnr, silent = true }
-    local telescope_builtins = require('telescope.builtin')
-    local telescope_themes = require('telescope.themes')
+    local telescope_builtins = require("telescope.builtin")
+    local telescope_themes = require("telescope.themes")
 
     -- errors
-    keymap('n', '<leader>e', vim.diagnostic.open_float, buf_opts)
-    keymap('n', '<leader>fs', function()
+    keymap("n", "<leader>e", vim.diagnostic.open_float, buf_opts)
+    keymap("n", "<leader>fs", function()
         telescope_builtins.lsp_document_symbols(telescope_themes.get_ivy())
     end)
     -- actions
-    keymap('n', '<leader>rn', vim.lsp.buf.rename, buf_opts)
-    keymap('n', '<leader>a', vim.lsp.buf.code_action, buf_opts)
+    keymap("n", "<leader>rn", vim.lsp.buf.rename, buf_opts)
+    keymap("n", "<leader>a", vim.lsp.buf.code_action, buf_opts)
 end
-
 
 local function set_diagnostic_config()
     local signs = require("core.ui.symbols").lsp_signs()
@@ -36,13 +35,13 @@ local function set_diagnostic_config()
                 ["WARN"] = signs.Warn,
                 ["HINT"] = signs.Hint,
                 ["INFO"] = signs.Info,
-            }
+            },
         },
         virtual_text = {
             spacing = 4,
             source = "if_many",
             format = function(diagnostic)
-                local icon = ''
+                local icon = ""
                 if diagnostic.severity == vim.diagnostic.severity.ERROR then
                     icon = signs.Error
                 end
@@ -55,8 +54,8 @@ local function set_diagnostic_config()
                 if diagnostic.severity == vim.diagnostic.severity.HINT then
                     icon = signs.Hint
                 end
-                local message = vim.split(diagnostic.message, '\n')[1]
-                return string.format('%s %s', icon, message)
+                local message = vim.split(diagnostic.message, "\n")[1]
+                return string.format("%s %s", icon, message)
             end,
             prefix = "",
         },
@@ -64,10 +63,10 @@ local function set_diagnostic_config()
         underline = false,
         float = {
             -- style = 'minimal',
-            border = 'rounded',
+            border = "rounded",
             source = true,
-            header = '',
-            prefix = '',
+            header = "",
+            prefix = "",
         },
     })
 end

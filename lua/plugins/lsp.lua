@@ -1,15 +1,15 @@
 return {
     -- LSP Configuration & Plugins
     {
-        'neovim/nvim-lspconfig',
+        "neovim/nvim-lspconfig",
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
-            { 'williamboman/mason.nvim', config = true },
-            'williamboman/mason-lspconfig.nvim',
+            { "williamboman/mason.nvim", config = true },
+            "williamboman/mason-lspconfig.nvim",
 
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
+            { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 
             -- Additional lua configuration, makes nvim stuff amazing!
             -- 'folke/neodev.nvim',
@@ -29,7 +29,7 @@ return {
     },
     -- Autocompletion
     {
-        'hrsh7th/nvim-cmp',
+        "hrsh7th/nvim-cmp",
         dependencies = {
             -- Snippet Engine & its associated nvim-cmp source
             -- 'L3MON4D3/LuaSnip',
@@ -38,20 +38,20 @@ return {
                 -- follow latest release.
                 version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
                 -- install jsregexp (optional!).
-                build = "make install_jsregexp"
+                build = "make install_jsregexp",
             },
-            'saadparwaiz1/cmp_luasnip',
+            "saadparwaiz1/cmp_luasnip",
 
             -- Adds LSP completion capabilities
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-buffer',
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
 
             -- Adds a number of user-friendly snippets
-            'rafamadriz/friendly-snippets',
+            "rafamadriz/friendly-snippets",
 
             -- symbols in completion menu
-            'onsails/lspkind.nvim'
+            "onsails/lspkind.nvim",
         },
     },
 }

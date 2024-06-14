@@ -1,8 +1,8 @@
 return {
     {
-        'nvim-lualine/lualine.nvim',
+        "nvim-lualine/lualine.nvim",
         config = function()
-            require('lualine').setup({
+            require("lualine").setup({
                 sections = {
                     -- lualine_a = {
                     --     'buffers'
@@ -21,17 +21,16 @@ return {
                     },
                 },
                 options = {
-                    theme = 'auto',
+                    theme = "auto",
                 },
                 winbar = {
                     lualine_c = {
                         "navic",
                         color_correction = nil,
-                        navic_opts = nil
-                    }
-                }
+                        navic_opts = nil,
+                    },
+                },
             })
-        end
-    }
-
+        end,
+    },
 }

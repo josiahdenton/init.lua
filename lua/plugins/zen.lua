@@ -3,7 +3,7 @@ return {
         "folke/zen-mode.nvim",
         event = "VeryLazy",
         dependencies = {
-            "folke/twilight.nvim"
+            "folke/twilight.nvim",
         },
         config = function()
             require("twilight").setup({
@@ -15,18 +15,17 @@ return {
                     "function",
                     "method",
                     "table",
-                    "if_statement"
-                }
+                    "if_statement",
+                },
             })
 
-            vim.keymap.set('n', '<leader>zz', function()
+            vim.keymap.set("n", "<leader>zz", function()
                 require("zen-mode").toggle({
                     window = {
-                        width = .60     -- width will be 85% of the editor width
-                    }
+                        width = 0.60, -- width will be 85% of the editor width
+                    },
                 })
-            end, { noremap = true, silent = true }
-            )
-        end
-    }
+            end, { noremap = true, silent = true })
+        end,
+    },
 }

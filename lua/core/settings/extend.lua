@@ -3,8 +3,8 @@ local M = {}
 M.setup = function()
     vim.filetype.add({
         extension = {
-            mdx = "mdx"
-        }
+            mdx = "mdx",
+        },
     })
 end
 
