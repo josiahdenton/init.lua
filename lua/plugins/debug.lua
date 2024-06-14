@@ -86,7 +86,10 @@ return {
                         position = "left",
                     },
                     {
-                        elements = { "console" },
+                        elements = {
+                            { id = "console", size = 0.5 },
+                            { id = "breakpoints", size = 0.5 },
+                        },
                         position = "bottom",
                         size = 15,
                     },
