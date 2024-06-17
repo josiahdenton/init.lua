@@ -48,7 +48,7 @@ return {
                 on_open = function(win) end,
                 -- callback where you can add custom code when the Zen window closes
                 on_close = function() -- if zen-mode is open, try closing everything after closing zen float
-                    vim.api.nvim_feedkeys("ZQ", "n", false)
+                    -- vim.api.nvim_feedkeys("ZQ", "n", false) -- can't do this (some things break this...)
                 end,
             })
 
