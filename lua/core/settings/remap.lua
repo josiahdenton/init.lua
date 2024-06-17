@@ -49,7 +49,23 @@ end
 
 local custom = function()
     local scratch = require("core.extensions.scratch")
-    set("n", "<leader>sw", scratch.open_scratch_markdown, { desc = "open scratch markdown split" })
+    set("n", "<leader>sw", scratch.open_tasks_buffer, { desc = "open scratch markdown split" })
+
+    -- simple zen mode
+    -- TODO: fix zen with telescope buffers, may need to create auto command group?
+    vim.g._zen_mode_active = false
+    local prev_num_width = vim.o.numberwidth
+    local toggle_zen_mode = function()
+        if vim.g._zen_mode_active then
+            vim.g._zen_mode_active = false
+            vim.o.numberwidth = prev_num_width
+        else
+            vim.g._zen_mode_active = true
+            vim.o.numberwidth = 20
+        end
+    end
+
+    set("n", "<leader>zz", toggle_zen_mode, { desc = "" })
 end
 
 local external = function()

@@ -6,7 +6,8 @@ return {
     },
     {
         "nvim-neorg/neorg",
-        event = "BufEnter *.norg",
+        -- event = "BufEnter *.norg",
+        event = "VeryLazy", -- must load to get Neorg workspace command
         dependencies = { "luarocks.nvim" },
         lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
         version = "*", -- Pin Neorg to the latest stable release
@@ -15,8 +16,19 @@ return {
                 load = {
                     ["core.defaults"] = {},
                     ["core.concealer"] = {},
+                    ["core.dirman"] = {
+                        config = {
+                            workspaces = {
+                                notes = "~/notes", -- Format: <name_of_workspace> = <path_to_workspace_root>
+                            },
+                            index = "index.norg", -- The name of the main (root) .norg file
+                        },
+                    },
                 },
             })
+            vim.keymap.set("n", "<leader>?", function()
+                vim.cmd("Neorg workspace notes")
+            end, { desc = "Neorg: open notes workspace" })
         end,
     },
 }

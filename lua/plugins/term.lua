@@ -13,6 +13,8 @@ return {
 
             vim.keymap.set("n", "<leader>to", "<cmd>ToggleTerm direction=float<cr>", { desc = "Term: open float" })
 
+            -- vim.keymap.set("n", "<leader>tl", "<cmd>ToggleTerm direction=left<cr>", { desc = "Term: open left" })
+
             local lazygit = Terminal:new({
                 cmd = "lazygit",
                 dir = "git_dir",

@@ -4,7 +4,7 @@ return {
         event = "VeryLazy",
         keys = {
             {
-                "<leader>gs",
+                "<leader>dt",
                 function()
                     -- <cmd>set hidden<cr><cmd>DiffviewClose<cr><cmd>set nohidden<cr>
                     if vim.g._diffview_open then

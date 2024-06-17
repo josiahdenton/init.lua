@@ -186,7 +186,7 @@ return {
 
             vim.keymap.set("n", "<leader>do", dapui.open, { desc = "DAP: open ui" })
             vim.keymap.set("n", "<leader>de", dapui.close, { desc = "DAP: close ui" })
-            vim.keymap.set("n", "<leader>dt", dapui.toggle, { desc = "DAP: toggle ui" })
+            -- vim.keymap.set("n", "<leader>dt", dapui.toggle, { desc = "DAP: toggle ui" })
         end,
     },
 }

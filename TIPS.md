@@ -8,4 +8,6 @@
 
 read commands via `:help g`
 
+### DAP
 
+- debug log found at `~/.cache/nvim/dap.log`
