@@ -43,22 +43,22 @@ M.setup = function()
         desc = "Highlight yanked text",
     })
 
-    vim.api.nvim_create_autocmd({ "VimEnter", "InsertLeave" }, {
-        pattern = "*",
-        callback = function()
-            vim.opt.number = true
-            vim.opt.relativenumber = true
-        end,
-    })
-
-    vim.api.nvim_create_autocmd({ "InsertEnter" }, {
-        pattern = "*",
-        callback = function()
-            vim.opt.number = true
-            vim.opt.relativenumber = false
-        end,
-    })
-
+    -- vim.api.nvim_create_autocmd({ "VimEnter", "InsertLeave" }, {
+    --     pattern = "*",
+    --     callback = function()
+    --         vim.opt.number = true
+    --         vim.opt.relativenumber = true
+    --     end,
+    -- })
+    --
+    -- vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+    --     pattern = "*",
+    --     callback = function()
+    --         vim.opt.number = true
+    --         vim.opt.relativenumber = false
+    --     end,
+    -- })
+    --
     -- didn't work very well :(
     -- local min_cursor_group = vim.api.nvim_create_augroup("MinimalCursorLine", { clear = true })
     -- vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
