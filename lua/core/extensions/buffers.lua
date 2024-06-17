@@ -1,10 +1,49 @@
 local M = {}
 
--- TODO: the next step is to create a "scratches" dir with
--- a list of scratch files and allow the user to choose
--- which type of scratch they would like (python / lua / etc)
--- and then create that file
-M.open_tasks_buffer = function()
+-- example of persisting buffer id then closing it...
+-- local id = vim.api.nvim_create_augroup("startup", {
+--   clear = false
+-- })
+--
+-- local persistbuffer = function(bufnr)
+--   bufnr = bufnr or vim.api.nvim_get_current_buf()
+--   vim.fn.setbufvar(bufnr, 'bufpersist', 1)
+-- end
+--
+-- vim.api.nvim_create_autocmd({"BufRead"}, {
+--   group = id,
+--   pattern = {"*"},
+--   callback = function()
+--     vim.api.nvim_create_autocmd({"InsertEnter","BufModifiedSet"}, {
+--       buffer = 0,
+--       once = true,
+--       callback = function()
+--         persistbuffer()
+--       end
+--     })
+--   end
+-- })
+--
+-- vim.keymap.set('n', '<Leader>b',
+--   function()
+--     local curbufnr = vim.api.nvim_get_current_buf()
+--     local buflist = vim.api.nvim_list_bufs()
+--     for _, bufnr in ipairs(buflist) do
+--       if vim.bo[bufnr].buflisted and bufnr ~= curbufnr and (vim.fn.getbufvar(bufnr, 'bufpersist') ~= 1) then
+--         vim.cmd('bd ' .. tostring(bufnr))
+--       end
+--     end
+--   end, { silent = true, desc = 'Close unused buffers' })
+--
+-- TODO: enable this to toggle the task list buffer!
+-- use the example above to track bufnr
+
+-- local bufnr = -1
+M.toggle_tasks_buffer = function()
+    -- if bufnr > 0 then -- created, now close it
+    --     vim.cmd('bd ' .. tostring(bufnr))
+    --     bufnr = -1
+    -- end
     -- io.open
     -- io.write
     -- io.close
