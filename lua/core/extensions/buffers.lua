@@ -38,7 +38,7 @@ local M = {}
 -- TODO: enable this to toggle the task list buffer!
 -- use the example above to track bufnr
 
--- local bufnr = -1
+local bufnr = -1
 M.toggle_tasks_buffer = function()
     -- if bufnr > 0 then -- created, now close it
     --     vim.cmd('bd ' .. tostring(bufnr))
@@ -51,7 +51,9 @@ M.toggle_tasks_buffer = function()
     -- 5.1  Basic Functions                                           *lua-lib-core*
     -- 5.7, 5.8
     local win = vim.api.nvim_get_current_win()
-    local bufnr = vim.api.nvim_create_buf(true, true) -- create a new scratch buffer to throwaway
+    if bufnr < 0 then
+        bufnr = vim.api.nvim_create_buf(true, true) -- create a new scratch buffer to throwaway
+    end
 
     -- vim.api.nvim_win_set_buf(win, bufnr)
     -- vim.lsp.buf_attach_client
@@ -66,7 +68,8 @@ M.toggle_tasks_buffer = function()
         width = 40,
     })
     vim.api.nvim_buf_call(bufnr, function()
-        vim.cmd("Neorg workspace notes")
+        -- vim.cmd("Neorg workspace notes")
+        vim.cmd("e ~/notes/index.norg")
     end)
 end
 
