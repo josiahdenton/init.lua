@@ -65,7 +65,7 @@ M.toggle_tasks_buffer = function()
     vim.api.nvim_open_win(bufnr, false, { -- create a new split in the current window and put the new buffer in that win
         split = "left",
         win = win,
-        width = 40,
+        width = 60,
     })
     vim.api.nvim_buf_call(bufnr, function()
         -- vim.cmd("Neorg workspace notes")

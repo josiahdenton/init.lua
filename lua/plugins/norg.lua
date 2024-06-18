@@ -26,9 +26,9 @@ return {
                     },
                 },
             })
-            -- vim.keymap.set("n", "<leader>?", function()
-            --     vim.cmd("Neorg workspace notes")
-            -- end, { desc = "Neorg: open notes workspace" })
+            vim.keymap.set("n", "<leader>?", function()
+                vim.cmd("Neorg workspace notes")
+            end, { desc = "Neorg: open notes workspace" })
         end,
     },
 }

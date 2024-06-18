@@ -4,22 +4,23 @@ return {
         version = "*",
         config = function()
             require("no-neck-pain").setup({
-                buffers = {
-                    scratchPad = {
-                        -- set to `false` to
-                        -- disable auto-saving
-                        enabled = true,
-                        -- set to `nil` to default
-                        -- to current working directory
-                        location = nil, --  "~/notes/",
-                    },
-                    bo = {
-                        filetype = "md",
-                    },
-                    right = {
-                        enabled = false,
-                    },
-                },
+                width = 140
+                -- buffers = {
+                --     scratchPad = {
+                --         -- set to `false` to
+                --         -- disable auto-saving
+                --         enabled = true,
+                --         -- set to `nil` to default
+                --         -- to current working directory
+                --         location = nil, --  "~/notes/",
+                --     },
+                --     bo = {
+                --         filetype = "md",
+                --     },
+                --     right = {
+                --         enabled = false,
+                --     },
+                -- },
             })
 
             vim.keymap.set("n", "<leader>zz", function()
