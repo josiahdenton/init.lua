@@ -3,7 +3,7 @@ return {
         "rose-pine/neovim",
         name = "rose-pine",
         config = function()
-            -- vim.cmd.colorscheme("rose-pine-dawn")
+            vim.cmd.colorscheme("rose-pine-dawn")
         end,
     },
     {
@@ -48,7 +48,8 @@ return {
                     highlights["@boolean"] = { fg = "#F7768E" }
                 end,
             })
-            vim.cmd.colorscheme("tokyonight-night")
+
+            -- vim.cmd.colorscheme("tokyonight-night")
         end,
     },
 }

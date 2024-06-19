@@ -25,6 +25,38 @@ return {
                     vim.b.miniindentscope_disable = true
                 end,
             })
+
+            local mini_diff = require("mini.diff")
+            mini_diff.setup({
+                view = {
+                    style = "sign",
+                    -- add sign options: ┃
+                    signs = { add = "+", change = "~", delete = "" },
+                    -- signs = { add = '▒', change = '▒', delete = '▒' },
+                },
+                mappings = {
+                    -- Apply hunks inside a visual/operator region
+                    apply = "gh",
+
+                    -- Reset hunks inside a visual/operator region
+                    reset = "gH",
+
+                    -- Hunk range textobject to be used inside operator
+                    -- Works also in Visual mode if mapping differs from apply and reset
+                    textobject = "gh",
+
+                    -- Go to hunk range in corresponding direction
+                    goto_first = "[C",
+                    goto_prev = "[c",
+                    goto_next = "]c",
+                    goto_last = "]C",
+                },
+            })
+
+            vim.keymap.set("n", "<leader>gd", function ()
+                mini_diff.toggle_overlay(0)
+            end)
+
             local mini_git = require("mini.git")
             mini_git.setup()
 
