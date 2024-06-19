@@ -88,12 +88,14 @@ return {
                         },
                     },
                     todo = {
-                        focus = false,
+                        focus = true,
                         win = {
-                            type = "split",
-                            relative = "win",
-                            position = "left",
-                            size = 0.2,
+                            type = "float",
+                            relative = "editor",
+                            border = "rounded",
+                            position = { 0.5, 0.5 },
+                            size = { width = 0.5, height = 0.4 },
+                            zindex = 200,
                         },
                     },
                     quickfix = {
