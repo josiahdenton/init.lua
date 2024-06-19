@@ -6,6 +6,7 @@ return {
         config = function()
             require("toggleterm").setup({
                 open_mapping = "<C-S-t>",
+                size = 10,
             })
 
             local Terminal = require("toggleterm.terminal").Terminal
@@ -13,7 +14,21 @@ return {
 
             vim.keymap.set("n", "<leader>to", "<cmd>ToggleTerm direction=float<cr>", { desc = "Term: open float" })
 
-            -- vim.keymap.set("n", "<leader>tl", "<cmd>ToggleTerm direction=left<cr>", { desc = "Term: open left" })
+            local left_term = Terminal:new({
+                dir = "git_dir",
+                direction = "vertical",
+                on_open = function(term)
+                    local win = vim.api.nvim_get_current_win()
+                    local win_width = vim.api.nvim_win_get_width(win)
+                    vim.api.nvim_win_set_config(win, { -- have term win open on left
+                        split = "left",
+                        width = 45
+                    })
+                end,
+            })
+            vim.keymap.set("n", "<leader>?", function()
+                left_term:toggle(15)
+            end, { desc = "Term: open left" })
 
             local lazygit = Terminal:new({
                 cmd = "lazygit",
