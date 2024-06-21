@@ -39,10 +39,10 @@ M.toggle_tasks_buffer = function(opts)
         title = "Tasks",
         border = border,
         relative = "win",
-        row = (gheight - 15) * 0.5, -- row is height
+        row = (gheight - 18) * 0.5, -- row is height
         col = (gwidth - width) * 0.5, -- col is width
         win = win,
-        height = 15,
+        height = 18,
         width = width,
     })
     vim.api.nvim_buf_call(bufnr, function()

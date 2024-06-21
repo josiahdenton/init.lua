@@ -42,15 +42,55 @@ If you want to use dap, you will need the debugger tools, such as
 - [debugpy for python](https://github.com/microsoft/debugpy)
 - [codelldb for rust](https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-(via--codelldb))
 
-### Tips and Tricks
+### Plugins
 
-```lua
--- a nice way to write a timer
-local timer = vim.uv.new_timer()
-timer:start(500, 0, function()
-    timer:stop()
-    vim.schedule_wrap(function ()
-        vim.cmd("nohlsearch")
-    end)
-end)
-```
+- copilot.vim
+- conform.nvim
+- nvim-cmp
+- cmp-buffer
+- cmp-nvim-lsp
+- cmp-path
+- cmp_luasnip
+- fidget.nvim
+- FixCursorHold.nvim
+- flash.nvim
+- friendly-snippets
+- harpoon
+- lazy.nvim
+- lazydev.nvim
+- lspkind.nvim
+- luarocks.nvim
+- LuaSnip
+- mason-lspconfig.nvim
+- mason.nvim
+- mini.nvim
+- neorg
+- neotest
+- neotest-go
+- neotest-jest
+- neotest-python
+- noice.nvim
+- nui.nvim
+- nvim-dap
+- nvim-dap-go
+- nvim-dap-python
+- nvim-dap-ui
+- nvim-dap-virtual-text
+- nvim-lint
+- nvim-lspconfig
+- nvim-neoclip.lua
+- nvim-nio
+- nvim-treesitter
+- nvim-web-devicons
+- octo.nvim
+- oil.nvim
+- plenary.nvim
+- rose-pine
+- tokyonight.nvim
+- telescope-fzf-native.nvim
+- telescope.nvim
+- todo-comments.nvim
+- toggleterm.nvim
+- trouble.nvim
+- undotree
+- vim-table-mode

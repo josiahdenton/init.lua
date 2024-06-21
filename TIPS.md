@@ -11,3 +11,17 @@ read commands via `:help g`
 ### DAP
 
 - debug log found at `~/.cache/nvim/dap.log`
+
+
+### Start a Timer
+
+```lua
+-- a nice way to write a timer
+local timer = vim.uv.new_timer()
+timer:start(500, 0, function()
+    timer:stop()
+    vim.schedule_wrap(function ()
+        vim.cmd("nohlsearch")
+    end)
+end)
+```
