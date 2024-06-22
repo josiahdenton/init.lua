@@ -7,7 +7,7 @@ local handlers = {
     ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = ui.rounded_border() }),
     ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
         -- Disable virtual_text
-        virtual_text = false,
+        -- virtual_text = false,
     }),
 }
 

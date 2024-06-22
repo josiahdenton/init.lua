@@ -34,6 +34,7 @@ return {
                     -- add sign options: ┃
                     signs = { add = "+", change = "~", delete = "" },
                     -- signs = { add = '▒', change = '▒', delete = '▒' },
+                    priority = 10,
                 },
                 mappings = {
                     -- Apply hunks inside a visual/operator region
