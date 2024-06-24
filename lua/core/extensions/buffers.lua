@@ -10,6 +10,28 @@ local bufnr = -1
 local open = false
 local border = require("core.ui.style").rounded_border()
 
+-- M.toggle_scratch_buffer = function()
+--     -- FIXME: have this open a side buffer that
+--     -- will be in the cwd
+--     local float_win = vim.api.nvim_open_win(
+--         bufnr,
+--         false,
+--         { -- create a new split in the current window and put the new buffer in that win
+--             title = "Tasks",
+--             border = border,
+--             relative = "win",
+--             row = (gheight - 18) * 0.5, -- row is height
+--             col = (gwidth - width) * 0.5, -- col is width
+--             win = win,
+--             height = 18,
+--             width = width,
+--         }
+--     )
+--     vim.api.nvim_buf_call(bufnr, function()
+--         vim.cmd("e ~/notes/index.norg")
+--     end)
+-- end
+--
 -- TODO: make this a floating window
 
 ---@param opts? ToggleTaskBufferOptions
@@ -31,20 +53,24 @@ M.toggle_tasks_buffer = function(opts)
     local win_height = vim.api.nvim_win_get_height(win)
     local width = math.floor(opts.width * win_width)
 
-    -- center 
+    -- center
     local gheight = vim.api.nvim_list_uis()[1].height
     local gwidth = vim.api.nvim_list_uis()[1].width
 
-    local float_win = vim.api.nvim_open_win(bufnr, false, { -- create a new split in the current window and put the new buffer in that win
-        title = "Tasks",
-        border = border,
-        relative = "win",
-        row = (gheight - 18) * 0.5, -- row is height
-        col = (gwidth - width) * 0.5, -- col is width
-        win = win,
-        height = 18,
-        width = width,
-    })
+    local float_win = vim.api.nvim_open_win(
+        bufnr,
+        false,
+        { -- create a new split in the current window and put the new buffer in that win
+            title = "Tasks",
+            border = border,
+            relative = "win",
+            row = (gheight - 18) * 0.5, -- row is height
+            col = (gwidth - width) * 0.5, -- col is width
+            win = win,
+            height = 18,
+            width = width,
+        }
+    )
     vim.api.nvim_buf_call(bufnr, function()
         vim.cmd("e ~/notes/index.norg")
     end)

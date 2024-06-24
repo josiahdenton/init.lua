@@ -2,6 +2,7 @@ return {
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
+        event = "VeryLazy",
         config = function()
             local todo_comments = require("todo-comments")
             todo_comments.setup({
@@ -9,11 +10,11 @@ return {
             })
 
             vim.keymap.set("n", "]t", function()
-                todo_comments.jump_next()
+                todo_comments.jump_next({ keywords = { "ERROR", "FIXME" } })
             end)
 
             vim.keymap.set("n", "[t", function()
-                todo_comments.jump_prev()
+                todo_comments.jump_prev({ keywords = { "ERROR", "FIXME" } })
             end)
         end,
     },

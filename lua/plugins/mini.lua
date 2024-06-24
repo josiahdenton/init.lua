@@ -2,12 +2,13 @@ return {
     {
         "echasnovski/mini.nvim",
         version = false,
+        event = "VeryLazy",
         config = function()
             require("mini.surround").setup()
-            require("mini.indentscope").setup({
-                symbol = "│",
-                options = { try_as_border = true },
-            })
+            -- require("mini.indentscope").setup({
+            --     symbol = "│",
+            --     options = { try_as_border = true },
+            -- })
             -- disable indentscope for specific files...
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = {
@@ -32,7 +33,7 @@ return {
                 view = {
                     style = "sign",
                     -- add sign options: ┃
-                    signs = { add = "+", change = "~", delete = "" },
+                    signs = { add = "+", change = "~", delete = "-" },
                     -- signs = { add = '▒', change = '▒', delete = '▒' },
                     priority = 10,
                 },

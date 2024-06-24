@@ -46,6 +46,14 @@ return {
             vim.keymap.set("n", "<leader>no", function()
                 require("neotest").summary.toggle()
             end, { desc = "Neotest: show test summary panel" })
+
+            vim.keymap.set("n", "<leader>[n", function()
+                require("neotest").jump.prev({ status = "failed" })
+            end)
+
+            vim.keymap.set("n", "<leader>]n", function()
+                require("neotest").jump.next({ status = "failed" })
+            end)
         end,
     },
     {

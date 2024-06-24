@@ -76,8 +76,7 @@ return {
             require("nvim-treesitter.configs").setup(opts)
             require("nvim-treesitter.install").compilers = { "gcc-12" }
 
-            local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
-            ft_to_parser.mdx = "markdown"
+            vim.treesitter.language.register("markdown", "mdx")
         end,
     },
 }

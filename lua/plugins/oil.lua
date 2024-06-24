@@ -4,6 +4,7 @@ return {
         opts = {},
         -- Optional dependencies
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        event = "VeryLazy",
         config = function()
             require("oil").setup({})
             vim.keymap.set("n", "<leader>N", function()
