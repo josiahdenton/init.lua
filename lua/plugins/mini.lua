@@ -4,11 +4,15 @@ return {
         version = false,
         event = "VeryLazy",
         config = function()
+            require("mini.cursorword").setup({ delay = 500 })
+            require("mini.ai").setup()
+            require("mini.pairs").setup()
             require("mini.surround").setup()
-            -- require("mini.indentscope").setup({
-            --     symbol = "│",
-            --     options = { try_as_border = true },
-            -- })
+            require("mini.indentscope").setup({
+                symbol = "󰇙",
+                -- symbol = "│",
+                options = { try_as_border = true },
+            })
             -- disable indentscope for specific files...
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = {
@@ -34,7 +38,6 @@ return {
                     style = "sign",
                     -- add sign options: ┃
                     signs = { add = "+", change = "~", delete = "-" },
-                    -- signs = { add = '▒', change = '▒', delete = '▒' },
                     priority = 10,
                 },
                 mappings = {
@@ -67,8 +70,14 @@ return {
                 mini_git.show_at_cursor()
             end)
 
-            require("mini.ai").setup()
-            require("mini.pairs").setup()
+            local mini_files = require("mini.files")
+            mini_files.setup()
+
+            local mini_open = function()
+                mini_files.open(vim.api.nvim_buf_get_name(0))
+            end
+            vim.keymap.set("n", "<leader>N", mini_open)
+
             require("mini.bracketed").setup({
                 buffer = { suffix = "b", options = {} },
                 comment = { suffix = "", options = {} },
@@ -89,13 +98,6 @@ return {
             local hipatterns = require("mini.hipatterns")
             hipatterns.setup({
                 highlighters = {
-                    -- this is just folke's todo plugin but with no search
-                    -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-                    -- fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-                    -- hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
-                    -- todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
-                    -- note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
-
                     -- Highlight hex color strings (`#rrggbb`) using that color
                     hex_color = hipatterns.gen_highlighter.hex_color(),
                 },
