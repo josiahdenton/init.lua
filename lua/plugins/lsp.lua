@@ -3,6 +3,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
+            "nvim-cmp",
             -- Automatically install LSPs to stdpath for neovim
             { "williamboman/mason.nvim", config = true },
             "williamboman/mason-lspconfig.nvim",
@@ -26,6 +27,9 @@ return {
                 },
             },
         },
+        config = function()
+            require("core.lsp").setup()
+        end,
     },
     -- Autocompletion
     {

@@ -14,6 +14,3 @@ require("lazy").setup({
         enabled = false
     }
 })
-
--- TODO: move lsp setup to lazy spec
-require("core.lsp").setup()
