@@ -1,6 +1,12 @@
 return {
     {
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        config = true,
+    },
+    {
         "nvim-neorg/neorg",
+        dependencies = { "luarocks.nvim" },
         -- event = "BufEnter *.norg",
         event = "VeryLazy", -- must load to get Neorg workspace command
         lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default

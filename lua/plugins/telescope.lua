@@ -50,19 +50,19 @@ return {
             require("telescope").load_extension("neoclip")
 
             local builtin = require("telescope.builtin")
-            -- local custom_actions = require("core.extensions.telescope").actions()
+            local custom_actions = require("core.extensions.telescope").actions()
 
-            -- vim.keymap.set("n", "<leader>gh", function()
-            --     builtin.find_files(vim.tbl_extend("keep", {
-            --         prompt_title = "Git File History",
-            --         -- :h telescope.mappings
-            --         attach_mappings = function(_, map)
-            --             map("n", "<cr>", custom_actions.diff_view_file_history)
-            --             map("i", "<cr>", custom_actions.diff_view_file_history)
-            --             return true -- required
-            --         end,
-            --     }, no_preview))
-            -- end, {})
+            vim.keymap.set("n", "<leader>gh", function()
+                builtin.find_files(vim.tbl_extend("keep", {
+                    prompt_title = "Git File History",
+                    -- :h telescope.mappings
+                    attach_mappings = function(_, map)
+                        map("n", "<cr>", custom_actions.diff_view_file_history)
+                        map("i", "<cr>", custom_actions.diff_view_file_history)
+                        return true -- required
+                    end,
+                }, no_preview))
+            end, {})
 
             vim.keymap.set("n", "<leader>ff", function()
                 builtin.find_files(no_preview)

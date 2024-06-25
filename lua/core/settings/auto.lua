@@ -48,7 +48,7 @@ M.setup = function()
         end,
     })
 
-    vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx" })
+    -- vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx" })
 
     vim.api.nvim_create_autocmd({ "TextYankPost" }, {
         pattern = { "*" },

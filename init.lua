@@ -1,14 +1,19 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require('install')
+require("install")
 
--- require('core.set')
--- require('core.remap')
--- require('core.auto')
--- require('core.extend')
-require('core.settings')
+require("core.settings")
 
-require('lazy').setup('plugins')
+require("lazy").setup({
+    spec = {
+        -- import your plugins
+        { import = "plugins" },
+    },
+    rocks = {
+        enabled = false
+    }
+})
 
-require('core.lsp').setup()
+-- TODO: move lsp setup to lazy spec
+require("core.lsp").setup()

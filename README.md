@@ -10,6 +10,8 @@
 - install nvim, for macOS you can run `brew install neovim`
     - run `brew install luajit` as well for neorg dependency
     - run `brew install gcc-12` for neorg
+    - then `:Lazy build neorg`
+
 
 ### Theming
 
