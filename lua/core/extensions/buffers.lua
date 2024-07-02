@@ -54,6 +54,7 @@ M.toggle_tasks_buffer = function(opts)
     local width = math.floor(opts.width * win_width)
 
     -- center
+    -- FIXME: this does not work with scratch buffers on the side...
     local gheight = vim.api.nvim_list_uis()[1].height
     local gwidth = vim.api.nvim_list_uis()[1].width
 

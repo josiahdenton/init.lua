@@ -1,8 +1,17 @@
 return {
+    {
+        "nvim-java/nvim-java",
+        config = function()
+            require("java").setup()
+        end,
+    },
     -- LSP Configuration & Plugins
     {
         "neovim/nvim-lspconfig",
         dependencies = {
+            -- nvim java must run before lspconfig setup
+            "nvim-java",
+            -- ensure nvim-cmp plugins are loaded before setting up the config
             "nvim-cmp",
             -- Automatically install LSPs to stdpath for neovim
             { "williamboman/mason.nvim", config = true },

@@ -5,7 +5,7 @@ return {
         config = function()
             require("trouble").setup({
                 keys = {
-                    ["<cr>"] = "jump_close",
+                    -- ["<cr>"] = "jump_close",
                     ["<esc>"] = "close",
                 },
                 modes = {
@@ -79,12 +79,14 @@ return {
                     symbols = {
                         focus = true,
                         win = {
-                            type = "float",
-                            relative = "editor",
-                            border = "rounded",
-                            position = { 0.5, 0.5 },
-                            size = { width = 0.5, height = 0.4 },
-                            zindex = 200,
+                            type = "split",
+                            size = 0.2,
+                            -- relative = "editor",
+                            -- border = "rounded",
+                            -- position = { 0.5, 0.5 },
+                            position = "left",
+                            -- size = { width = 0.25, height = 1 },
+                            -- zindex = 200,
                         },
                     },
                     todo = {

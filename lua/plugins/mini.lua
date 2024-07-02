@@ -70,13 +70,13 @@ return {
                 mini_git.show_at_cursor()
             end)
 
-            -- local mini_files = require("mini.files")
-            -- mini_files.setup()
-            --
-            -- local mini_open = function()
-            --     mini_files.open(vim.api.nvim_buf_get_name(0))
-            -- end
-            -- vim.keymap.set("n", "<leader>N", mini_open)
+            local mini_files = require("mini.files")
+            mini_files.setup()
+
+            local mini_open = function()
+                mini_files.open(vim.api.nvim_buf_get_name(0))
+            end
+            vim.keymap.set("n", "<leader>N", mini_open)
 
             require("mini.bracketed").setup({
                 buffer = { suffix = "b", options = {} },
