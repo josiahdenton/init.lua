@@ -4,17 +4,13 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd.colorscheme("tokyonight-night")
-        end
+            -- vim.cmd.colorscheme("tokyonight-night")
+        end,
     },
     {
-        "sainnhe/gruvbox-material",
-        priority = 1000,
+        "tjdevries/colorbuddy.nvim",
         config = function()
-            -- Available values: 'hard', 'medium'(default), 'soft'
-            vim.g.gruvbox_material_background = "soft"
-            vim.g.gruvbox_material_enable_italic = true
-            -- vim.cmd.colorscheme("gruvbox-material")
+            vim.cmd.colorscheme("gruvbuddy")
         end,
     },
     {
