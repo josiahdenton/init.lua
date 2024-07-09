@@ -1,4 +1,5 @@
 return {
+    -- FIXME: once I finish my task cli, I can get rid of all of this!
     {
         "vhyrro/luarocks.nvim",
         priority = 1000,
