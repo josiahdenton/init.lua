@@ -7,7 +7,6 @@ return {
             require("mini.cursorword").setup({ delay = 500 })
             require("mini.ai").setup()
             require("mini.pairs").setup()
-            require("mini.surround").setup()
             require("mini.indentscope").setup({
                 -- symbol = "󰇙",
                 -- symbol = "│",

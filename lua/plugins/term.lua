@@ -14,21 +14,37 @@ return {
 
             vim.keymap.set("n", "<leader>to", "<cmd>ToggleTerm direction=float<cr>", { desc = "Term: open float" })
 
-            -- local left_term = Terminal:new({
-            --     dir = "git_dir",
-            --     direction = "vertical",
-            --     on_open = function(term)
-            --         local win = vim.api.nvim_get_current_win()
-            --         local win_width = vim.api.nvim_win_get_width(win)
-            --         vim.api.nvim_win_set_config(win, { -- have term win open on left
-            --             split = "left",
-            --             width = 45
-            --         })
-            --     end,
-            -- })
-            -- vim.keymap.set("n", "<leader>?", function()
-            --     left_term:toggle(15)
-            -- end, { desc = "Term: open left" })
+            -- TODO: will add task here too...
+
+            local marks = Terminal:new({
+                cmd = "mark",
+                dir = "git_dir",
+                direction = "float",
+                float_opts = {
+                    border = "curved",
+                    width = 70,
+                    height = 15,
+                },
+                -- function to run on opening the terminal
+                on_open = function(term)
+                    vim.cmd("startinsert!")
+                    -- vim.api.nvim_buf_set_keymap(
+                    --     term.bufnr,
+                    --     "n",
+                    --     "q",
+                    --     "<cmd>close<CR>",
+                    --     { noremap = true, silent = true }
+                    -- )
+                end,
+                -- function to run on closing the terminal
+                on_close = function(term)
+                    vim.cmd("startinsert!")
+                end,
+            })
+
+            vim.keymap.set("n", "<leader>?", function()
+                marks:toggle(15)
+            end, { desc = "Term: open marks cli" })
 
             local lazygit = Terminal:new({
                 cmd = "lazygit",

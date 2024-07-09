@@ -9,7 +9,12 @@ M.lua_ls = {
 
 M.gopls = {
     gopls = {
+        analyses = {
+            unusedvariable = true
+        },
         hints = {
+            assignVariableTypes = true,
+            rangeVariableTypes = true,
             constantValues = true,
             parameterNames = true,
             functionTypeParameters = true,

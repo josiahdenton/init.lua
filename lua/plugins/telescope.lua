@@ -12,7 +12,7 @@ return {
         config = function()
             require("telescope").setup({
                 defaults = {
-                    -- layout_strategy = "vertical",
+                    layout_strategy = "vertical",
                     prompt_prefix = ">  ",
                     sorting_strategy = "descending",
                     file_ignore_patterns = {
@@ -43,6 +43,7 @@ return {
                 results_height = 15,
                 previewer = false,
             })
+
             -- themes
             local themes = require("telescope.themes")
             -- extensions
@@ -53,7 +54,7 @@ return {
             local custom_actions = require("core.extensions.telescope").actions()
 
             vim.keymap.set("n", "<leader>gh", function()
-                builtin.find_files(vim.tbl_extend("keep", {
+                builtin.find_files({
                     prompt_title = "Git File History",
                     -- :h telescope.mappings
                     attach_mappings = function(_, map)
@@ -61,15 +62,15 @@ return {
                         map("i", "<cr>", custom_actions.diff_view_file_history)
                         return true -- required
                     end,
-                }, no_preview))
+                })
             end, {})
 
             vim.keymap.set("n", "<leader>ff", function()
-                builtin.find_files(no_preview)
+                builtin.find_files()
             end, {})
 
             vim.keymap.set("n", "<leader>fg", function()
-                builtin.live_grep(no_preview)
+                builtin.live_grep()
             end, {})
 
             vim.keymap.set("n", "<leader>fb", function()
@@ -77,7 +78,7 @@ return {
             end, {})
 
             vim.keymap.set("n", "<leader>f'", function()
-                builtin.marks(no_preview)
+                builtin.marks()
             end, {})
 
             vim.keymap.set("n", "<leader>fi", function()
@@ -88,11 +89,13 @@ return {
                 builtin.spell_suggest(themes.get_cursor())
             end, {})
 
-            vim.keymap.set("n", "<leader>fm", function()
-                builtin.man_pages({ sections = { "ALL" } })
-            end)
+            -- vim.keymap.set("n", "<leader>fm", function()
+            --     builtin.man_pages({ sections = { "ALL" } })
+            -- end)
 
-            vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+            vim.keymap.set("n", "<leader>fh", function()
+                builtin.help_tags()
+            end, {})
 
             vim.keymap.set("n", "<leader>hk", function()
                 builtin.keymaps(themes.get_ivy())
@@ -103,7 +106,7 @@ return {
             end, {})
 
             vim.keymap.set("n", "<leader>fy", function()
-                require("telescope").extensions.neoclip.default(themes.get_dropdown())
+                require("telescope").extensions.neoclip.default()
             end)
         end,
     },
