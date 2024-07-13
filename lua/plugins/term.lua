@@ -14,7 +14,35 @@ return {
 
             vim.keymap.set("n", "<leader>to", "<cmd>ToggleTerm direction=float<cr>", { desc = "Term: open float" })
 
-            -- TODO: will add task here too...
+            local task = Terminal:new({
+                cmd = "task",
+                dir = "git_dir",
+                direction = "float",
+                float_opts = {
+                    border = "curved",
+                    width = 100,
+                    height = 25,
+                },
+                -- function to run on opening the terminal
+                on_open = function(term)
+                    vim.cmd("startinsert!")
+                    -- vim.api.nvim_buf_set_keymap(
+                    --     term.bufnr,
+                    --     "n",
+                    --     "q",
+                    --     "<cmd>close<CR>",
+                    --     { noremap = true, silent = true }
+                    -- )
+                end,
+                -- function to run on closing the terminal
+                on_close = function(term)
+                    vim.cmd("startinsert!")
+                end,
+            })
+
+            vim.keymap.set("n", "<leader>tl", function()
+                task:toggle(15)
+            end, { desc = "Term: open task cli" })
 
             local marks = Terminal:new({
                 cmd = "mark",
@@ -23,7 +51,7 @@ return {
                 float_opts = {
                     border = "curved",
                     width = 70,
-                    height = 15,
+                    height = 21,
                 },
                 -- function to run on opening the terminal
                 on_open = function(term)

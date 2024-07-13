@@ -49,7 +49,7 @@ end
 
 local custom = function()
     local scratch = require("core.extensions.buffers")
-    set("n", "<leader>tl", scratch.toggle_tasks_buffer, { desc = "open scratch markdown split" })
+    -- set("n", "<leader>tl", scratch.toggle_tasks_buffer, { desc = "open scratch markdown split" })
 
     -- simple zen mode
     -- TODO: fix zen with telescope buffers, may need to create auto command group?
