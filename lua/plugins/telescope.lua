@@ -17,6 +17,7 @@ return {
                     sorting_strategy = "descending",
                     file_ignore_patterns = {
                         "node_modules",
+                        "target",
                     },
                 },
                 pickers = {

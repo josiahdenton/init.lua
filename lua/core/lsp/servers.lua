@@ -22,7 +22,7 @@ M.gopls = {
     },
 }
 
-M.rust_analyzer = {}
+-- M.rust_analyzer = {}
 
 M.yamlls = {
     yaml = {

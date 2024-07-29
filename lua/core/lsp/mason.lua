@@ -34,6 +34,7 @@ M.setup = function()
                 filetypes = (servers[server_name] or {}).filetypes,
             })
         end,
+        ["rust_analyzer"] = function() end,
     })
 end
 

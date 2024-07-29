@@ -20,6 +20,7 @@ return {
                     }),
                     require("neotest-go"),
                     require("neotest-jest"),
+                    require("rustaceanvim.neotest"),
                 },
             })
             -- generalized test debugging keymaps
@@ -145,6 +146,10 @@ return {
                 },
             }
 
+            -- TODO: can also add reverse continue...
+            keymap("n", "<leader>q", function()
+                dap.terminate()
+            end)
             keymap("n", "<leader>n", function()
                 dap.continue()
             end, { desc = "DAP: continue" })
