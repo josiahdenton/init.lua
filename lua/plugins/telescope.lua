@@ -20,11 +20,7 @@ return {
                         "target",
                     },
                 },
-                pickers = {
-                    -- diagnostics = {
-                    -- theme = 'ivy',
-                    -- },
-                },
+                pickers = {},
                 extensions = {
                     fzf = {
                         fuzzy = true, -- false will only do exact matching
@@ -90,9 +86,9 @@ return {
                 builtin.spell_suggest(themes.get_cursor())
             end, {})
 
-            -- vim.keymap.set("n", "<leader>fm", function()
-            --     builtin.man_pages({ sections = { "ALL" } })
-            -- end)
+            vim.keymap.set("n", "<leader>fE", function()
+                builtin.diagnostics(themes.get_ivy())
+            end)
 
             vim.keymap.set("n", "<leader>fh", function()
                 builtin.help_tags()

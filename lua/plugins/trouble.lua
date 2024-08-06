@@ -4,6 +4,9 @@ return {
         event = "VeryLazy",
         config = function()
             require("trouble").setup({
+                preview = {
+                    scratch = false,
+                },
                 keys = {
                     -- ["<cr>"] = "jump_close",
                     ["<esc>"] = "close",
@@ -15,7 +18,7 @@ return {
                             type = "float",
                             relative = "editor",
                             border = "rounded",
-                            position = { 0.5, 0.5 },
+                            position = { 0, 1 },
                             size = { width = 0.5, height = 0.4 },
                             zindex = 200,
                         },
@@ -26,7 +29,7 @@ return {
                             type = "float",
                             relative = "editor",
                             border = "rounded",
-                            position = { 0.5, 0.5 },
+                            position = { 0, 1 },
                             size = { width = 0.5, height = 0.4 },
                             zindex = 200,
                         },
@@ -34,12 +37,15 @@ return {
                     lsp_references = {
                         focus = true,
                         win = {
-                            type = "float",
-                            relative = "editor",
-                            border = "rounded",
-                            position = { 0.5, 0.5 },
-                            size = { width = 0.5, height = 0.4 },
-                            zindex = 200,
+                            -- type = "float",
+                            -- relative = "editor",
+                            -- border = "rounded",
+                            -- position = { 0.5, 0.5 },
+                            -- size = { width = 0.5, height = 0.4 },
+                            -- zindex = 200,
+                            type = "split",
+                            size = 0.3,
+                            position = "bottom",
                         },
                     },
                     lsp_outgoing_calls = {
@@ -48,7 +54,7 @@ return {
                             type = "float",
                             relative = "editor",
                             border = "rounded",
-                            position = { 0.5, 0.5 },
+                            position = { 0, 1 },
                             size = { width = 0.5, height = 0.4 },
                             zindex = 200,
                         },
@@ -59,7 +65,7 @@ return {
                             type = "float",
                             relative = "editor",
                             border = "rounded",
-                            position = { 0.5, 0.5 },
+                            position = { 0, 1 },
                             size = { width = 0.5, height = 0.4 },
                             zindex = 200,
                         },
@@ -67,13 +73,30 @@ return {
                     diagnostics = {
                         focus = true,
                         filter = { buf = 0 },
+                        preview = {
+                            -- type = "float",
+                            -- relative = "editor",
+                            -- border = "rounded",
+                            -- title = "Preview",
+                            -- title_pos = "center",
+                            -- position = { 0, -2 },
+                            -- size = { width = 0.3, height = 0.3 },
+                            -- zindex = 200,
+                            type = "split",
+                            relative = "win",
+                            position = "right",
+                            size = 0.3,
+                        },
                         win = {
-                            type = "float",
-                            relative = "editor",
-                            border = "rounded",
-                            position = { 0.5, 0.5 },
-                            size = { width = 0.5, height = 0.4 },
-                            zindex = 200,
+                            type = "split",
+                            size = 0.3,
+                            position = "bottom",
+                            -- type = "float",
+                            -- relative = "editor",
+                            -- border = "rounded",
+                            -- position = { 0.5, 0.5 },
+                            -- size = { width = 0.5, height = 0.4 },
+                            -- zindex = 200,
                         },
                     },
                     symbols = {
@@ -95,7 +118,7 @@ return {
                             type = "float",
                             relative = "editor",
                             border = "rounded",
-                            position = { 0.5, 0.5 },
+                            position = { 0, 1 },
                             size = { width = 0.5, height = 0.4 },
                             zindex = 200,
                         },
@@ -106,7 +129,7 @@ return {
                             type = "float",
                             relative = "editor",
                             border = "rounded",
-                            position = { 0.5, 0.5 },
+                            position = { 0, 1 },
                             size = { width = 0.5, height = 0.4 },
                             zindex = 200,
                         },
@@ -150,6 +173,11 @@ return {
             vim.keymap.set("n", "<leader>fe", function()
                 trouble.open("diagnostics")
             end, { desc = "trouble: show diagnostics" })
+
+            -- vim.keymap.set("n", "]]", function()
+            --     trouble.next("diagnostics")
+            --     trouble.jump("diagnostics")
+            -- end)
         end,
     },
 }

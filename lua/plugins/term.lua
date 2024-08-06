@@ -12,7 +12,7 @@ return {
             local Terminal = require("toggleterm.terminal").Terminal
             local trim_spaces = true
 
-            vim.keymap.set("n", "<c-/>", "<cmd>ToggleTerm direction=float<cr>", { desc = "Term: open float" })
+            vim.keymap.set("n", "<leader>to", "<cmd>ToggleTerm direction=float<cr>", { desc = "Term: open float" })
 
             local task = Terminal:new({
                 cmd = "task",
@@ -21,7 +21,7 @@ return {
                 float_opts = {
                     border = "curved",
                     width = 100,
-                    height = 18,
+                    height = 20,
                 },
                 -- function to run on opening the terminal
                 on_open = function(term)

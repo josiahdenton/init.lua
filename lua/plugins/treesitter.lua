@@ -79,4 +79,7 @@ return {
             vim.treesitter.language.register("markdown", "mdx")
         end,
     },
+    -- {
+    --     "nvim-treesitter/nvim-treesitter-context",
+    -- },
 }
