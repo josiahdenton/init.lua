@@ -36,11 +36,12 @@ return {
             },
         },
         opts = {
-            debug = true, -- Enable debugging
+            debug = false, -- Enable debugging
             -- See Configuration section for rest
         },
-        config = function()
-            vim.keymap.set("n", "<leader>co", "<cmd>CopilotChatToggle<cr>", { desc = "open copilot chat" })
+        config = function(_, opts)
+            require("CopilotChat").setup(opts)
+            vim.keymap.set("n", "<leader>co", "<cmd>CopilotChatToggle<cr>", { desc = "copilot" })
         end,
         -- See Commands section for default commands if you want to lazy load on them
     },

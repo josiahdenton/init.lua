@@ -46,9 +46,10 @@ return {
             -- extensions
             require("telescope").load_extension("fzf")
             require("telescope").load_extension("neoclip")
+            -- require("telescope").load_extension("refactoring")
 
             local builtin = require("telescope.builtin")
-            local custom_actions = require("core.extensions.telescope").actions()
+            local custom_actions = require("core.extensions.telescope").actions
 
             vim.keymap.set("n", "<leader>gh", function()
                 builtin.find_files({
