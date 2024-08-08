@@ -4,6 +4,16 @@ return {
         version = false,
         event = "VeryLazy",
         config = function()
+            local MiniTabline = require("mini.tabline")
+            MiniTabline.setup({
+                tabpage_section = 'right',
+                format = function(buf_id, label)
+                    if buf_id ~= vim.api.nvim_get_current_buf() then
+                        return ""
+                    end
+                    return MiniTabline.default_format(buf_id, label)
+                end,
+            })
             require("mini.cursorword").setup({ delay = 500 })
             require("mini.ai").setup()
             require("mini.pairs").setup()
