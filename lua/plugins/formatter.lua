@@ -8,7 +8,7 @@ return {
                 -- Customize or remove this keymap to your liking
                 "<leader>rf",
                 function()
-                    require("conform").format({ async = true, lsp_fallback = true })
+                    require("conform").format({ async = true, lsp_fallback = "fallback", stop_after_first = false })
                 end,
                 mode = { "n", "v" },
                 desc = "Format buffer",
@@ -21,8 +21,8 @@ return {
                 go = { "gofmt" },
                 lua = { "stylua" },
                 python = { "isort", "black" }, -- maybe can use ruff instead!
-                javascript = { { "prettierd", "prettier" } },
-                typescript = { { "prettierd", "prettier" } },
+                javascript = { "prettierd", "prettier" },
+                typescript = { "prettierd", "prettier" },
             },
             -- Set up format-on-save
             -- format_on_save = { timeout_ms = 500, lsp_fallback = true },

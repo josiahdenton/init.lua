@@ -6,6 +6,7 @@ local handlers = {
     ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = ui.rounded_border() }),
     ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = ui.rounded_border() }),
     ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        border = ui.rounded_border(),
         -- Disable virtual_text
         -- virtual_text = false,
     }),
@@ -34,7 +35,7 @@ M.setup = function()
                 filetypes = (servers[server_name] or {}).filetypes,
             })
         end,
-        ["rust_analyzer"] = function() end,
+        ["rust_analyzer"] = function() end,  -- rustaceanvim takes care of this
     })
 end
 

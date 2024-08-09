@@ -18,9 +18,16 @@ return {
                     require("neotest-python")({
                         dap = { justMyCode = false },
                     }),
-                    require("neotest-go"),
-                    require("neotest-jest"),
+                    -- require("neotest-jest")({
+                    --     jestCommand = "npm test --",
+                    --     jestConfigFile = "custom.jest.config.ts",
+                    --     env = { CI = true },
+                    --     cwd = function(path)
+                    --         return vim.fn.getcwd()
+                    --     end,
+                    -- }),
                     require("rustaceanvim.neotest"),
+                    require("neotest-go"),
                 },
             })
             -- generalized test debugging keymaps
@@ -137,16 +144,71 @@ return {
             require("dap-python").setup()
             require("dap-go").setup()
 
-            -- TODO: would have to fix this to the correct path.
+            local js_debug_path = require("mason-registry").get_package("js-debug-adapter"):get_install_path()
+                .. "/js-debug/src/dapDebugServer.js"
+
             dap.adapters["pwa-node"] = {
                 type = "server",
                 host = "localhost",
                 port = "${port}",
                 executable = {
                     command = "node",
-                    args = { vim.env.HOME .. "/path/to/js-debug/src/dapDebugServer.js", "${port}" },
+                    -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#vscode-js-debug
+                    args = { js_debug_path, "${port}" },
                 },
             }
+
+            dap.adapters["pwa-chrome"] = {
+                type = "server",
+                host = "localhost",
+                port = "${port}",
+                executable = {
+                    command = "node",
+                    -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#vscode-js-debug
+                    args = { js_debug_path, "${port}" },
+                },
+            }
+
+            local js_filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
+            for _, language in ipairs(js_filetypes) do
+                if not dap.configurations[language] then
+                    dap.configurations[language] = {
+                        {
+                            type = "pwa-chrome",
+                            name = "Attach - Remote Debugging",
+                            request = "attach",
+                            program = "${file}",
+                            cwd = vim.fn.getcwd(),
+                            sourceMaps = true,
+                            protocol = "inspector",
+                            port = 9222, -- Start Chrome google-chrome --remote-debugging-port=9222
+                            webRoot = "${workspaceFolder}",
+                        },
+                        {
+                            type = "pwa-chrome",
+                            name = "Launch Chrome",
+                            request = "launch",
+                            url = "http://localhost:4200",
+                            webRoot = "${workspaceFolder}",
+                            userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir",
+                        },
+                        {
+                            type = "pwa-node",
+                            request = "launch",
+                            name = "Launch file",
+                            program = "${file}",
+                            cwd = "${workspaceFolder}",
+                        },
+                        {
+                            type = "pwa-node",
+                            request = "attach",
+                            name = "Attach",
+                            processId = require("dap.utils").pick_process,
+                            cwd = "${workspaceFolder}",
+                        },
+                    }
+                end
+            end
 
             -- TODO: can also add reverse continue...
             keymap("n", "<leader>q", function()

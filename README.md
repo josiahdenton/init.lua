@@ -17,6 +17,15 @@ This setup uses [`night-owl`](https://github.com/oxfist/night-owl.nvim) with the
 
 ### Debugging
 
+#### JS/TS
+
+To use `pwa-chrome` and attach to a project, startup chrome 
+in debug mode, such as 
+```bash
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+```
+Then you can attach to the running chrome session and put breakpoints in your code. 
+
 #### Python
 
 To debug python, dap-python comes with many defaults. To run

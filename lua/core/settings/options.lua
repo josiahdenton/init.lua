@@ -6,6 +6,18 @@ local plugin_globals = function()
     -- vim.b.copilot_enabled = false
 end
 
+local custom_globals = function()
+    vim.g.work_dir = vim.env.HOME .. "/work"
+    vim.g.tools_dir = vim.env.HOME .. "/tools"
+    vim.g.notes_dir = vim.env.HOME .. "/notes"
+    vim.g.learning_dir = vim.env.HOME .. "/learning"
+end
+
+local setup_ui = function()
+    require("core.ui.statusline").setup()
+    require("core.ui.winbar").setup()
+end
+
 local setup_neovide = function()
     vim.o.guifont = "GeistMono Nerd Font Mono"
     vim.g.neovide_transparency = 0.8
@@ -21,8 +33,10 @@ end
 
 M.setup = function()
     local ui = require("core.ui.style")
-    plugin_globals()
     vim_globals()
+    plugin_globals()
+    custom_globals()
+    setup_ui()
 
     -- reduce update time
     vim.opt.updatetime = 250

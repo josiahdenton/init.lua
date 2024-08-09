@@ -1,26 +1,20 @@
 return {
     {
-        "sindrets/diffview.nvim",
+        "akinsho/git-conflict.nvim",
+        version = "*",
         event = "VeryLazy",
-        keys = {
-            {
-                "<leader>gt",
-                function()
-                    if vim.g._diffview_open then -- close it
-                        vim.cmd("DiffviewClose")
-                        vim.g._diffview_open = false
-                    else -- then open it
-                        vim.cmd("DiffviewOpen")
-                        vim.g._diffview_open = true
-                    end
-                end,
-                desc = "diffview: toggle",
+        opts = {
+            default_mappings = {
+                ours = "<leader>go",
+                theirs = "<leader>gt",
+                none = "<leader>gn",
+                both = "<leader>gb",
+                prev = "[x",
+                next = "]x",
             },
+            disable_diagnostics = true,
         },
-        config = function()
-            vim.g._diffview_open = false
-            require("diffview").setup()
-        end,
+        config = true,
     },
     {
         "pwntester/octo.nvim",

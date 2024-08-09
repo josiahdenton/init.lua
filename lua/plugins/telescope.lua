@@ -49,19 +49,7 @@ return {
             -- require("telescope").load_extension("refactoring")
 
             local builtin = require("telescope.builtin")
-            local custom_actions = require("core.extensions.telescope").actions
-
-            vim.keymap.set("n", "<leader>gh", function()
-                builtin.find_files({
-                    prompt_title = "Git File History",
-                    -- :h telescope.mappings
-                    attach_mappings = function(_, map)
-                        map("n", "<cr>", custom_actions.diff_view_file_history)
-                        map("i", "<cr>", custom_actions.diff_view_file_history)
-                        return true -- required
-                    end,
-                })
-            end, {})
+            local _ = require("core.extensions.telescope").actions()
 
             vim.keymap.set("n", "<leader>ff", function()
                 builtin.find_files()

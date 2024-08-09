@@ -1,6 +1,10 @@
 return {
     -- lazy.nvim
     {
+        "stevearc/dressing.nvim",
+        opts = {},
+    },
+    {
         "folke/noice.nvim",
         event = "VeryLazy",
         opts = {

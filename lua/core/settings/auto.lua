@@ -33,7 +33,6 @@
 local M = {}
 
 M.setup = function()
-    -- for mini status line
     vim.api.nvim_create_autocmd("RecordingEnter", {
         pattern = "*",
         callback = function()
@@ -48,7 +47,13 @@ M.setup = function()
         end,
     })
 
-    -- vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx" })
+    vim.api.nvim_create_autocmd({ "ModeChanged" }, {
+        pattern = "*",
+        callback = function()
+            vim.cmd("redrawstatus")
+        end,
+        desc = "statusline",
+    })
 
     vim.api.nvim_create_autocmd({ "TextYankPost" }, {
         pattern = { "*" },

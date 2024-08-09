@@ -17,7 +17,7 @@ local function lsp_keymaps(client, bufnr)
     end)
     -- actions
     keymap("n", "<leader>rn", vim.lsp.buf.rename, buf_opts)
-    keymap("n", "<leader>a", vim.lsp.buf.code_action, buf_opts)
+    keymap("n", "<leader>ra", vim.lsp.buf.code_action, buf_opts)
 end
 
 local function set_diagnostic_config()
@@ -59,6 +59,9 @@ local function set_diagnostic_config()
             end,
             prefix = "",
         },
+        inlay_hint = {
+            enable = true
+        },
         severity_sort = true,
         underline = false,
         float = {
@@ -76,7 +79,7 @@ local function setup_inlay_hints(_, bufnr)
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
     end
 
-    vim.keymap.set("n", "<leader>dh", toggle_inlay_hints)
+    vim.keymap.set("n", "<leader>ei", toggle_inlay_hints)
 end
 
 local function set_auto_commands(_, bufnr)

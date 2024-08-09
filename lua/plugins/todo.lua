@@ -10,11 +10,11 @@ return {
             })
 
             vim.keymap.set("n", "]t", function()
-                todo_comments.jump_next({ keywords = { "ERROR", "FIXME" } })
+                todo_comments.jump_next({ keywords = { "ERROR", "FIXME", "TODO" } })
             end)
 
             vim.keymap.set("n", "[t", function()
-                todo_comments.jump_prev({ keywords = { "ERROR", "FIXME" } })
+                todo_comments.jump_prev({ keywords = { "ERROR", "FIXME", "TODO" } })
             end)
         end,
     },

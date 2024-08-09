@@ -1,11 +1,9 @@
 return {
     {
-        "oysandvik94/curl.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
+        "mistweaverco/kulala.nvim",
         config = function()
-            require("curl").setup({})
+            -- Setup is required, even if you don't pass any options
+            require("kulala").setup()
         end,
     },
 }
