@@ -4,8 +4,22 @@ local symbols = require("core.ui.symbols").winbar()
 
 -- credit to https://github.com/MariaSolOs/dotfiles/blob/mac/.config/nvim/lua/winbar.lua
 
+local function tab_position()
+    local active_tabpage = vim.api.nvim_tabpage_get_number(0)
+    local total_tabpages = #vim.api.nvim_list_tabpages()
+    return string.format("(%d/%d)", active_tabpage, total_tabpages)
+end
+
 ---@return string
 M.render = function()
+    if vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()) == "" then
+        return table.concat({
+            " ",
+            "%=",
+            string.format("%%#WinBarSep#%s", tab_position()),
+        })
+    end
+
     local path = vim.fs.normalize(vim.fn.expand("%:p"))
     local prefix, prefix_path = "", ""
     local separator = string.format("%%#WinBarSep#%s", symbols.Separator)
@@ -34,8 +48,6 @@ M.render = function()
 
     path = path:gsub("^/", "")
 
-    vim.print(path)
-
     return table.concat({
         " ",
         prefix,
@@ -47,18 +59,21 @@ M.render = function()
                 :totable(),
             separator
         ),
+        "%=",
+        string.format("%%#WinBarSep#%s", tab_position()),
     })
 end
 
 M.setup = function()
-    vim.api.nvim_create_autocmd("BufWinEnter", {
+    vim.o.showtabline = 0
+    vim.api.nvim_create_autocmd({ "VimEnter", "BufWinEnter" }, {
         group = vim.api.nvim_create_augroup("user/winbar", { clear = true }),
         desc = "Attach winbar",
         callback = function(args)
             if
                 not vim.api.nvim_win_get_config(0).zindex -- Not a floating window
                 and vim.bo[args.buf].buftype == "" -- Normal buffer
-                and vim.api.nvim_buf_get_name(args.buf) ~= "" -- Has a file name
+                -- and vim.api.nvim_buf_get_name(args.buf) ~= "" -- Has a file name
                 and not vim.wo[0].diff -- Not in diff mode
             then
                 vim.wo.winbar = "%{%v:lua.require'core.ui.winbar'.render()%}"
