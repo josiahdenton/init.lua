@@ -23,6 +23,7 @@ return {
                 python = { "isort", "black" }, -- maybe can use ruff instead!
                 javascript = { "prettierd", "prettier" },
                 typescript = { "prettierd", "prettier" },
+                typescriptreact = { "prettierd", "prettier" },
             },
             -- Set up format-on-save
             -- format_on_save = { timeout_ms = 500, lsp_fallback = true },

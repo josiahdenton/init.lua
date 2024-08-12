@@ -9,6 +9,8 @@ return {
                 "python",
                 "go",
                 "c",
+                "tsx",
+                "html",
                 "typescript",
                 "javascript",
                 "markdown",

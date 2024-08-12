@@ -21,7 +21,7 @@ return {
                 float_opts = {
                     border = "curved",
                     width = 100,
-                    height = 20,
+                    height = 22,
                 },
                 -- function to run on opening the terminal
                 on_open = function(term)
@@ -51,7 +51,7 @@ return {
                 float_opts = {
                     border = "curved",
                     width = 70,
-                    height = 21,
+                    height = 24,
                 },
                 -- function to run on opening the terminal
                 on_open = function(term)
