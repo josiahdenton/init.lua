@@ -48,47 +48,47 @@ return {
             require("telescope").load_extension("neoclip")
             -- require("telescope").load_extension("refactoring")
 
-            local builtin = require("telescope.builtin")
+            local builtins = require("telescope.builtin")
             local _ = require("core.extensions.telescope").actions()
 
             vim.keymap.set("n", "<leader>ff", function()
-                builtin.find_files()
+                builtins.find_files()
             end, {})
 
             vim.keymap.set("n", "<leader>fg", function()
-                builtin.live_grep()
+                builtins.live_grep()
             end, {})
 
             vim.keymap.set("n", "<leader>fb", function()
-                builtin.buffers(no_preview)
+                builtins.buffers(no_preview)
             end, {})
 
             vim.keymap.set("n", "<leader>f'", function()
-                builtin.marks()
+                builtins.marks()
             end, {})
 
             vim.keymap.set("n", "<leader>fi", function()
-                builtin.current_buffer_fuzzy_find(no_preview)
+                builtins.current_buffer_fuzzy_find(no_preview)
             end, {})
 
             vim.keymap.set("n", "<localleader>ss", function()
-                builtin.spell_suggest(themes.get_cursor())
+                builtins.spell_suggest(themes.get_cursor())
             end, {})
 
             vim.keymap.set("n", "<leader>fe", function()
-                builtin.diagnostics(themes.get_ivy())
+                builtins.diagnostics(themes.get_ivy())
             end)
 
             vim.keymap.set("n", "<leader>fh", function()
-                builtin.help_tags()
+                builtins.help_tags()
             end, {})
 
             vim.keymap.set("n", "<leader>hk", function()
-                builtin.keymaps(themes.get_ivy())
+                builtins.keymaps(themes.get_ivy())
             end, { desc = "Telescope: find keys" })
 
             vim.keymap.set("n", "<leader>cc", function()
-                builtin.colorscheme(no_preview)
+                builtins.colorscheme(no_preview)
             end, { desc = "telescope: find colorschemes" })
 
             vim.keymap.set("n", "<leader>fy", function()
@@ -96,8 +96,32 @@ return {
             end, { desc = "telescope: find yanked text" })
 
             vim.keymap.set("n", "<leader>fm", function()
-                builtin.marks(themes.get_ivy())
+                builtins.marks(themes.get_ivy())
             end, { desc = "telescope: find marks" })
+
+            vim.keymap.set("n", "<leader>fs", function()
+                builtins.lsp_document_symbols(themes.get_ivy())
+            end)
+
+            vim.keymap.set("n", "gI", function()
+                builtins.lsp_implementations(themes.get_ivy())
+            end, { desc = "telescope: go to lsp_implementations" })
+
+            vim.keymap.set("n", "gi", function()
+                builtins.lsp_incoming_calls(themes.get_ivy())
+            end, { desc = "telescope: go to lsp_incoming_calls" })
+
+            vim.keymap.set("n", "go", function()
+                builtins.lsp_outgoing_calls(themes.get_ivy())
+            end, { desc = "telescope: go to lsp_outgoing_calls" })
+
+            vim.keymap.set("n", "gd", function()
+                builtins.lsp_definitions(themes.get_ivy())
+            end, { desc = "telescope: go to lsp_definitions" })
+
+            vim.keymap.set("n", "gr", function()
+                builtins.lsp_references(themes.get_ivy())
+            end, { desc = "telescope: go to lsp_references" })
         end,
     },
 }
