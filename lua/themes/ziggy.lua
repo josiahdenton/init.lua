@@ -12,6 +12,7 @@ Color.new("primary", "#F27457")
 Color.new("accent", "#9cca1b") --
 Color.new("secondary", "#fbbf24")
 Color.new("tertiary", "#3386b3") -- alt #D6D58E
+Color.new("warning", "#ff33aa")
 
 -- local background_string = "#111111"
 -- local background_string = "#030712"
@@ -37,11 +38,11 @@ Group.new("Visual", nil, c.background:light():light(), s.none)
 Group.new("VisualNOS", nil, c.background:light():light(), s.none)
 
 -- functions
-Group.new("@constructor", c.gray3, nil, s.italic)
-Group.new("@lsp.type.method", c.gray3, nil, s.italic)
-Group.new("@function", c.gray3, nil, s.italic)
-Group.new("@function.method", c.gray3, nil, s.italic)
-Group.new("Function", c.gray3, nil, s.italic)
+Group.new("@constructor", c.gray4, nil, s.italic)
+Group.new("@lsp.type.method", c.gray4, nil, s.italic)
+Group.new("@function", c.gray4, nil, s.italic)
+Group.new("@function.method", c.gray4, nil, s.italic)
+Group.new("Function", c.gray4, nil, s.italic)
 Group.new("@function.builtin", c.secondary, nil, s.italic)
 
 Group.new("@property", c.gray3)
@@ -53,6 +54,7 @@ Group.new("Type", c.secondary, nil, s.none)
 Group.new("@module", c.secondary, nil, s.none)
 Group.new("@type.builtin", c.secondary, nil, s.none)
 
+Group.new("Special", c.primary, nil, s.bold)
 Group.new("Statement", c.secondary, nil, s.none)
 
 -- literals
@@ -85,5 +87,16 @@ Group.new("TroubleNormal", c.gray2, nil, s.none)
 Group.new("TroubleNormalNC", c.gray2, nil, s.none)
 
 -- todo comments
-Group.new("TodoBgTODO", c.gray2, nil, s.none)
-Group.new("TodoBgFIX", c.gray2, nil, s.none)
+-- TODO:
+-- FIXME:
+-- NOTE:
+-- TODO:
+-- HACK:
+-- WARN:
+-- PERF:
+-- NOTE:
+-- TEST:
+Group.new("TodoBgTODO", c.gray1, c.accent, s.bold)
+Group.new("TodoBgFIX", c.gray1, c.warning:dark(), s.bold)
+Group.new("TodoBgNote", c.gray1, c.tertiary:light():light(), s.bold)
+
