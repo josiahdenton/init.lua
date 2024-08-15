@@ -1,5 +1,13 @@
 local M = {}
 
+local custom_filetypes = function()
+    vim.filetype.add({
+        extension = {
+            http = "http",
+        },
+    })
+end
+
 local plugin_globals = function()
     vim.g.copilot_no_tab_map = true
     -- disable copilot for buffer
@@ -33,6 +41,7 @@ end
 
 M.setup = function()
     local ui = require("core.ui.style")
+    custom_filetypes()
     vim_globals()
     plugin_globals()
     custom_globals()

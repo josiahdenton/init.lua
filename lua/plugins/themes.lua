@@ -1,5 +1,21 @@
 return {
     {
+        "zenbones-theme/zenbones.nvim",
+        dependencies = {
+            "rktjmp/lush.nvim",
+        },
+        config = function()
+            -- vim.o.background = "light"
+            -- vim.cmd.colorscheme("zenbones")
+        end,
+    },
+    {
+        "tjdevries/colorbuddy.nvim",
+        config = function()
+            vim.cmd.colorscheme("gruvbuddy")
+        end,
+    },
+    {
         "rose-pine/neovim",
         priority = 1000,
         name = "rose-pine",
@@ -28,7 +44,7 @@ return {
                 },
             })
 
-            vim.cmd.colorscheme("rose-pine")
+            -- vim.cmd.colorscheme("rose-pine")
         end,
     },
 }

@@ -75,7 +75,7 @@ return {
                 builtin.spell_suggest(themes.get_cursor())
             end, {})
 
-            vim.keymap.set("n", "<leader>fE", function()
+            vim.keymap.set("n", "<leader>fe", function()
                 builtin.diagnostics(themes.get_ivy())
             end)
 
@@ -89,11 +89,15 @@ return {
 
             vim.keymap.set("n", "<leader>cc", function()
                 builtin.colorscheme(no_preview)
-            end, {})
+            end, { desc = "telescope: find colorschemes" })
 
             vim.keymap.set("n", "<leader>fy", function()
                 require("telescope").extensions.neoclip.default()
-            end)
+            end, { desc = "telescope: find yanked text" })
+
+            vim.keymap.set("n", "<leader>fm", function()
+                builtin.marks(themes.get_ivy())
+            end, { desc = "telescope: find marks" })
         end,
     },
 }

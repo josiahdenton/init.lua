@@ -15,6 +15,27 @@ local function lsp_keymaps(client, bufnr)
     keymap("n", "<leader>fs", function()
         telescope_builtins.lsp_document_symbols(telescope_themes.get_ivy())
     end)
+
+    vim.keymap.set("n", "gI", function()
+        telescope_builtins.lsp_implementations(telescope_themes.get_ivy())
+    end, { desc = "telescope: go to lsp_implementations" })
+
+    vim.keymap.set("n", "gi", function()
+        telescope_builtins.lsp_incoming_calls(telescope_themes.get_ivy())
+    end, { desc = "telescope: go to lsp_incoming_calls" })
+
+    vim.keymap.set("n", "go", function()
+        telescope_builtins.lsp_outgoing_calls(telescope_themes.get_ivy())
+    end, { desc = "telescope: go to lsp_outgoing_calls" })
+
+    vim.keymap.set("n", "gd", function()
+        telescope_builtins.lsp_definitions(telescope_themes.get_ivy())
+    end, { desc = "telescope: go to lsp_definitions" })
+
+    vim.keymap.set("n", "gr", function()
+        telescope_builtins.lsp_references(telescope_themes.get_ivy())
+    end, { desc = "telescope: go to lsp_references" })
+
     -- actions
     keymap("n", "<leader>rn", vim.lsp.buf.rename, buf_opts)
     keymap("n", "<leader>ra", vim.lsp.buf.code_action, buf_opts)
@@ -60,7 +81,7 @@ local function set_diagnostic_config()
             prefix = "",
         },
         inlay_hint = {
-            enable = true
+            enable = true,
         },
         severity_sort = true,
         underline = false,

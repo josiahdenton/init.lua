@@ -4,6 +4,8 @@ local opts = { noremap = true, silent = true }
 local M = {}
 
 local movement = function()
+    set("n", "<c-y>", "<c-y><c-y><c-y>", { desc = "scroll up" })
+    set("n", "<c-e>", "<c-e><c-e><c-e>", { desc = "scroll down" })
     set({ "n", "x" }, "j", [[v:count == 0 ? 'gj' : 'j']], { expr = true })
     set({ "n", "x" }, "k", [[v:count == 0 ? 'gk' : 'k']], { expr = true })
     set({ "n", "x" }, "H", "^")
@@ -32,6 +34,7 @@ local editing = function()
 end
 
 local shortcuts = function()
+    set("n", "<leader>mD", "delm ! | delm A-Z0-9", { desc = "clear all marks" })
     set({ "n", "x" }, ";", ":")
     set("n", "<leader>w", "<cmd>update<cr>", { desc = "save buffer" })
 end

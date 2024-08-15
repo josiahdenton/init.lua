@@ -146,33 +146,33 @@ return {
                 trouble.open("quickfix")
             end, { desc = "trouble: show quickfix" })
 
-            vim.keymap.set("n", "gd", function()
-                trouble.open("lsp_definitions")
-            end, { desc = "trouble: show lsp_definitions" })
+            -- vim.keymap.set("n", "gd", function()
+            --     trouble.open("lsp_definitions")
+            -- end, { desc = "trouble: show lsp_definitions" })
 
-            vim.keymap.set("n", "go", function()
-                trouble.open("lsp_outgoing_calls")
-            end, { desc = "trouble: show lsp_outgoing_calls" })
-
-            vim.keymap.set("n", "gi", function()
-                trouble.open("lsp_incoming_calls")
-            end, { desc = "trouble: show lsp_incoming_calls" })
-
-            vim.keymap.set("n", "gr", function()
-                trouble.open("lsp_references")
-            end, { desc = "trouble: show lsp_references" })
-
-            vim.keymap.set("n", "gI", function()
-                trouble.open("lsp_implementations")
-            end, { desc = "trouble: show lsp_implementations" })
-
+            -- vim.keymap.set("n", "go", function()
+            --     trouble.open("lsp_outgoing_calls")
+            -- end, { desc = "trouble: show lsp_outgoing_calls" })
+            --
+            -- vim.keymap.set("n", "gi", function()
+            --     trouble.open("lsp_incoming_calls")
+            -- end, { desc = "trouble: show lsp_incoming_calls" })
+            --
+            -- vim.keymap.set("n", "gr", function()
+            --     trouble.open("lsp_references")
+            -- end, { desc = "trouble: show lsp_references" })
+            --
+            -- vim.keymap.set("n", "gI", function()
+            --     trouble.open("lsp_implementations")
+            -- end, { desc = "trouble: show lsp_implementations" })
+            --
             vim.keymap.set("n", "<leader>fo", function()
                 trouble.open("symbols")
             end, { desc = "trouble: show symbols" })
 
-            vim.keymap.set("n", "<leader>fe", function()
-                trouble.open("diagnostics")
-            end, { desc = "trouble: show diagnostics" })
+            -- vim.keymap.set("n", "<leader>fe", function()
+            --     trouble.open("diagnostics")
+            -- end, { desc = "trouble: show diagnostics" })
 
             -- vim.keymap.set("n", "]]", function()
             --     trouble.next("diagnostics")
