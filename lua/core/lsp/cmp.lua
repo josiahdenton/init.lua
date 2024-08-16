@@ -3,12 +3,17 @@ local M = {}
 M.setup = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+    local lspkind = require("lspkind")
     require("luasnip.loaders.from_vscode").lazy_load()
     luasnip.config.setup()
 
     cmp.setup({
         window = {
-            completion = cmp.config.window.bordered(),
+            completion = vim.tbl_extend("keep", {
+                winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+                col_offset = -3,
+                side_padding = 0,
+            }, cmp.config.window.bordered()),
             documentation = cmp.config.window.bordered(),
         },
         completion = {
@@ -62,16 +67,14 @@ M.setup = function()
             { name = "path" },
         }),
         formatting = {
+            fields = { "kind", "abbr", "menu" },
             format = function(entry, vim_item)
-                if vim.tbl_contains({ "path" }, entry.source.name) then
-                    local icon, hl_group = require("nvim-web-devicons").get_icon(entry:get_completion_item().label)
-                    if icon then
-                        vim_item.kind = icon
-                        vim_item.kind_hl_group = hl_group
-                        return vim_item
-                    end
-                end
-                return require("lspkind").cmp_format({ with_text = false })(entry, vim_item)
+                local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+                local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                kind.kind = " " .. (strings[1] or "") .. " "
+                kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+                return kind
             end,
         },
     })

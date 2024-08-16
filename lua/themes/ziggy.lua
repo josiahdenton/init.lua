@@ -9,10 +9,11 @@ local g = colorbuddy.groups
 local s = colorbuddy.styles
 
 Color.new("primary", "#F27457")
-Color.new("accent", "#9cca1b") --
 Color.new("secondary", "#fbbf24")
-Color.new("tertiary", "#3386b3") -- alt #D6D58E
+Color.new("accent", "#9cca1b")
+Color.new("tertiary", "#3386b3")
 Color.new("warning", "#ff33aa")
+Color.new("focus", "#D6D58E")
 
 -- local background_string = "#111111"
 -- local background_string = "#030712"
@@ -36,18 +37,19 @@ Group.new("Cursor", c.accent, c.gray3, s.none)
 Group.new("CursorLine", nil, c.background:light(), s.none)
 Group.new("Visual", nil, c.background:light():light(), s.none)
 Group.new("VisualNOS", nil, c.background:light():light(), s.none)
+Group.new("Folded", nil, nil, s.bold)
+Group.new("PmenuSel", c.secondary:light(), nil, s.none)
+Group.new("Pmenu", c.gray5, c.background, s.none)
 
 -- functions
-Group.new("@constructor", c.gray4, nil, s.italic)
-Group.new("@lsp.type.method", c.gray4, nil, s.italic)
-Group.new("@function", c.gray4, nil, s.italic)
-Group.new("@function.method", c.gray4, nil, s.italic)
-Group.new("Function", c.gray4, nil, s.italic)
-Group.new("@function.builtin", c.secondary, nil, s.italic)
+Group.new("@constructor", c.focus, nil, s.italic)
+Group.new("@lsp.type.method", c.focus, nil, s.italic)
+Group.new("@function", c.focus, nil, s.italic)
+Group.new("@function.method", c.focus, nil, s.italic)
+Group.new("Function", c.focus, nil, s.italic)
+Group.new("@function.builtin", c.focus, nil, s.italic)
 
 Group.new("@property", c.gray3)
-Group.new("@tag.builtin", c.secondary)
-Group.new("@tag.attribute", c.primary)
 
 Group.new("@type", c.secondary, nil, s.none)
 Group.new("Type", c.secondary, nil, s.none)
@@ -80,6 +82,13 @@ Group.new("StatusLineNC", c.gray5:dark(), c.slate2, s.none)
 -- Group.new("@variable", c.superwhite, nil)
 Group.new("FloatBorder", c.gray3, nil, s.none)
 
+-- languages
+
+-- html
+Group.new("Tag", c.secondary)
+Group.new("@tag.builtin", c.secondary)
+Group.new("@tag.attribute", c.primary)
+
 -- plugins
 
 -- trouble
@@ -99,4 +108,3 @@ Group.new("TroubleNormalNC", c.gray2, nil, s.none)
 Group.new("TodoBgTODO", c.gray1, c.accent, s.bold)
 Group.new("TodoBgFIX", c.gray1, c.warning:dark(), s.bold)
 Group.new("TodoBgNote", c.gray1, c.tertiary:light():light(), s.bold)
-
