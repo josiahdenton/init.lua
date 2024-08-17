@@ -10,7 +10,7 @@ M.setup = function()
     cmp.setup({
         window = {
             completion = vim.tbl_extend("keep", {
-                winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+                winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None,CursorLine:PmenuSel",
                 col_offset = -3,
                 side_padding = 0,
             }, cmp.config.window.bordered()),

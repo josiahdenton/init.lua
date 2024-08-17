@@ -8,7 +8,10 @@ return {
             "antoinemadec/FixCursorHold.nvim",
             "nvim-treesitter/nvim-treesitter",
             -- testing adapters
-            "nvim-neotest/neotest-python",
+            {
+                "nvim-neotest/neotest-python",
+                commit = "2e83d2bc00acbcc1fd529dbf0a0e677cabfe6b50",
+            },
             "nvim-neotest/neotest-go",
             "nvim-neotest/neotest-jest",
         },

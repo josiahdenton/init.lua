@@ -21,6 +21,7 @@ return {
                 go = { "gofmt" },
                 lua = { "stylua" },
                 python = { "isort", "black" }, -- maybe can use ruff instead!
+                rust = { "rustfmt", lsp_format = "fallback" },
                 javascript = { "prettierd", "prettier" },
                 typescript = { "prettierd", "prettier" },
                 typescriptreact = { "prettierd", "prettier" },

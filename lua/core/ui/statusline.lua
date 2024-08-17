@@ -3,6 +3,22 @@ local M = {}
 local git_symbols = require("core.ui.symbols").git()
 
 ---@return string
+M.lsp_clients = function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local clients = vim.lsp.get_clients({ bufnr = bufnr })
+    if next(clients) == nil then
+        return ""
+    end
+
+    local c = {}
+    for _, client in pairs(clients) do
+        table.insert(c, client.name)
+    end
+
+    return "\u{f085}  " .. table.concat(c, "|")
+end
+
+---@return string
 M.active_macro_register = function()
     if vim.fn.reg_recording() ~= "" then
         return "recording @" .. vim.fn.reg_recording()
@@ -113,6 +129,8 @@ M.render = function()
         git_symbols.Branch,
         "%{%v:lua.require'core.extensions.git'.branch_name()%}",
         "%{%v:lua.require'core.ui.statusline'.diagnostics()%}",
+        "",
+        "%{%v:lua.require'core.ui.statusline'.lsp_clients()%}",
         "%=",
         "%{%v:lua.require'core.ui.statusline'.active_macro_register()%}",
         "%l:%c",

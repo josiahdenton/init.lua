@@ -14,18 +14,20 @@ Color.new("accent", "#9cca1b")
 Color.new("tertiary", "#3386b3")
 Color.new("warning", "#ff33aa")
 Color.new("focus", "#D6D58E")
+Color.new("off", "#475569")
+Color.new("line", "#0f172a")
 
 -- local background_string = "#111111"
 -- local background_string = "#030712"
 local background_string = "#0c0a09"
 
 Color.new("background", background_string)
--- Color.new("gray0", background_string)
+Color.new("gray0", background_string)
 Color.new("gray1", "#374151")
 Color.new("gray2", "#6b7280")
 Color.new("gray3", "#9ca3af")
 Color.new("gray4", "#d1d5db")
-Color.new("gray5", "#f3f4f6")
+Color.new("gray5", "#e5e7eb")
 
 Color.new("slate0", "#0f172a")
 Color.new("slate1", "#334155")
@@ -34,11 +36,11 @@ Color.new("slate2", "#0f172a")
 -- editor
 Group.new("Normal", c.gray5, c.background, s.none)
 Group.new("Cursor", c.accent, c.gray3, s.none)
-Group.new("CursorLine", nil, c.background:light(), s.none)
-Group.new("Visual", nil, c.background:light():light(), s.none)
-Group.new("VisualNOS", nil, c.background:light():light(), s.none)
+Group.new("CursorLine", nil, c.line, s.none)
+Group.new("Visual", nil, c.line:light(), s.none)
+Group.new("VisualNOS", nil, c.line:light(), s.none)
 Group.new("Folded", nil, nil, s.bold)
-Group.new("PmenuSel", c.secondary:light(), nil, s.none)
+Group.new("PmenuSel", nil, c.line:light(), s.bold)
 Group.new("Pmenu", c.gray5, c.background, s.none)
 
 -- functions
@@ -59,6 +61,8 @@ Group.new("@type.builtin", c.secondary, nil, s.none)
 Group.new("Special", c.primary, nil, s.bold)
 Group.new("Statement", c.secondary, nil, s.none)
 
+Group.new("@comment", c.off, nil, s.italic)
+
 -- literals
 Group.new("@number", c.secondary, nil, s.none)
 Group.new("Number", c.secondary, nil, s.none)
@@ -67,7 +71,7 @@ Group.new("String", c.accent, nil, s.italic)
 
 -- variables / constants
 Group.new("@variable", c.gray5, nil)
-Group.new("@variable.builtin", c.secondary, g.Normal)
+Group.new("@variable.builtin", c.secondary, nil)
 Group.new("@constant", c.accent, nil, s.none)
 Group.new("@constant.builtin", c.accent, nil, s.none)
 
@@ -105,6 +109,13 @@ Group.new("TroubleNormalNC", c.gray2, nil, s.none)
 -- PERF:
 -- NOTE:
 -- TEST:
-Group.new("TodoBgTODO", c.gray1, c.accent, s.bold)
-Group.new("TodoBgFIX", c.gray1, c.warning:dark(), s.bold)
-Group.new("TodoBgNote", c.gray1, c.tertiary:light():light(), s.bold)
+
+Group.new("TodoFgTODO", c.accent, nil, s.italic)
+Group.new("TodoFgFIX", c.warning:dark(), nil, s.italic)
+Group.new("TodoFgNote", c.tertiary:light():light(), nil, s.italic)
+
+Group.new("TodoBgTODO", c.gray0, c.accent, s.bold)
+Group.new("TodoBgFIX", c.gray0, c.warning:dark(), s.bold)
+Group.new("TodoBgNote", c.gray0, c.tertiary:light():light(), s.bold)
+
+Group.new("MiniIndentscopeSymbol", c.off, nil, s.none)
