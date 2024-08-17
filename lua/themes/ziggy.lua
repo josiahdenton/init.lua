@@ -11,7 +11,7 @@ local s = colorbuddy.styles
 Color.new("primary", "#F27457")
 Color.new("secondary", "#fbbf24")
 Color.new("accent", "#9cca1b")
-Color.new("tertiary", "#3386b3")
+Color.new("tertiary", "#a8a29e")
 Color.new("warning", "#ff33aa")
 Color.new("focus", "#D6D58E")
 Color.new("off", "#475569")
@@ -51,7 +51,8 @@ Group.new("@function.method", c.focus, nil, s.italic)
 Group.new("Function", c.focus, nil, s.italic)
 Group.new("@function.builtin", c.focus, nil, s.italic)
 
-Group.new("@property", c.gray3)
+Group.new("@property", c.tertiary)
+Group.new("@member", c.tertiary)
 
 Group.new("@type", c.secondary, nil, s.none)
 Group.new("Type", c.secondary, nil, s.none)
@@ -66,8 +67,8 @@ Group.new("@comment", c.off, nil, s.italic)
 -- literals
 Group.new("@number", c.secondary, nil, s.none)
 Group.new("Number", c.secondary, nil, s.none)
-Group.new("@string", c.accent, nil, s.italic)
-Group.new("String", c.accent, nil, s.italic)
+Group.new("@string", c.accent:dark(), nil, s.italic)
+Group.new("String", c.accent:dark(), nil, s.italic)
 
 -- variables / constants
 Group.new("@variable", c.gray5, nil)
