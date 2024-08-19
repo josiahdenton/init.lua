@@ -15,6 +15,15 @@ return {
                     on_attach = function(_, bufnr)
                         local buf_opts = { buffer = bufnr, silent = true }
 
+                        local function toggle_inlay_hints()
+                            vim.lsp.inlay_hint.enable(
+                                not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
+                                { bufnr = bufnr }
+                            )
+                        end
+
+                        vim.keymap.set("n", "<leader>ei", toggle_inlay_hints)
+
                         vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, buf_opts)
                         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, buf_opts)
                         -- vim.keymap.set("n", "<leader>ra", vim.lsp.buf.code_action, buf_opts)

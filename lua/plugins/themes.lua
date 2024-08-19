@@ -1,9 +1,8 @@
 return {
     {
-        "rose-pine/neovim",
-        name = "rose-pine",
+        "EdenEast/nightfox.nvim",
         config = function()
-            -- vim.cmd.colorscheme("rose-pine")
+            -- vim.cmd.colorscheme("terafox")
         end,
     },
     {

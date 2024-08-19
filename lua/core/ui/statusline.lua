@@ -83,14 +83,22 @@ M.mode = function()
     -- elseif mode:find("COMMAND") or mode:find("TERMINAL") or mode:find("EX") then
     --     hl = "Command"
     -- end
+    -- string.format('%%#StatuslineModeSeparator%s#', hl),
 
     -- Construct the bubble-like component.
-    return mode
+    -- return mode
     -- return table.concat({
-    --     -- string.format("%%#StatuslineModeSeparator%s#", hl),
-    --     -- string.format("%%#StatuslineMode%s#%s", hl, mode),
-    --     -- string.format("%%#StatuslineModeSeparator%s#", hl),
+    --     string.format("%%#StatuslineModeSeparator%s#", hl),
+    --     string.format("%%#StatuslineMode%s#%s", hl, mode),
+    --     string.format("%%#StatuslineModeSeparator%s#", hl),
     -- })
+
+    return table.concat({
+        string.format("%%#StatuslineModeSeparator#"),
+        string.format("%%#StatuslineMode#%s", mode),
+        string.format("%%#StatuslineModeSeparator#"),
+    })
+    -- return
 end
 
 M.diagnostics = function()
@@ -112,11 +120,11 @@ M.diagnostics = function()
     local warnings = #vim.diagnostic.get(0, { severity = levels.WARN })
 
     if errors > 0 and warnings > 0 then
-        return string.format("(%d ✘) (%d ▲)", errors, warnings)
+        return string.format("(%d ✘) (%d )", errors, warnings)
     elseif errors > 0 then
         return string.format("(%d ✘)", errors)
     elseif warnings > 0 then
-        return string.format("(%d ▲)", warnings)
+        return string.format("(%d )", warnings)
     end
 
     return ok
@@ -129,10 +137,11 @@ M.render = function()
         git_symbols.Branch,
         "%{%v:lua.require'core.extensions.git'.branch_name()%}",
         "%{%v:lua.require'core.ui.statusline'.diagnostics()%}",
-        "",
-        "%{%v:lua.require'core.ui.statusline'.lsp_clients()%}",
         "%=",
         "%{%v:lua.require'core.ui.statusline'.active_macro_register()%}",
+        "",
+        "%{%v:lua.require'core.ui.statusline'.lsp_clients()%}",
+        "",
         "%l:%c",
         "",
     }, " ")

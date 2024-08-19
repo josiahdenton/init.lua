@@ -2,7 +2,7 @@ local M = {}
 
 M.lsp_signs = function()
     -- NOTE: err was 
-    return { Error = "✘", Warn = "▲", Hint = "", Info = "" }
+    return { Error = "✘", Warn = "", Hint = "", Info = "" }
 end
 
 M.git = function()

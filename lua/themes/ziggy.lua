@@ -15,13 +15,12 @@ Color.new("tertiary", "#a8a29e")
 Color.new("warning", "#ff33aa")
 Color.new("focus", "#D6D58E")
 Color.new("off", "#475569")
-Color.new("line", "#0f172a")
+Color.new("line", "#2b4654")
 
--- local background_string = "#111111"
--- local background_string = "#030712"
-local background_string = "#0c0a09"
+local background_string = "#011813"
 
 Color.new("background", background_string)
+Color.new("background_dark", "#01140f")
 Color.new("gray0", background_string)
 Color.new("gray1", "#374151")
 Color.new("gray2", "#6b7280")
@@ -36,11 +35,11 @@ Color.new("slate2", "#0f172a")
 -- editor
 Group.new("Normal", c.gray5, c.background, s.none)
 Group.new("Cursor", c.accent, c.gray3, s.none)
-Group.new("CursorLine", nil, c.line, s.none)
-Group.new("Visual", nil, c.line:light(), s.none)
-Group.new("VisualNOS", nil, c.line:light(), s.none)
+Group.new("CursorLine", nil, c.line:dark(), s.none)
+Group.new("Visual", nil, c.line, s.none)
+Group.new("VisualNOS", nil, c.line, s.none)
 Group.new("Folded", nil, nil, s.bold)
-Group.new("PmenuSel", nil, c.line:light(), s.bold)
+Group.new("PmenuSel", nil, c.line, s.bold)
 Group.new("Pmenu", c.gray5, c.background, s.none)
 
 -- functions
@@ -82,8 +81,11 @@ Group.new("Keyword", c.primary, nil, s.none)
 Group.new("@keyword", c.primary, nil, s.none)
 Group.new("@keyword.faded", g.nontext.fg:light(), nil, s.bold)
 
-Group.new("StatusLine", c.gray5, c.slate1, s.none)
-Group.new("StatusLineNC", c.gray5:dark(), c.slate2, s.none)
+Group.new("WinBar", c.background:light():light(), nil, s.none)
+Group.new("StatuslineMode", c.gray5, c.background:light():light(), s.none)
+Group.new("StatuslineModeSeparator", c.background:light():light())
+Group.new("StatusLine", c.gray5, nil, s.none)
+Group.new("StatusLineNC", c.gray5:dark(), nil, s.none)
 -- Group.new("@variable", c.superwhite, nil)
 Group.new("FloatBorder", c.gray3, nil, s.none)
 

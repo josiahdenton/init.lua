@@ -104,23 +104,23 @@ return {
             end)
 
             vim.keymap.set("n", "gI", function()
-                builtins.lsp_implementations(themes.get_ivy())
+                builtins.lsp_implementations(themes.get_cursor())
             end, { desc = "telescope: go to lsp_implementations" })
 
             vim.keymap.set("n", "gi", function()
-                builtins.lsp_incoming_calls(themes.get_ivy())
+                builtins.lsp_incoming_calls(themes.get_cursor())
             end, { desc = "telescope: go to lsp_incoming_calls" })
 
             vim.keymap.set("n", "go", function()
-                builtins.lsp_outgoing_calls(themes.get_ivy())
+                builtins.lsp_outgoing_calls(themes.get_cursor())
             end, { desc = "telescope: go to lsp_outgoing_calls" })
 
             vim.keymap.set("n", "gd", function()
-                builtins.lsp_definitions(themes.get_ivy())
+                builtins.lsp_definitions(themes.get_cursor())
             end, { desc = "telescope: go to lsp_definitions" })
 
             vim.keymap.set("n", "gr", function()
-                builtins.lsp_references(themes.get_ivy())
+                builtins.lsp_references(themes.get_cursor())
             end, { desc = "telescope: go to lsp_references" })
         end,
     },
