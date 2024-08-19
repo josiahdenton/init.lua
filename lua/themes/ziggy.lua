@@ -82,6 +82,8 @@ Group.new("@keyword", c.primary, nil, s.none)
 Group.new("@keyword.faded", g.nontext.fg:light(), nil, s.bold)
 
 Group.new("WinBar", c.background:light():light(), nil, s.none)
+Group.new("WinBarNC", c.background:light(), nil, s.none)
+Group.new("WinBarSep", c.background:light(), nil, s.none)
 Group.new("StatuslineMode", c.gray5, c.background:light():light(), s.none)
 Group.new("StatuslineModeSeparator", c.background:light():light())
 Group.new("StatusLine", c.gray5, nil, s.none)

@@ -54,7 +54,7 @@ M.render = function()
         table.concat(
             vim.iter(vim.split(path, "/"))
                 :map(function(segment)
-                    return string.format("%%#Winbar#%s", segment)
+                    return string.format("%%#WinBar#%s", segment)
                 end)
                 :totable(),
             separator
