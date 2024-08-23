@@ -14,6 +14,19 @@ return {
 
             vim.keymap.set("n", "<leader>to", "<cmd>ToggleTerm direction=float<cr>", { desc = "Term: open float" })
 
+            local repl = Terminal:new({
+                cmd = "python3",
+                dir = "git_dir",
+                direction = "vertical",
+                -- on_open = function(_)
+                --     local keys = vim.api.nvim_replace_termcodes("<c-/><c-n><c-w>H", true, false, true)
+                --     vim.api.nvim_feedkeys(keys, "n", false)
+                -- end
+            })
+            vim.keymap.set("n", "<leader>pr", function()
+                repl:toggle(30)
+            end, {desc="open python repl"})
+
             local task = Terminal:new({
                 cmd = "task",
                 dir = "git_dir",
