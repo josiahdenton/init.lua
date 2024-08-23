@@ -22,7 +22,7 @@ local custom_globals = function()
 end
 
 local setup_ui = function()
-    require("core.ui.statusline").setup()
+    -- require("core.ui.statusline").setup()
     require("core.ui.winbar").setup()
 end
 

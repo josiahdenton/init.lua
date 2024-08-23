@@ -50,15 +50,15 @@ M.render = function()
 
     return table.concat({
         " ",
-        prefix,
-        table.concat(
-            vim.iter(vim.split(path, "/"))
-                :map(function(segment)
-                    return string.format("%%#WinBar#%s", segment)
-                end)
-                :totable(),
-            separator
-        ),
+        -- prefix,
+        -- table.concat(
+        --     vim.iter(vim.split(path, "/"))
+        --         :map(function(segment)
+        --             return string.format("%%#WinBar#%s", segment)
+        --         end)
+        --         :totable(),
+        --     separator
+        -- ),
         "%=",
         string.format("%%#WinBarSep#%s", tab_position()),
     })
