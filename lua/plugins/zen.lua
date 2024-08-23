@@ -15,7 +15,7 @@ return {
                 function()
                     require("zen-mode").toggle({
                         window = {
-                            width = 0.80, -- width will be 85% of the editor width
+                            width = 0.60, -- width will be 85% of the editor width
                         },
                     })
                 end,

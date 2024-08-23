@@ -40,9 +40,9 @@ Color.new("tertiary", "#FF4365")
 Color.new("warning", "#ff33aa")
 Color.new("focus", "#08bdba")
 Color.new("off", "#475569")
-Color.new("line", "#37235c")
+Color.new("line", "#08435E")
 
-local background_string = "#161616"
+local background_string = "#06101e"
 
 Color.new("background", background_string)
 Color.new("background_dark", "#01140f")
@@ -75,8 +75,8 @@ Group.new("@function.method", c.primary, nil, s.bold)
 Group.new("Function", c.primary, nil, s.bold)
 Group.new("@function.builtin", c.primary, nil, s.bold)
 
-Group.new("@property", c.gray5)
-Group.new("@member", c.gray5)
+Group.new("@property", c.primary)
+Group.new("@member", c.primary)
 
 Group.new("@type", c.secondary, nil, s.none)
 Group.new("Type", c.secondary, nil, s.none)
@@ -89,7 +89,7 @@ Group.new("Statement", c.secondary, nil, s.none)
 Group.new("@punctuation.delimiter", c.tertiary, nil, s.bold)
 Group.new("Delimiter", c.tertiary, nil, s.bold)
 
-Group.new("@comment", c.off, nil, s.italic)
+Group.new("@comment", c.off:light(), nil, s.italic)
 
 -- literals
 Group.new("@number", c.secondary, nil, s.none)
@@ -109,13 +109,16 @@ Group.new("Keyword", c.focus, nil, s.none)
 Group.new("@keyword", c.focus, nil, s.none)
 Group.new("@keyword.faded", g.nontext.fg:light(), nil, s.bold)
 
-Group.new("WinBar", c.background:light():light(), nil, s.none)
-Group.new("WinBarNC", c.background:light(), nil, s.none)
-Group.new("WinBarSep", c.background:light(), nil, s.none)
-Group.new("StatuslineMode", c.gray5, c.background:light():light(), s.none)
-Group.new("StatuslineModeSeparator", c.background:light():light())
+-- vim.api.nvim_set_hl(0, "VertSplit", {link = "WinSeparator"})
+-- vim.api.nvim_set_hl(0, "WinSeparator", {fg = oxocarbon.base01, bg = oxocarbon.base00})
+
+Group.new("WinBar", c.primary, nil, s.none)
+Group.new("WinBarNC", c.primary, nil, s.none)
+Group.new("WinBarSep", c.primary, nil, s.none)
+Group.new("StatuslineMode", c.gray5, c.primary:dark(), s.bold)
+Group.new("StatuslineModeSeparator", c.primary:dark())
 Group.new("StatusLine", c.gray5, nil, s.none)
-Group.new("StatusLineNC", c.gray5:dark(), nil, s.none)
+Group.new("StatusLineNC", c.gray5:dark(), c.none, s.none)
 -- Group.new("@variable", c.superwhite, nil)
 Group.new("FloatBorder", c.gray3, nil, s.none)
 
