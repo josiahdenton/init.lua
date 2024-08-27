@@ -46,17 +46,20 @@ return {
             require("CopilotChat").setup(opts)
             vim.keymap.set("n", "<leader>co", function()
                 local bufnr = vim.api.nvim_get_current_buf()
-                local _ = vim.api.nvim_open_win(
-                    bufnr,
-                    true,
-                    { -- create a new split in the current window and put the new buffer in that win
-                        split = "left",
-                        win = 0,
-                        width = 20,
-                    }
-                )
+                local win = vim.api.nvim_get_current_win()
+                local win_width = vim.api.nvim_win_get_width(win)
+                local opened_win = vim.api.nvim_open_win(bufnr, true, {
+                    split = "left",
+                    win = 0,
+                    width = math.floor(0.30 * win_width),
+                })
 
                 vim.cmd("CopilotChatToggle")
+
+                local copilot_buffer = vim.api.nvim_win_get_buf(opened_win)
+                vim.keymap.set("n", "q", function()
+                    vim.api.nvim_win_close(opened_win, false)
+                end, { buffer = copilot_buffer })
             end, { desc = "copilot" })
         end,
         -- See Commands section for default commands if you want to lazy load on them
