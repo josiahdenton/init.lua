@@ -1,14 +1,4 @@
 return {
-    {
-        "nvim-focus/focus.nvim",
-        version = "*",
-        opts = {
-            autoresize = {
-                width = 80, -- Force width for the focused window
-                height = 30, -- Force height for the focused window
-            },
-        },
-    },
     -- {
     --     "folke/twilight.nvim",
     --     opts = {

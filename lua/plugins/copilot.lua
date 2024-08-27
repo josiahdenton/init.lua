@@ -38,10 +38,26 @@ return {
         opts = {
             debug = false, -- Enable debugging
             -- See Configuration section for rest
+            window = {
+                layout = "replace",
+            },
         },
         config = function(_, opts)
             require("CopilotChat").setup(opts)
-            vim.keymap.set("n", "<leader>co", "<cmd>CopilotChatToggle<cr>", { desc = "copilot" })
+            vim.keymap.set("n", "<leader>co", function()
+                local bufnr = vim.api.nvim_get_current_buf()
+                local _ = vim.api.nvim_open_win(
+                    bufnr,
+                    true,
+                    { -- create a new split in the current window and put the new buffer in that win
+                        split = "left",
+                        win = 0,
+                        width = 20,
+                    }
+                )
+
+                vim.cmd("CopilotChatToggle")
+            end, { desc = "copilot" })
         end,
         -- See Commands section for default commands if you want to lazy load on them
     },
