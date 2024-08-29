@@ -94,9 +94,9 @@ M.mode = function()
     -- })
 
     return table.concat({
-        string.format("%%#StatuslineModeSeparator#"),
+        -- string.format("%%#StatuslineModeSeparator#"),
         string.format("%%#StatuslineMode#%s", mode),
-        string.format("%%#StatuslineModeSeparator#"),
+        -- string.format("%%#StatuslineModeSeparator#"),
     })
     -- return
 end

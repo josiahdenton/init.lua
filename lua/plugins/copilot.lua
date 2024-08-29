@@ -38,13 +38,24 @@ return {
         opts = {
             debug = false, -- Enable debugging
             -- See Configuration section for rest
+            show_help = false,
             window = {
                 layout = "replace",
+            },
+            mappings = {
+                accept_diff = {
+                    normal = "<C-CR>",
+                    insert = "<C-CR>",
+                },
+                reset = {
+                    normal = "<C-r>",
+                    insert = "<C-r>",
+                },
             },
         },
         config = function(_, opts)
             require("CopilotChat").setup(opts)
-            vim.keymap.set("n", "<leader>co", function()
+            vim.keymap.set("n", "<leader>com", function()
                 local bufnr = vim.api.nvim_get_current_buf()
                 local win = vim.api.nvim_get_current_win()
                 local win_width = vim.api.nvim_win_get_width(win)
@@ -60,7 +71,31 @@ return {
                 vim.keymap.set("n", "q", function()
                     vim.api.nvim_win_close(opened_win, false)
                 end, { buffer = copilot_buffer })
-            end, { desc = "copilot" })
+            end, { desc = "copilot open menu" })
+
+            vim.keymap.set({ "x" }, "<leader>coo", function()
+                vim.cmd("CopilotChatOptimize")
+            end, { desc = "copilot optimize" })
+
+            vim.keymap.set({ "x" }, "<leader>coe", function()
+                vim.cmd("CopilotChatExplain")
+            end, { desc = "copilot explain" })
+
+            vim.keymap.set({ "x" }, "<leader>cor", function()
+                vim.cmd("CopilotChatReview")
+            end, { desc = "copilot review" })
+
+            vim.keymap.set({ "x" }, "<leader>cod", function()
+                vim.cmd("CopilotChatDocs")
+            end, { desc = "copilot docs" })
+
+            vim.keymap.set({ "x" }, "<leader>cof", function()
+                vim.cmd("CopilotChatFix")
+            end, { desc = "copilot fix" })
+
+            vim.keymap.set({ "x" }, "<leader>cot", function()
+                vim.cmd("CopilotChatTests")
+            end, { desc = "copilot tests" })
         end,
         -- See Commands section for default commands if you want to lazy load on them
     },

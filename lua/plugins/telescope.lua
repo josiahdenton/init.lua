@@ -12,7 +12,15 @@ return {
         config = function()
             require("telescope").setup({
                 defaults = {
-                    layout_strategy = "vertical",
+                    -- layout_strategy = "vertical",
+                    layout_config = {
+                        horizontal = { preview_cutoff = 80, preview_width = 0.55 },
+                        vertical = { mirror = true, preview_cutoff = 25 },
+                        prompt_position = "top",
+                        width = 0.87,
+                        height = 0.80,
+                    },
+                    layout_strategy = "flex",
                     prompt_prefix = ">  ",
                     sorting_strategy = "descending",
                     file_ignore_patterns = {
@@ -33,16 +41,17 @@ return {
             })
             require("neoclip").setup()
 
-            local no_preview = require("telescope.themes").get_dropdown({
+            local themes = require("telescope.themes")
+
+            local no_preview = themes.get_dropdown({
                 winblend = 0,
-                width = 0.5,
+                layout_config = {
+                    width = 120,
+                },
                 prompt = " ",
                 results_height = 15,
                 previewer = false,
             })
-
-            -- themes
-            local themes = require("telescope.themes")
             -- extensions
             require("telescope").load_extension("fzf")
             require("telescope").load_extension("neoclip")
@@ -104,23 +113,33 @@ return {
             end)
 
             vim.keymap.set("n", "gI", function()
-                builtins.lsp_implementations(themes.get_cursor({ layout_config = { width = 110 } }))
+                builtins.lsp_implementations(
+                    themes.get_cursor({ layout_config = { width = 110, path_display = "shorten" } })
+                )
             end, { desc = "telescope: go to lsp_implementations" })
 
             vim.keymap.set("n", "gi", function()
-                builtins.lsp_incoming_calls(themes.get_cursor({ layout_config = { width = 110 } }))
+                builtins.lsp_incoming_calls(
+                    themes.get_cursor({ layout_config = { width = 110, path_display = "shorten" } })
+                )
             end, { desc = "telescope: go to lsp_incoming_calls" })
 
             vim.keymap.set("n", "go", function()
-                builtins.lsp_outgoing_calls(themes.get_cursor({ layout_config = { width = 110 } }))
+                builtins.lsp_outgoing_calls(
+                    themes.get_cursor({ layout_config = { width = 110, path_display = "shorten" } })
+                )
             end, { desc = "telescope: go to lsp_outgoing_calls" })
 
             vim.keymap.set("n", "gd", function()
-                builtins.lsp_definitions(themes.get_cursor({ layout_config = { width = 110 } }))
+                builtins.lsp_definitions(
+                    themes.get_cursor({ layout_config = { width = 110, path_display = "shorten" } })
+                )
             end, { desc = "telescope: go to lsp_definitions" })
 
             vim.keymap.set("n", "gr", function()
-                builtins.lsp_references(themes.get_cursor({ layout_config = { width = 110 } }))
+                builtins.lsp_references(
+                    themes.get_cursor({ layout_config = { width = 110, path_display = "shorten" } })
+                )
             end, { desc = "telescope: go to lsp_references" })
         end,
     },
