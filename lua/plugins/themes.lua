@@ -1,9 +1,55 @@
 return {
     -- vim.cmd("highlight CustomCmpPicker guibg=#b4ebbc guifg=#212031 gui=bold")
     {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        enabled = true,
+        config = function()
+            require("tokyonight").setup({
+                style = "night",
+                plugins = {
+                    mini_cursorword = false,
+                },
+                on_colors = function(colors)
+                    colors.bg = "#0b0b12"
+                    colors.bg_sidebar = "#0b0b12"
+                    colors.bg_highlight = "#181a26"
+                end,
+                on_highlights = function(hl, c)
+                    hl.MiniCursorWord = {
+                        fg = nil,
+                        bg = nil,
+                        underline = true,
+                    }
+                    hl.MiniCursorWordCurrent = {
+                        fg = nil,
+                        bg = nil,
+                        underline = true,
+                    }
+                    hl.WinBar = {
+                        bg = c.bg,
+                    }
+                    hl.PmenuSel = {
+                        bg = "#aaf3b5",
+                        fg = "#212031",
+                    }
+                    hl.TroubleNormal = {
+                        bg = c.bg,
+                    }
+                    hl.TroubleNormalNC = {
+                        bg = c.bg,
+                    }
+                end,
+            })
+            vim.cmd.colorscheme("tokyonight")
+        end,
+    },
+    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
+        enabled = false,
         config = function()
             require("catppuccin").setup({
                 highlight_overrides = {
@@ -80,26 +126,29 @@ return {
     {
         "diegoulloao/neofusion.nvim",
         priority = 1000,
+        enabled = false,
         config = function()
             require("neofusion").setup({
                 overrides = {
                     MiniIndentscopeSymbol = { fg = "#374151" },
                 },
             })
-            -- vim.cmd.colorscheme("neofusion")
+            vim.cmd.colorscheme("neofusion")
         end,
     },
     {
         "rose-pine/neovim",
         name = "rose-pine",
+        enabled = false,
         config = function()
-            -- vim.cmd.colorscheme("rose-pine-main")
+            vim.cmd.colorscheme("rose-pine-main")
         end,
     },
     {
         "tjdevries/colorbuddy.nvim",
+        enabled = false,
         config = function()
-            -- vim.cmd.colorscheme("gruvbuddy")
+            vim.cmd.colorscheme("gruvbuddy")
             -- require("themes.ziggy")
             -- require("themes.synthwave")
         end,
