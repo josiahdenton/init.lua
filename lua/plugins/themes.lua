@@ -53,8 +53,9 @@ return {
             require("nightfox").setup({
                 palettes = {
                     terafox = {
-                        bg0 = "#0a1214",
-                        bg1 = "#0a1214",
+                        bg0 = "#00090B",
+                        bg1 = "#001114", -- #00171C
+                        blue = { base = "#80C1CA", bright = "#A5D3D9", dim = "#5EB0BB" },
                     },
                 },
                 groups = {
@@ -67,7 +68,7 @@ return {
                             fg = "#212031",
                         },
                         CursorLine = {
-                            bg = "#17282c",
+                            bg = "#002429",
                         },
                     },
                 },
