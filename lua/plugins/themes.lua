@@ -4,7 +4,7 @@ return {
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
-        enabled = false,
+        enabled = true,
         config = function()
             require("tokyonight").setup({
                 style = "night",
@@ -47,7 +47,7 @@ return {
     },
     {
         "EdenEast/nightfox.nvim",
-        enabled = true,
+        enabled = false,
         priority = 1000,
         config = function()
             require("nightfox").setup({

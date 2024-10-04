@@ -33,7 +33,7 @@ M.yamlls = {
     },
 }
 
-M.tsserver = {
+M.ts_ls = {
     complete_function_calls = true,
     vtsls = {
         enableMoveToFileCodeAction = true,
