@@ -1,10 +1,20 @@
 return {
     -- vim.cmd("highlight CustomCmpPicker guibg=#b4ebbc guifg=#212031 gui=bold")
     {
-        "folke/tokyonight.nvim",
+        "marko-cerovac/material.nvim",
         lazy = false,
         priority = 1000,
         enabled = true,
+        config = function()
+            vim.g.material_style = "deep ocean"
+            vim.cmd.colorscheme("material")
+        end,
+    },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        enabled = false,
         config = function()
             require("tokyonight").setup({
                 style = "night",
