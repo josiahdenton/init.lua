@@ -25,3 +25,15 @@ timer:start(500, 0, function()
     end)
 end)
 ```
+
+### DB
+
+Example connecting to sqlite
+```
+sqlite:///path/to/your/database/file.db
+```
+
+Example connecting to mysql
+```
+mysql://user:password@host:port/database
+```
